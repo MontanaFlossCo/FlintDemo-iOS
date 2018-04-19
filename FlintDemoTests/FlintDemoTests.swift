@@ -1,15 +1,15 @@
 //
-//  FeaturesDemoTests.swift
-//  FeaturesDemoTests
+//  FlintDemoTests.swift
+//  FlintDemoTests
 //
 //  Created by Marc Palmer on 06/02/2018.
 //  Copyright © 2018 Montana Floss Co. Ltd. All rights reserved.
 //
 
 import XCTest
-@testable import FeaturesDemo
+@testable import FlintDemo
 
-class FeaturesDemoTests: XCTestCase {
+class FlintDemoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

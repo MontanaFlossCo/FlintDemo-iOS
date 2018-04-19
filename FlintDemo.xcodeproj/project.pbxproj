@@ -1,0 +1,727 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C27202A414A0024CDFB /* AppDelegate.swift */; };
+		495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C29202A414A0024CDFB /* MasterViewController.swift */; };
+		495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C2B202A414A0024CDFB /* DetailViewController.swift */; };
+		495B6C2F202A414A0024CDFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B6C2D202A414A0024CDFB /* Main.storyboard */; };
+		495B6C31202A414A0024CDFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495B6C30202A414A0024CDFB /* Assets.xcassets */; };
+		495B6C34202A414A0024CDFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495B6C32202A414A0024CDFB /* LaunchScreen.storyboard */; };
+		495B6C3F202A414A0024CDFB /* FlintDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C3E202A414A0024CDFB /* FlintDemoTests.swift */; };
+		495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C5F202B567B0024CDFB /* AppFeatures.swift */; };
+		495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */; };
+		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
+		4977DC82205B008100DAA0C8 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */; };
+		49B715972031CC7800F891DF /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B715962031CC7800F891DF /* FlintCore.framework */; };
+		49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */; };
+		49BC1C65208759E000A7FC77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
+		49BC1C67208759FB00A7FC77 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
+		49BC1C6920875A7A00A7FC77 /* DocumentOpenAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C6820875A7A00A7FC77 /* DocumentOpenAction.swift */; };
+		49BC1C6B20875AA000A7FC77 /* DocumentCloseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C6A20875AA000A7FC77 /* DocumentCloseAction.swift */; };
+		49BC1C6D20875AC300A7FC77 /* DocumentSaveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C6C20875AC300A7FC77 /* DocumentSaveAction.swift */; };
+		49BC1C7320878DB200A7FC77 /* DocumentListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C7220878DB200A7FC77 /* DocumentListPresenter.swift */; };
+		49BC1C75208790E000A7FC77 /* DocumentRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C74208790E000A7FC77 /* DocumentRef.swift */; };
+		49BC1C782087C9BB00A7FC77 /* DocumentEditSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C772087C9BB00A7FC77 /* DocumentEditSession.swift */; };
+		49BC1C7A208881BB00A7FC77 /* DocumentDeleteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C79208881BB00A7FC77 /* DocumentDeleteAction.swift */; };
+		49BC1C7D2088B89E00A7FC77 /* DocumentSharingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C7C2088B89E00A7FC77 /* DocumentSharingFeature.swift */; };
+		49BC1C7F2088B94000A7FC77 /* DocumentShareAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C7E2088B94000A7FC77 /* DocumentShareAction.swift */; };
+		49BC1C822088CF0D00A7FC77 /* DocumentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C812088CF0D00A7FC77 /* DocumentPresenter.swift */; };
+		49BC1C842088CF1C00A7FC77 /* DocumentEditingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */; };
+		49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */; };
+		49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */; };
+		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
+		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
+		49F550B9204C6057009ADE2D /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F550B8204C6057009ADE2D /* FlintUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		495B6C3B202A414A0024CDFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 495B6C23202A414A0024CDFB;
+			remoteInfo = FeaturesDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4904956520602FC800A57991 /* FlintUISandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintUISandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		495B6C24202A414A0024CDFB /* FlintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		495B6C27202A414A0024CDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		495B6C29202A414A0024CDFB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		495B6C2B202A414A0024CDFB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		495B6C2E202A414A0024CDFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		495B6C30202A414A0024CDFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		495B6C33202A414A0024CDFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		495B6C35202A414A0024CDFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495B6C3A202A414A0024CDFB /* FlintDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlintDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		495B6C3E202A414A0024CDFB /* FlintDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlintDemoTests.swift; sourceTree = "<group>"; };
+		495B6C40202A414A0024CDFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495B6C5C202B51830024CDFB /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		495B6C5F202B567B0024CDFB /* AppFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatures.swift; sourceTree = "<group>"; };
+		495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManagementFeature.swift; sourceTree = "<group>"; };
+		495B6C6A202B67380024CDFB /* FlintDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlintDemo.entitlements; sourceTree = "<group>"; };
+		495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInterfaceRouter.swift; sourceTree = "<group>"; };
+		4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
+		49B715962031CC7800F891DF /* FlintCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintCore.framework; path = Carthage/Build/iOS/FlintCore.framework; sourceTree = "<group>"; };
+		49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCreateAction.swift; sourceTree = "<group>"; };
+		49BC1C64208759E000A7FC77 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInfo.swift; sourceTree = "<group>"; };
+		49BC1C6820875A7A00A7FC77 /* DocumentOpenAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentOpenAction.swift; sourceTree = "<group>"; };
+		49BC1C6A20875AA000A7FC77 /* DocumentCloseAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCloseAction.swift; sourceTree = "<group>"; };
+		49BC1C6C20875AC300A7FC77 /* DocumentSaveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSaveAction.swift; sourceTree = "<group>"; };
+		49BC1C7220878DB200A7FC77 /* DocumentListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DocumentListPresenter.swift; path = "../Document Management/DocumentListPresenter.swift"; sourceTree = "<group>"; };
+		49BC1C74208790E000A7FC77 /* DocumentRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRef.swift; sourceTree = "<group>"; };
+		49BC1C772087C9BB00A7FC77 /* DocumentEditSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditSession.swift; sourceTree = "<group>"; };
+		49BC1C79208881BB00A7FC77 /* DocumentDeleteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDeleteAction.swift; sourceTree = "<group>"; };
+		49BC1C7C2088B89E00A7FC77 /* DocumentSharingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSharingFeature.swift; sourceTree = "<group>"; };
+		49BC1C7E2088B94000A7FC77 /* DocumentShareAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentShareAction.swift; sourceTree = "<group>"; };
+		49BC1C812088CF0D00A7FC77 /* DocumentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPresenter.swift; sourceTree = "<group>"; };
+		49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditingPresenter.swift; sourceTree = "<group>"; };
+		49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavePresenter.swift; sourceTree = "<group>"; };
+		49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCreatePresenter.swift; sourceTree = "<group>"; };
+		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
+		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
+		49F550B8204C6057009ADE2D /* FlintUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintUI.framework; path = Carthage/Build/iOS/FlintUI.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4904956220602FC800A57991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C21202A414A0024CDFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49F550B9204C6057009ADE2D /* FlintUI.framework in Frameworks */,
+				49B715972031CC7800F891DF /* FlintCore.framework in Frameworks */,
+				4977DC82205B008100DAA0C8 /* ZIPFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C37202A414A0024CDFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		495B6C1B202A414A0024CDFB = {
+			isa = PBXGroup;
+			children = (
+				4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */,
+				49F550B8204C6057009ADE2D /* FlintUI.framework */,
+				49B715962031CC7800F891DF /* FlintCore.framework */,
+				495B6C5C202B51830024CDFB /* Cartfile */,
+				495B6C26202A414A0024CDFB /* FlintDemo */,
+				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
+				495B6C25202A414A0024CDFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		495B6C25202A414A0024CDFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				495B6C24202A414A0024CDFB /* FlintDemo.app */,
+				495B6C3A202A414A0024CDFB /* FlintDemoTests.xctest */,
+				4904956520602FC800A57991 /* FlintUISandbox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		495B6C26202A414A0024CDFB /* FlintDemo */ = {
+			isa = PBXGroup;
+			children = (
+				49BC1C762087C03E00A7FC77 /* View Controllers */,
+				49DB92492075059F00F758DC /* Model */,
+				495B6C6A202B67380024CDFB /* FlintDemo.entitlements */,
+				495B6C5E202B56710024CDFB /* Features */,
+				495B6C27202A414A0024CDFB /* AppDelegate.swift */,
+				495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */,
+				495B6C2D202A414A0024CDFB /* Main.storyboard */,
+				495B6C30202A414A0024CDFB /* Assets.xcassets */,
+				495B6C32202A414A0024CDFB /* LaunchScreen.storyboard */,
+				495B6C35202A414A0024CDFB /* Info.plist */,
+			);
+			path = FlintDemo;
+			sourceTree = "<group>";
+		};
+		495B6C3D202A414A0024CDFB /* FlintDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				495B6C3E202A414A0024CDFB /* FlintDemoTests.swift */,
+				495B6C40202A414A0024CDFB /* Info.plist */,
+			);
+			path = FlintDemoTests;
+			sourceTree = "<group>";
+		};
+		495B6C5E202B56710024CDFB /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				49BC1C802088CEFE00A7FC77 /* Presenters */,
+				49BC1C7B2088B88D00A7FC77 /* Document Sharing */,
+				49BC1C5F2087597D00A7FC77 /* Document Management */,
+				495B6C5F202B567B0024CDFB /* AppFeatures.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		49BC1C5F2087597D00A7FC77 /* Document Management */ = {
+			isa = PBXGroup;
+			children = (
+				495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */,
+				49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */,
+				49BC1C6820875A7A00A7FC77 /* DocumentOpenAction.swift */,
+				49BC1C6A20875AA000A7FC77 /* DocumentCloseAction.swift */,
+				49BC1C6C20875AC300A7FC77 /* DocumentSaveAction.swift */,
+				49BC1C79208881BB00A7FC77 /* DocumentDeleteAction.swift */,
+			);
+			path = "Document Management";
+			sourceTree = "<group>";
+		};
+		49BC1C762087C03E00A7FC77 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				495B6C29202A414A0024CDFB /* MasterViewController.swift */,
+				495B6C2B202A414A0024CDFB /* DetailViewController.swift */,
+				49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49BC1C7B2088B88D00A7FC77 /* Document Sharing */ = {
+			isa = PBXGroup;
+			children = (
+				49BC1C7C2088B89E00A7FC77 /* DocumentSharingFeature.swift */,
+				49BC1C7E2088B94000A7FC77 /* DocumentShareAction.swift */,
+			);
+			path = "Document Sharing";
+			sourceTree = "<group>";
+		};
+		49BC1C802088CEFE00A7FC77 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				49BC1C812088CF0D00A7FC77 /* DocumentPresenter.swift */,
+				49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */,
+				49BC1C7220878DB200A7FC77 /* DocumentListPresenter.swift */,
+				49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */,
+				49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		49DB92492075059F00F758DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49DB924A207505AF00F758DC /* DocumentStore.swift */,
+				49BC1C64208759E000A7FC77 /* Document.swift */,
+				49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */,
+				49BC1C74208790E000A7FC77 /* DocumentRef.swift */,
+				49BC1C772087C9BB00A7FC77 /* DocumentEditSession.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4904956420602FC800A57991 /* FlintUISandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4904957620602FC800A57991 /* Build configuration list for PBXNativeTarget "FlintUISandbox" */;
+			buildPhases = (
+				4904956120602FC800A57991 /* Sources */,
+				4904956220602FC800A57991 /* Frameworks */,
+				4904956320602FC800A57991 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlintUISandbox;
+			productName = FlintUISandbox;
+			productReference = 4904956520602FC800A57991 /* FlintUISandbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		495B6C23202A414A0024CDFB /* FlintDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 495B6C43202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemo" */;
+			buildPhases = (
+				495B6C20202A414A0024CDFB /* Sources */,
+				495B6C21202A414A0024CDFB /* Frameworks */,
+				495B6C22202A414A0024CDFB /* Resources */,
+				4977DC84205B010D00DAA0C8 /* Copy Carthage Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlintDemo;
+			productName = FeaturesDemo;
+			productReference = 495B6C24202A414A0024CDFB /* FlintDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		495B6C39202A414A0024CDFB /* FlintDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 495B6C46202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemoTests" */;
+			buildPhases = (
+				495B6C36202A414A0024CDFB /* Sources */,
+				495B6C37202A414A0024CDFB /* Frameworks */,
+				495B6C38202A414A0024CDFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				495B6C3C202A414A0024CDFB /* PBXTargetDependency */,
+			);
+			name = FlintDemoTests;
+			productName = FeaturesDemoTests;
+			productReference = 495B6C3A202A414A0024CDFB /* FlintDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		495B6C1C202A414A0024CDFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Montana Floss Co. Ltd.";
+				TargetAttributes = {
+					4904956420602FC800A57991 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					495B6C23202A414A0024CDFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
+					};
+					495B6C39202A414A0024CDFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 495B6C23202A414A0024CDFB;
+					};
+				};
+			};
+			buildConfigurationList = 495B6C1F202A414A0024CDFB /* Build configuration list for PBXProject "FlintDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 495B6C1B202A414A0024CDFB;
+			productRefGroup = 495B6C25202A414A0024CDFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				495B6C23202A414A0024CDFB /* FlintDemo */,
+				495B6C39202A414A0024CDFB /* FlintDemoTests */,
+				4904956420602FC800A57991 /* FlintUISandbox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4904956320602FC800A57991 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C22202A414A0024CDFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495B6C34202A414A0024CDFB /* LaunchScreen.storyboard in Resources */,
+				495B6C31202A414A0024CDFB /* Assets.xcassets in Resources */,
+				495B6C2F202A414A0024CDFB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C38202A414A0024CDFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4977DC84205B010D00DAA0C8 /* Copy Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/FlintUI.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FlintCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZIPFoundation.framework",
+			);
+			name = "Copy Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4904956120602FC800A57991 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C20202A414A0024CDFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */,
+				495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */,
+				49BC1C6920875A7A00A7FC77 /* DocumentOpenAction.swift in Sources */,
+				49BC1C7320878DB200A7FC77 /* DocumentListPresenter.swift in Sources */,
+				49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */,
+				49BC1C7F2088B94000A7FC77 /* DocumentShareAction.swift in Sources */,
+				49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */,
+				49BC1C842088CF1C00A7FC77 /* DocumentEditingPresenter.swift in Sources */,
+				49BC1C67208759FB00A7FC77 /* DocumentInfo.swift in Sources */,
+				49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */,
+				49BC1C822088CF0D00A7FC77 /* DocumentPresenter.swift in Sources */,
+				49BC1C65208759E000A7FC77 /* Document.swift in Sources */,
+				49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */,
+				495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */,
+				495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */,
+				49BC1C6B20875AA000A7FC77 /* DocumentCloseAction.swift in Sources */,
+				49BC1C6D20875AC300A7FC77 /* DocumentSaveAction.swift in Sources */,
+				49BC1C7D2088B89E00A7FC77 /* DocumentSharingFeature.swift in Sources */,
+				49BC1C782087C9BB00A7FC77 /* DocumentEditSession.swift in Sources */,
+				495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */,
+				49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */,
+				495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */,
+				49BC1C75208790E000A7FC77 /* DocumentRef.swift in Sources */,
+				49BC1C7A208881BB00A7FC77 /* DocumentDeleteAction.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		495B6C36202A414A0024CDFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495B6C3F202A414A0024CDFB /* FlintDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		495B6C3C202A414A0024CDFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 495B6C23202A414A0024CDFB /* FlintDemo */;
+			targetProxy = 495B6C3B202A414A0024CDFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		495B6C2D202A414A0024CDFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495B6C2E202A414A0024CDFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		495B6C32202A414A0024CDFB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				495B6C33202A414A0024CDFB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4904957420602FC800A57991 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintUISandbox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintUISandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4904957520602FC800A57991 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintUISandbox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintUISandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		495B6C41202A414A0024CDFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		495B6C42202A414A0024CDFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		495B6C44202A414A0024CDFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlintDemo/FlintDemo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = FlintDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		495B6C45202A414A0024CDFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlintDemo/FlintDemo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = FlintDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		495B6C47202A414A0024CDFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlintDemo.app/FlintDemo";
+			};
+			name = Debug;
+		};
+		495B6C48202A414A0024CDFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlintDemo.app/FlintDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4904957620602FC800A57991 /* Build configuration list for PBXNativeTarget "FlintUISandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4904957420602FC800A57991 /* Debug */,
+				4904957520602FC800A57991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		495B6C1F202A414A0024CDFB /* Build configuration list for PBXProject "FlintDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495B6C41202A414A0024CDFB /* Debug */,
+				495B6C42202A414A0024CDFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		495B6C43202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495B6C44202A414A0024CDFB /* Debug */,
+				495B6C45202A414A0024CDFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		495B6C46202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495B6C47202A414A0024CDFB /* Debug */,
+				495B6C48202A414A0024CDFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 495B6C1C202A414A0024CDFB /* Project object */;
+}
