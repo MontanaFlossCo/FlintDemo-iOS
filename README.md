@@ -55,6 +55,8 @@ You should also find success with the custom "legacy" URL scheme that similates 
 
 ### To test Handoff
 
+**NOTE: Handoff sample is not finished, it will not work**
+
 The demo app does not support sync (if anybody knows how we can make a sample app that works with sync without requiring any developer portal shenanigans to build and run, please let us know!).
 
 So Handoff support is "faked" at the moment in that the demo app will send the content of the file to the receiving device as part of the Handoff data.
