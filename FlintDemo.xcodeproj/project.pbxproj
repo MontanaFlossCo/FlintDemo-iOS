@@ -17,8 +17,9 @@
 		495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C5F202B567B0024CDFB /* AppFeatures.swift */; };
 		495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */; };
 		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
-		4977DC82205B008100DAA0C8 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */; };
-		49B715972031CC7800F891DF /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B715962031CC7800F891DF /* FlintCore.framework */; };
+		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
+		49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693722088D66400EC522A /* ZIPFoundation.framework */; };
+		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
 		49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */; };
 		49BC1C65208759E000A7FC77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
 		49BC1C67208759FB00A7FC77 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
@@ -38,7 +39,6 @@
 		49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49BC1C8B2088D1ED00A7FC77 /* README.md */; };
 		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
 		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
-		49F550B9204C6057009ADE2D /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F550B8204C6057009ADE2D /* FlintUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,9 @@
 		495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManagementFeature.swift; sourceTree = "<group>"; };
 		495B6C6A202B67380024CDFB /* FlintDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlintDemo.entitlements; sourceTree = "<group>"; };
 		495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInterfaceRouter.swift; sourceTree = "<group>"; };
-		4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
-		49B715962031CC7800F891DF /* FlintCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintCore.framework; path = Carthage/Build/iOS/FlintCore.framework; sourceTree = "<group>"; };
+		49A693712088D66300EC522A /* FlintCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintCore.framework; path = Carthage/Build/iOS/FlintCore.framework; sourceTree = "<group>"; };
+		49A693722088D66400EC522A /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
+		49A693732088D66400EC522A /* FlintUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintUI.framework; path = Carthage/Build/iOS/FlintUI.framework; sourceTree = "<group>"; };
 		49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCreateAction.swift; sourceTree = "<group>"; };
 		49BC1C64208759E000A7FC77 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInfo.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		49BC1C8B2088D1ED00A7FC77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
-		49F550B8204C6057009ADE2D /* FlintUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintUI.framework; path = Carthage/Build/iOS/FlintUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F550B9204C6057009ADE2D /* FlintUI.framework in Frameworks */,
-				49B715972031CC7800F891DF /* FlintCore.framework in Frameworks */,
-				4977DC82205B008100DAA0C8 /* ZIPFoundation.framework in Frameworks */,
+				49A693742088D66400EC522A /* FlintCore.framework in Frameworks */,
+				49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */,
+				49A693762088D66400EC522A /* FlintUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,10 +124,8 @@
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
+				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
-				4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */,
-				49F550B8204C6057009ADE2D /* FlintUI.framework */,
-				49B715962031CC7800F891DF /* FlintCore.framework */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
@@ -224,6 +222,16 @@
 				49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		49BC1C8D2088D52F00A7FC77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49A693712088D66300EC522A /* FlintCore.framework */,
+				49A693732088D66400EC522A /* FlintUI.framework */,
+				49A693722088D66400EC522A /* ZIPFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		49DB92492075059F00F758DC /* Model */ = {
