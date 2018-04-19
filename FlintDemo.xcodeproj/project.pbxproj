@@ -35,6 +35,7 @@
 		49BC1C842088CF1C00A7FC77 /* DocumentEditingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */; };
 		49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */; };
 		49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */; };
+		49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49BC1C8B2088D1ED00A7FC77 /* README.md */; };
 		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
 		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
 		49F550B9204C6057009ADE2D /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F550B8204C6057009ADE2D /* FlintUI.framework */; };
@@ -86,6 +87,7 @@
 		49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditingPresenter.swift; sourceTree = "<group>"; };
 		49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavePresenter.swift; sourceTree = "<group>"; };
 		49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCreatePresenter.swift; sourceTree = "<group>"; };
+		49BC1C8B2088D1ED00A7FC77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 		49F550B8204C6057009ADE2D /* FlintUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintUI.framework; path = Carthage/Build/iOS/FlintUI.framework; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
+				49BC1C8B2088D1ED00A7FC77 /* README.md */,
 				4977DC81205B008100DAA0C8 /* ZIPFoundation.framework */,
 				49F550B8204C6057009ADE2D /* FlintUI.framework */,
 				49B715962031CC7800F891DF /* FlintCore.framework */,
@@ -355,6 +358,7 @@
 			files = (
 				495B6C34202A414A0024CDFB /* LaunchScreen.storyboard in Resources */,
 				495B6C31202A414A0024CDFB /* Assets.xcassets in Resources */,
+				49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */,
 				495B6C2F202A414A0024CDFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
