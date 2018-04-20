@@ -44,11 +44,6 @@ class DocumentStore {
         return document
     }
 
-    func create(_ name: String) -> Document? {
-        let document = Document(name: name, modifiedDate: Date(), body: "Enter some text")
-        return document
-    }
-
     /// Save the document, overwriting if it already exists
     /// - return: `true` if the document is new, i.e. it did not already exist
     func save(_ document: Document) -> Bool {
@@ -68,7 +63,7 @@ class DocumentStore {
         let documentURL = url(for: documentRef.name)
         do {
             try FileManager.default.removeItem(at: documentURL)
-        } catch let e {
+        } catch let _ {
             /// !!! TODO: Contextual logging
         }
     }

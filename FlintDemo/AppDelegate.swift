@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         Flint.quickSetup(AppFeatures.self, domains: ["mysite.com"])
         Flint.register(FlintUIFeatures.self)
-        
-//        Logging.development?.focus(feature: FlintFeatures.self)
+
+//        if request = FocusFeature.focus.request() {
+//            request.perform(using: nil, with: FlintFeatures.self)
+//        }
         
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
@@ -40,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         /// !!! TODO: Handle open-in-place etc. from options
-        let result: Flint.DeepLinkingResult = Flint.open(url: url, with: presentationRouter)
+        let result: URLRoutingResult = Flint.open(url: url, with: presentationRouter)
         return result == .success
     }
     
