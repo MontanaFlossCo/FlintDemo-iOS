@@ -147,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				49BC1C762087C03E00A7FC77 /* View Controllers */,
+				495B6C5E202B56710024CDFB /* Features */,
 				49DB92492075059F00F758DC /* Model */,
 				495B6C6A202B67380024CDFB /* FlintDemo.entitlements */,
-				495B6C5E202B56710024CDFB /* Features */,
 				495B6C27202A414A0024CDFB /* AppDelegate.swift */,
 				495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */,
 				495B6C2D202A414A0024CDFB /* Main.storyboard */,
