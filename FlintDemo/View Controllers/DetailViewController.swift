@@ -12,7 +12,8 @@ import FlintCore
 class DetailViewController: UIViewController, DocumentEditingPresenter {
 
     @IBOutlet weak var bodyTextView: UITextView!
-
+    @IBOutlet weak var actionButton: UIBarButtonItem!
+    
     var document: Document? {
         didSet {
             DocumentEditSession.shared.currentDocumentBeingEdited = document
@@ -50,6 +51,8 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
         }
     }
 
+    private var masterViewController: MasterViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,6 +66,19 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
             DocumentManagementFeature.closeDocument.perform(using: self, with: document)
         }
         super.viewWillDisappear(animated)
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        // Not very happy about this, but on iPad when the detail VC is changing, we are removed and all the backrefs
+        // to the master / split view controller are nil'd so we can't tell it to update its display.
+        // There's an argument to be had that we shouldn't do this on iPad as it should have updated in realtime.
+        // Something to fix up later.
+        if parent != nil {
+            // Get the list presenter for this view controller so we can tell it about the changes
+            let primaryNavigationController = splitViewController!.viewControllers.first as! UINavigationController
+            masterViewController = primaryNavigationController.viewControllers.first as! MasterViewController
+        }
     }
     
     // MARK: IB Actions
@@ -96,14 +112,14 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
     func share(_ document: Document) {
         let text = document.body
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.barButtonItem = actionButton
         present(activityViewController, animated: true)
     }
     
     func didSaveChanges(to document: Document, wasFirstSave: Bool) {
-        // Get the list presenter for this view controller so we can tell it about the changes
-        let primaryNavigationController = splitViewController!.viewControllers.first as! UINavigationController
-        let masterViewController = primaryNavigationController.viewControllers.first as! MasterViewController
-        let listPresenter: DocumentListPresenter = masterViewController
+        guard let listPresenter = masterViewController else {
+            return
+        }
 
         if wasFirstSave {
             listPresenter.didInsertNew(documentInfo: document.info)
