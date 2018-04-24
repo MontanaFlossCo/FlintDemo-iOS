@@ -17,16 +17,17 @@ class SimplePresentationRouter: PresentationRouter {
         mainNavigationController = navigationController
     }
     
-    func presentation<F, A>(for actionBinding: StaticActionBinding<F, A>, with state: A.InputType) -> PresentationResult<A.PresenterType> {
-        if A.PresenterType.self == DocumentCreatePresenter.self {
+    func presentation<FeatureType, ActionType>(for actionBinding: StaticActionBinding<FeatureType, ActionType>,
+                                               with state: ActionType.InputType) -> PresentationResult<ActionType.PresenterType> {
+        if ActionType.PresenterType.self == DocumentCreatePresenter.self {
             if let masterVC = mainNavigationController.topViewController as? MasterViewController {
-                return .appReady(presenter: masterVC as! A.PresenterType)
+                return .appReady(presenter: masterVC as! ActionType.PresenterType)
             } else {
                 return .appCancelled
             }
-        } else if A.PresenterType.self == DocumentPresenter.self {
+        } else if ActionType.PresenterType.self == DocumentPresenter.self {
             if let masterVC = mainNavigationController.topViewController as? MasterViewController {
-                return .appReady(presenter: masterVC as! A.PresenterType)
+                return .appReady(presenter: masterVC as! ActionType.PresenterType)
             } else {
                 return .appCancelled
             }
@@ -35,7 +36,8 @@ class SimplePresentationRouter: PresentationRouter {
         }
     }
  
-    func presentation<F, A>(for conditionalActionBinding: ConditionalActionBinding<F, A>, with state: A.InputType) -> PresentationResult<A.PresenterType> {
+    func presentation<FeatureType, ActionType>(for conditionalActionBinding: ConditionalActionBinding<FeatureType, ActionType>,
+                                               with state: ActionType.InputType) -> PresentationResult<ActionType.PresenterType> {
         return .unsupported
     }
 }

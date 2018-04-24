@@ -44,12 +44,18 @@ final class DocumentOpenAction: Action {
         // Siri suggestions, such as browsing document that the user didn't create themselves.
         // For the purposes of testing however, we leave it here. In reality you would use the CoreSpotlight APIs
         // directly to index all the known documents in the background at startup or similar.
+
+        guard let document = DocumentStore.shared.load(documentRef.name) else {
+            return nil
+        }
+
         let searchAttributes: CSSearchableItemAttributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
         searchAttributes.addedDate = Date()
         searchAttributes.kind = "Flint Demo Document"
-        searchAttributes.contentDescription = "A test document for Spotlight indexing support"
+        searchAttributes.contentDescription = document.body
         activity.contentAttributeSet = searchAttributes
 
+        /// Hardcode some silly keywords for testing
         activity.keywords = Set("decentralised internet patent".components(separatedBy: " "))
         activity.title = documentRef.name
         return activity
