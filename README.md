@@ -53,20 +53,18 @@ You should also find success with the custom "legacy" URL scheme that similates 
 
 ### To test Handoff
 
-**NOTE: Handoff sample is not finished, it will not work**
+The demo app does not support data sync (if anybody knows how we can make a sample app that works with sync without requiring any developer portal shenanigans to build and run, please let us know!).
 
-The demo app does not support sync (if anybody knows how we can make a sample app that works with sync without requiring any developer portal shenanigans to build and run, please let us know!).
-
-So Handoff support is "faked" at the moment in that the demo app will send the content of the file to the receiving device as part of the Handoff data.
-This is not what you would normally do, but it works for the purposes of demonstration.
+So Handoff support is "faked" at the moment in that the demo app will send the name of the file to the receiving device as part of the Handoff data,
+and if the receiving device has a document of the same name it will open it – but the content will differ.
 
 You will need to build the app for two devices. You cannot test Handoff with the simulator.
 
 1. Build and run the app on two iOS devices that use the same iCloud account
 2. Create a series of documents on one device, giving them useful text in the content so you can see which is which
 3. Tap one of the documents to open it on the first device.
-4. On the second device, go to the task switcher, dock or lock screen and look for the Handoff icon from "FlintDemo"
-5. Tap on the icon / perform the required gesture and the app should open. If it is the first time you have done this for that document, it will prompt you to save it on the second device. If you have done it before it will re-open the existing document on the second device, but showing the old content (to prove we don't have sync!)
+4. On the second device, make sure the app is not already running and go to the task switcher, dock or lock screen and look for the Handoff icon from "FlintDemo"
+5. Tap on the icon / perform the required gesture and the app should open. 
 
 ### To test Spotlight
 
@@ -77,5 +75,3 @@ To test it:
 1. Create a series of documents on one device, giving them useful text in the content so you can see which is which, using some unique words
 2. Go to the home screen, pull down for search, and type in some of those "unique words" or "Flint demo" to see the documents
 3. Tap a document to open the app on that document
-
-
