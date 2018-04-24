@@ -1,7 +1,5 @@
 # Flint Demo for iOS
 
-**NOTE: You cannot build this project just yet. The public Flint repo is not live yet. Soon!**
-
 This is a sample project that uses [Flint](https://github.com/MontanaFlossCo/Flint) framework for Feature Driven Design.
 
 This Master/Detail app provides simple "notes" gathering features. It demonstrates the use of Flint to:
@@ -19,7 +17,7 @@ This Master/Detail app provides simple "notes" gathering features. It demonstrat
 Currently only Carthage is supported, so you'll need that installed.
 
 1. Check out the project
-2. Run `carthage bootstrap --platform iOS`
+2. Run `carthage bootstrap --platform iOS --cache-builds`
 3. Build and run the project in Xcode 9.2 or higher
 
 ## Using the app

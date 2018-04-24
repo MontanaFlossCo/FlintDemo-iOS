@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Flint.quickSetup(AppFeatures.self, domains: ["mysite.com"])
         Flint.register(FlintUIFeatures.self)
 
-//        if request = FocusFeature.focus.request() {
-//            request.perform(using: nil, with: FlintFeatures.self)
-//        }
-        
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
         let primaryNavigationController = splitViewController.viewControllers.first as! UINavigationController
