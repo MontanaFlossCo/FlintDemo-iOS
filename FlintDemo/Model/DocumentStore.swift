@@ -63,7 +63,7 @@ class DocumentStore {
         let documentURL = url(for: documentRef.name)
         do {
             try FileManager.default.removeItem(at: documentURL)
-        } catch let _ {
+        } catch {
             /// !!! TODO: Contextual logging
         }
     }

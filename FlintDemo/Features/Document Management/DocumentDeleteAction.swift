@@ -18,12 +18,8 @@ final class DocumentDeleteAction: Action {
     static var analyticsID: String? = "document-delete"
 
     static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentListPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
-        guard let documentRef = context.input else {
-            preconditionFailure("Cannot delete without a document ref")
-        }
-        
-        DocumentStore.shared.delete(documentRef)
-        presenter.didRemove(documentRef: documentRef)
+        DocumentStore.shared.delete(context.input)
+        presenter.didRemove(documentRef: context.input)
         completion(.success(closeActionStack: false))
     }
 }

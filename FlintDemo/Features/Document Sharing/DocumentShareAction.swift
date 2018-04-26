@@ -15,9 +15,6 @@ final class DocumentShareAction: Action {
     typealias PresenterType = DocumentEditingPresenter
     
     static func perform(with context: ActionContext<Document>, using presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
-        guard let document = context.input else {
-            fatalError("A document is required as input")
-        }
-        presenter.share(document)
+        presenter.share(context.input)
     }
 }

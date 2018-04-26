@@ -77,7 +77,7 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
         if parent != nil {
             // Get the list presenter for this view controller so we can tell it about the changes
             let primaryNavigationController = splitViewController!.viewControllers.first as! UINavigationController
-            masterViewController = primaryNavigationController.viewControllers.first as! MasterViewController
+            masterViewController = (primaryNavigationController.viewControllers.first as! MasterViewController)
         }
     }
     

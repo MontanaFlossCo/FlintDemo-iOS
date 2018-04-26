@@ -18,12 +18,8 @@ final class DocumentSaveAction: Action {
     static var analyticsID: String? = "document-save"
 
     static func perform(with context: ActionContext<Document>, using presenter: DocumentSavePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
-        guard let document = context.input else {
-            preconditionFailure("Cannot save without a document")
-        }
-        
-        let isNew = DocumentStore.shared.save(document)
-        presenter.didSaveChanges(to: document, wasFirstSave: isNew)
+        let isNew = DocumentStore.shared.save(context.input)
+        presenter.didSaveChanges(to: context.input, wasFirstSave: isNew)
         completion(.success(closeActionStack: false))
     }
 }

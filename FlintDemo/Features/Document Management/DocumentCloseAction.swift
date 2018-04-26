@@ -18,10 +18,7 @@ final class DocumentCloseAction: Action {
     static var analyticsID: String? = "document-close"
 
     static func perform(with context: ActionContext<Document>, using presenter: DocumentEditingPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
-        guard let document = context.input else {
-            fatalError("A document is required as input")
-        }
-        presenter.closeDocument(document)
+        presenter.closeDocument(context.input)
         completion(.success(closeActionStack: true))
     }
 }
