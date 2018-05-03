@@ -27,7 +27,7 @@ class DocumentManagementFeature: Feature, URLMapped {
     }
     
     static func urlMappings(routes: URLMappingsBuilder) {
-        routes.send("create", to: createNew)
-        routes.send("open", to: openDocument)
+        routes.send("create", to: createNew, in: [.app(scheme: "x-test"), .app(scheme:"internal-test"), .universal(domain: "yourdomain.com")])
+        routes.send("open", to: openDocument, in: [.appAny, .universal(domain: "legacydomain.com")])
     }
 }

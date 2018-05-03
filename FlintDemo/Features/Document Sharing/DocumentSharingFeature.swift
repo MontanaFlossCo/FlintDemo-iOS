@@ -10,10 +10,14 @@ import Foundation
 import FlintCore
 
 final class DocumentSharingFeature: ConditionalFeature {
-    static var availability: FeatureAvailability = .runtimeEvaluated
-    
+    static func constraints(requirements: FeatureConstraintsBuilder) {
+        requirements.iOSOnly = .any
+
+        requirements.precondition(.runtimeEnabled)
+    }
+
     /// Change this to `false` to see Sharing be unavailable
-    static var isAvailable: Bool? = true
+    static var isEnabled: Bool? = true
     
     static var description: String = "Sharing of documents"
     
