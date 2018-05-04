@@ -1,4 +1,5 @@
 # Flint Demo for iOS
+[![Build Status](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS.svg?branch=master)](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS)
 
 This is a sample project that uses [Flint](https://github.com/MontanaFlossCo/Flint) framework for Feature Driven Design.
 
