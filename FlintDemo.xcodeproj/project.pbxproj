@@ -37,6 +37,12 @@
 		49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */; };
 		49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */; };
 		49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49BC1C8B2088D1ED00A7FC77 /* README.md */; };
+		49C10982209C598400953AE9 /* PhotoAttachmentsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10981209C598400953AE9 /* PhotoAttachmentsFeature.swift */; };
+		49C10984209C599D00953AE9 /* DocumentEditingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10983209C599D00953AE9 /* DocumentEditingFeature.swift */; };
+		49C10986209C5B0400953AE9 /* ShowPhotoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10985209C5B0400953AE9 /* ShowPhotoSelectionAction.swift */; };
+		49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */; };
+		49C1098A209C60CC00953AE9 /* AddSelectedPhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */; };
+		49C1098C209C60D400953AE9 /* RemovePhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */; };
 		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
 		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +95,12 @@
 		49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSavePresenter.swift; sourceTree = "<group>"; };
 		49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCreatePresenter.swift; sourceTree = "<group>"; };
 		49BC1C8B2088D1ED00A7FC77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		49C10981209C598400953AE9 /* PhotoAttachmentsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAttachmentsFeature.swift; sourceTree = "<group>"; };
+		49C10983209C599D00953AE9 /* DocumentEditingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEditingFeature.swift; sourceTree = "<group>"; };
+		49C10985209C5B0400953AE9 /* ShowPhotoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPhotoSelectionAction.swift; sourceTree = "<group>"; };
+		49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPhotoSelectionAction.swift; sourceTree = "<group>"; };
+		49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedPhotoAction.swift; sourceTree = "<group>"; };
+		49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +184,7 @@
 		495B6C5E202B56710024CDFB /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				49C10980209C595100953AE9 /* Document Editing */,
 				49BC1C802088CEFE00A7FC77 /* Presenters */,
 				49BC1C7B2088B88D00A7FC77 /* Document Sharing */,
 				49BC1C5F2087597D00A7FC77 /* Document Management */,
@@ -232,6 +245,19 @@
 				49A693722088D66400EC522A /* ZIPFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49C10980209C595100953AE9 /* Document Editing */ = {
+			isa = PBXGroup;
+			children = (
+				49C10983209C599D00953AE9 /* DocumentEditingFeature.swift */,
+				49C10981209C598400953AE9 /* PhotoAttachmentsFeature.swift */,
+				49C10985209C5B0400953AE9 /* ShowPhotoSelectionAction.swift */,
+				49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */,
+				49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */,
+				49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */,
+			);
+			path = "Document Editing";
 			sourceTree = "<group>";
 		};
 		49DB92492075059F00F758DC /* Model */ = {
@@ -414,12 +440,18 @@
 			files = (
 				495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */,
 				495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */,
+				49C10984209C599D00953AE9 /* DocumentEditingFeature.swift in Sources */,
 				49BC1C6920875A7A00A7FC77 /* DocumentOpenAction.swift in Sources */,
 				49BC1C7320878DB200A7FC77 /* DocumentListPresenter.swift in Sources */,
 				49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */,
+				49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */,
 				49BC1C7F2088B94000A7FC77 /* DocumentShareAction.swift in Sources */,
+				49C1098C209C60D400953AE9 /* RemovePhotoAction.swift in Sources */,
 				49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */,
+				49C10986209C5B0400953AE9 /* ShowPhotoSelectionAction.swift in Sources */,
 				49BC1C842088CF1C00A7FC77 /* DocumentEditingPresenter.swift in Sources */,
+				49C10982209C598400953AE9 /* PhotoAttachmentsFeature.swift in Sources */,
+				49C1098A209C60CC00953AE9 /* AddSelectedPhotoAction.swift in Sources */,
 				49BC1C67208759FB00A7FC77 /* DocumentInfo.swift in Sources */,
 				49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */,
 				49BC1C822088CF0D00A7FC77 /* DocumentPresenter.swift in Sources */,

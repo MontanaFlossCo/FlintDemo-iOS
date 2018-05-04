@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,8 +34,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-Ff-hyQ" userLabel="Photo Container View">
+                                <rect key="frame" x="16" y="64" width="343" height="150"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="QoL-wr-fNg">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                                        <color key="backgroundColor" red="0.86208289861679077" green="0.88226538896560669" blue="0.89471417665481567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="150" id="qOE-Xr-9NU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxH-z0-Mxg">
+                                        <rect key="frame" x="8" y="94" width="166" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Photo Action"/>
+                                        <connections>
+                                            <action selector="photoActionButtonTapped:" destination="JEX-9P-axG" eventType="touchUpInside" id="Oxs-ka-dAR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="QoL-wr-fNg" firstAttribute="top" secondItem="Rlc-Ff-hyQ" secondAttribute="top" id="98j-Y6-UkB"/>
+                                    <constraint firstAttribute="bottom" secondItem="QoL-wr-fNg" secondAttribute="bottom" id="Gzb-6j-lZB"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="VxH-z0-Mxg" secondAttribute="bottom" id="J4C-Tj-BLa"/>
+                                    <constraint firstItem="QoL-wr-fNg" firstAttribute="leading" secondItem="Rlc-Ff-hyQ" secondAttribute="leading" id="LwE-i2-beO"/>
+                                    <constraint firstAttribute="trailing" secondItem="QoL-wr-fNg" secondAttribute="trailing" id="ax6-ls-DZd"/>
+                                    <constraint firstAttribute="leadingMargin" secondItem="VxH-z0-Mxg" secondAttribute="leading" id="l0t-ph-vUg"/>
+                                </constraints>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n6x-AB-f4r">
-                                <rect key="frame" x="16" y="84" width="343" height="551"/>
+                                <rect key="frame" x="16" y="234" width="343" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -43,10 +73,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Rlc-Ff-hyQ" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="659-jS-Kdf"/>
+                            <constraint firstItem="n6x-AB-f4r" firstAttribute="top" secondItem="Rlc-Ff-hyQ" secondAttribute="bottom" constant="20" id="NAi-ze-Sik"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rlc-Ff-hyQ" secondAttribute="trailing" id="NNW-EH-boD"/>
+                            <constraint firstItem="Rlc-Ff-hyQ" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" id="Rk7-gx-B63"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="n6x-AB-f4r" secondAttribute="trailing" constant="16" id="aMM-cL-ESI"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="n6x-AB-f4r" secondAttribute="bottom" constant="32" id="i8d-h8-vqb"/>
                             <constraint firstItem="n6x-AB-f4r" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="16" id="jju-E8-iH4"/>
-                            <constraint firstItem="n6x-AB-f4r" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="o3J-Tc-5Ck"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
@@ -61,6 +94,8 @@
                     <connections>
                         <outlet property="actionButton" destination="fEk-ON-xQM" id="fHs-GO-GyT"/>
                         <outlet property="bodyTextView" destination="n6x-AB-f4r" id="hYy-ox-WX6"/>
+                        <outlet property="photoActionButton" destination="VxH-z0-Mxg" id="R5r-nR-Mxe"/>
+                        <outlet property="photoImageView" destination="QoL-wr-fNg" id="M0g-Qa-J0j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

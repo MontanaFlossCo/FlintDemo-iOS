@@ -8,11 +8,13 @@
 
 import UIKit
 import FlintCore
+import PhotosUI
 
-class DetailViewController: UIViewController, DocumentEditingPresenter {
-
+class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DocumentEditingPresenter, PhotoSelectionPresenter {
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoActionButton: UIButton!
     
     var document: Document? {
         didSet {
@@ -26,7 +28,8 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
             configureView()
         }
     }
-
+    
+    var imagePickerController: UIImagePickerController?
 
     func loadDocument() {
         if let info = documentRef {
@@ -42,6 +45,13 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
             navigationItem.title = document.name
             if let textView = bodyTextView {
                 textView.text = document.body
+            }
+            if let button = photoActionButton {
+                if document.hasAttachment {
+                    button.setTitle("❌", for: .normal)
+                } else {
+                    button.setTitle("📷", for: .normal)
+                }
             }
         } else {
             navigationItem.title = "No document"
@@ -91,12 +101,24 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
             request.perform(using: self, with: document)
         } else {
-            let alertController = UIAlertController(title: "Purchase required!", message: "Sorry by sharing is a premium feature. Please purchase to unlock this feature.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Purchase required!", message: "Sorry but sharing is a premium feature. Please purchase to unlock this feature.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true)
         }
     }
 
+    @IBAction func photoActionButtonTapped(_ sender: Any) {
+        if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
+            request.perform(using: self)
+        } else {
+            // Check if it failed because of permissions
+            
+            let alertController = UIAlertController(title: "Permission required!", message: "Sorry but you need to grant Photos access. Please go to Settings, Flint Demo and enable photos access.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true)
+        }
+    }
+    
     // MARK: Data mechanics
     
     func saveChanges() {
@@ -131,5 +153,32 @@ class DetailViewController: UIViewController, DocumentEditingPresenter {
     
     func closeDocument(_ document: Document) {
         saveChanges()
+    }
+}
+
+/// MARK: Photo attachment presenter
+
+extension DetailViewController {
+    func showPhotoSelection() {
+        imagePickerController = UIImagePickerController()
+        imagePickerController?.delegate = self
+    }
+
+    func dismissPhotoSelection() {
+        imagePickerController?.dismiss(animated: true, completion: nil)
+        imagePickerController = nil
+    }
+
+}
+
+/// MARK: Image picker delegate conformance
+
+extension DetailViewController {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePickerController = nil
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePickerController = nil
     }
 }

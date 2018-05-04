@@ -12,6 +12,9 @@ struct Document: CustomStringConvertible, CustomDebugStringConvertible {
     var name: String
     var modifiedDate: Date
     var body: String
+    var hasAttachment: Bool {
+        return false
+    }
     
     var info: DocumentInfo {
         return DocumentInfo(name: name, modifiedDate: modifiedDate)

@@ -14,6 +14,7 @@ final class AppFeatures: FeatureGroup {
     
     static var subfeatures: [FeatureDefinition.Type] = [
         DocumentManagementFeature.self,
+        DocumentEditingFeature.self,
         DocumentSharingFeature.self
     ]
 }
