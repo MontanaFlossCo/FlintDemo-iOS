@@ -45,7 +45,7 @@
 	<true/>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>co.montanafloss.FlintDemo.document-open</string>
+		<string>tools.flint.FlintDemo.document-open</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
