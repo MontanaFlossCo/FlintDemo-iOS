@@ -14,7 +14,7 @@ final class RemovePhotoAction: Action {
     typealias PresenterType = DocumentEditingPresenter
 
     static func perform(with context: ActionContext<InputType>, using presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
-        // document.removeMedia()
+        context.input.removeAttachment()
         completion(.success(closeActionStack: true))
     }
 }

@@ -90,7 +90,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
         let alert = UIAlertController(title: "New document", message: "Please name your document", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             let name = alert.textFields![0].text!
-            let document = Document(name: name, modifiedDate: Date(), body: "New document")
+            let document = Document(name: name, body: "New document", modifiedDate: Date())
             // Save the new document, but flag it as not user initiated so we don't think they actually chose to "Save",
             // otherwise every Create action also has a Save action
             DocumentManagementFeature.saveDocument.perform(using: self,

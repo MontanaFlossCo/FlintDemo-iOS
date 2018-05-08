@@ -43,6 +43,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We gotta access your photos to demonstrate permissions!</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>tools.flint.FlintDemo.document-open</string>

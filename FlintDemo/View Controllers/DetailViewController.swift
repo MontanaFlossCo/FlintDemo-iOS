@@ -43,14 +43,24 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         // Update the user interface for the detail item.
         if let document = document {
             navigationItem.title = document.name
+            
             if let textView = bodyTextView {
                 textView.text = document.body
             }
+            
             if let button = photoActionButton {
                 if document.hasAttachment {
                     button.setTitle("❌", for: .normal)
                 } else {
                     button.setTitle("📷", for: .normal)
+                }
+            }
+            
+            if let imageView = photoImageView {
+                if let imageData = document.attachmentData {
+                    imageView.image = UIImage(data: imageData)
+                } else {
+                    imageView.image = nil
                 }
             }
         } else {
@@ -108,21 +118,52 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
 
     @IBAction func photoActionButtonTapped(_ sender: Any) {
+        if photoImageView.image != nil {
+            removePhoto()
+        } else {
+            selectPhoto()
+        }
+    }
+
+    func removePhoto() {
+        if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
+            request.perform(using: self, with: document!) { (outcome: ActionOutcome) in
+                if case .success = outcome {
+                    self.configureView()
+                }
+            }
+        }
+    }
+    
+    func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
             request.perform(using: self)
         } else {
             // Check if it failed because of permissions
-            
-            let alertController = UIAlertController(title: "Permission required!", message: "Sorry but you need to grant Photos access. Please go to Settings, Flint Demo and enable photos access.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true)
+            let constraints = Flint.constraintsEvaluator.evaluate(for: PhotoAttachmentsFeature.self)
+            if constraints.unsatisfied.permissions.count > 0 {
+                
+                let permission = constraints.unsatisfied.permissions.first!
+                let status = Flint.permissionChecker.status(of: permission)
+                if status == .denied {
+                    let alertController = UIAlertController(title: "Permission required!", message: "You need to grant Photos access. Please go to Settings, Flint Demo and enable photos access.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alertController, animated: true)
+                } else if status == .restricted {
+                    let alertController = UIAlertController(title: "Access is restricted!", message: "You need Photos access but this is restricted on your device.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alertController, animated: true)
+                } else if status == .notDetermined {
+                    Flint.permissionChecker.requestAuthorization(for: permission)
+                }
+            }
         }
     }
     
     // MARK: Data mechanics
     
     func saveChanges() {
-        if var document = document {
+        if let document = document {
             document.body = bodyTextView.text
             document.modifiedDate = Date()
             DocumentManagementFeature.saveDocument.perform(using: self, with: document)
@@ -162,6 +203,7 @@ extension DetailViewController {
     func showPhotoSelection() {
         imagePickerController = UIImagePickerController()
         imagePickerController?.delegate = self
+        present(imagePickerController!, animated: true)
     }
 
     func dismissPhotoSelection() {
@@ -169,6 +211,13 @@ extension DetailViewController {
         imagePickerController = nil
     }
 
+    func showAssetFetchProgress() {
+        print("Fetching...")
+    }
+    
+    func hideAssetFetchProgress() {
+        print("Done fetching!")
+    }
 }
 
 /// MARK: Image picker delegate conformance
@@ -176,9 +225,25 @@ extension DetailViewController {
 extension DetailViewController {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePickerController = nil
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePickerController = nil
+        
+        // Perform the attach action
+        if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.addSelectedPhoto) {
+            guard let asset = info[UIImagePickerControllerPHAsset] as? PHAsset else {
+                preconditionFailure("Expected an asset")
+            }
+            let addRequest = AddAssetToDocumentRequest(asset: asset, document: document!)
+            request.perform(using: self, with: addRequest) { (outcome: ActionOutcome) in
+                if case .success = outcome {
+                    self.configureView()
+                }
+            }
+        }
+
+        picker.dismiss(animated: true, completion: nil)
     }
 }

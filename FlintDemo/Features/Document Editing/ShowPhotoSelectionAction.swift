@@ -11,6 +11,8 @@ import FlintCore
 
 protocol PhotoSelectionPresenter {
     func showPhotoSelection()
+    func showAssetFetchProgress()
+    func hideAssetFetchProgress()
     func dismissPhotoSelection()
 }
 

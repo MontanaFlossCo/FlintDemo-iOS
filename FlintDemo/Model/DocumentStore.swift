@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MobileCoreServices
 
 /// This is a trivial data store to load and save documents, so we can test spotlight
 class DocumentStore {
@@ -17,7 +18,7 @@ class DocumentStore {
     func listDocuments() -> [DocumentInfo] {
         let contents = try? FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil,
             options: [.skipsPackageDescendants, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
-        guard let foundContents = contents else {
+        guard let foundContents = contents?.filter({ !$0.absoluteString.hasSuffix(".attachment") }) else {
             return []
         }
         return foundContents.map { url in
@@ -40,7 +41,11 @@ class DocumentStore {
             let lastModified = resources.contentModificationDate ?? resources.creationDate else {
                 preconditionFailure("Failed to get resource attributes for: \(documentURL)")
         }
-        let document = Document(name: name, modifiedDate: lastModified, body: bodyContent)
+
+        let attachmentURL = self.attachmentURL(for: name)
+        let attachmentData: Data? = try? Data(contentsOf: attachmentURL)
+        let uti = kUTTypeJPEG as String
+        let document = Document(name: name, body: bodyContent, modifiedDate: lastModified, attachment: attachmentData, attachmentUTI: uti)
         return document
     }
 
@@ -48,9 +53,15 @@ class DocumentStore {
     /// - return: `true` if the document is new, i.e. it did not already exist
     func save(_ document: Document) -> Bool {
         let documentURL = url(for: document.name)
+        let attachmentURL = self.attachmentURL(for: document.name)
         do {
             let existed = FileManager.default.fileExists(atPath: documentURL.path)
             try document.body.write(to: documentURL, atomically: false, encoding: .utf8)
+            if let attachment = document.attachmentData {
+                try attachment.write(to: attachmentURL, options: .atomic)
+            } else {
+                try? FileManager.default.removeItem(at: attachmentURL)
+            }
             return !existed
         } catch let e {
             fatalError("Failed to save document: \(e)")
@@ -74,5 +85,9 @@ class DocumentStore {
         let safeName = documentName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let result = URL(string: safeName, relativeTo: documentsURL)
         return result!
+    }
+    
+    private func attachmentURL(for documentName: String) -> URL {
+        return url(for: "\(documentName).attachment")
     }
 }

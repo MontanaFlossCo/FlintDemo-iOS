@@ -21,12 +21,34 @@ struct AddAssetToDocumentRequest: CustomStringConvertible {
 
 final class AddSelectedPhotoAction: Action {
     typealias InputType = AddAssetToDocumentRequest
-    typealias PresenterType = DocumentEditingPresenter
+    typealias PresenterType = PhotoSelectionPresenter
 
-    static func perform(with context: ActionContext<InputType>, using presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
-//        let imageData = PhotosManager.fetchData(context.input.asset)
-//        document.attachMedia(imageData)
-        completion(.success(closeActionStack: true))
+    static func perform(with context: ActionContext<InputType>, using presenter: PhotoSelectionPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+        presenter.showAssetFetchProgress()
+        PhotosManager.fetchData(context.input.asset) { data, uti in
+            presenter.hideAssetFetchProgress()
+            if let data = data, let uti = uti {
+                context.input.document.attachMedia(data, uti: uti)
+                completion(.success(closeActionStack: true))
+            } else {
+                completion(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
+            }
+        }
     }
 }
 
+class PhotosManager {
+    enum Err: Error {
+        case fetchFailed
+    }
+    
+    static func fetchData(_ asset: PHAsset, completion: @escaping (_ data: Data?, _ uti: String?) -> Void) {
+        let options = PHImageRequestOptions()
+        options.isNetworkAccessAllowed = true
+        options.version = .current
+        options.resizeMode = .fast
+        PHImageManager.default().requestImageData(for: asset, options: options) { data, uti, orientation, info in
+            completion(data, uti)
+        }
+    }
+}

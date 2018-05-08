@@ -34,20 +34,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-Ff-hyQ" userLabel="Photo Container View">
-                                <rect key="frame" x="16" y="64" width="343" height="150"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-Ff-hyQ" userLabel="Photo Container View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="QoL-wr-fNg">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <color key="backgroundColor" red="0.86208289861679077" green="0.88226538896560669" blue="0.89471417665481567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="fAc-bX-Q1u"/>
                                             <constraint firstAttribute="height" priority="750" constant="150" id="qOE-Xr-9NU"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxH-z0-Mxg">
-                                        <rect key="frame" x="8" y="94" width="166" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxH-z0-Mxg">
+                                        <rect key="frame" x="8" y="74" width="259" height="68"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.82316430214723924" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                         <state key="normal" title="Photo Action"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="photoActionButtonTapped:" destination="JEX-9P-axG" eventType="touchUpInside" id="Oxs-ka-dAR"/>
                                         </connections>
@@ -73,9 +81,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rlc-Ff-hyQ" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="659-jS-Kdf"/>
+                            <constraint firstItem="Rlc-Ff-hyQ" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="659-jS-Kdf"/>
                             <constraint firstItem="n6x-AB-f4r" firstAttribute="top" secondItem="Rlc-Ff-hyQ" secondAttribute="bottom" constant="20" id="NAi-ze-Sik"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rlc-Ff-hyQ" secondAttribute="trailing" id="NNW-EH-boD"/>
+                            <constraint firstAttribute="trailing" secondItem="Rlc-Ff-hyQ" secondAttribute="trailing" id="NNW-EH-boD"/>
                             <constraint firstItem="Rlc-Ff-hyQ" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" id="Rk7-gx-B63"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="n6x-AB-f4r" secondAttribute="trailing" constant="16" id="aMM-cL-ESI"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="bottom" secondItem="n6x-AB-f4r" secondAttribute="bottom" constant="32" id="i8d-h8-vqb"/>
