@@ -3,10 +3,11 @@
 
 This is a sample project that uses [Flint](https://github.com/MontanaFlossCo/Flint) framework for Feature Driven Design.
 
-This Master/Detail app provides simple "notes" gathering features. It demonstrates the use of Flint to:
+This Master/Detail app provides simple "notes" gathering features with photo attachments. It demonstrates the use of Flint to:
 
 * Define the Feature and Actions of an app
-* Support conditional features (feature flagged or requiring purchase etc.)
+* Support conditional features (feature flaggeing, requiring purchase, platform versions etc.)
+* Disabling features for which required system permissions are not authorized (e.g. Photos)
 * Use Flint's Routes feature to implement custom URL schemes and deep linking
 * Use Flint's Activities to automatically support Handoff, Spotlight search etc.
 * Automatic analytics tracking
@@ -23,7 +24,7 @@ Currently only Carthage is supported, so you'll need that installed.
 
 ## Using the app
 
-The app lets you create "documents" that have a name and some body text. You can edit them, remove them and share them.
+The app lets you create "documents" that have a name and some body text and an optional photo attachment. You can edit them, remove them and share them.
 
 Using the "Debug" option you can drill down into the Flint debug UIs to experiment with Flint and the insights it can give you.
 
@@ -54,10 +55,9 @@ You should also find success with the custom "legacy" URL scheme that similates 
 
 ### To test Handoff
 
-The demo app does not support data sync (if anybody knows how we can make a sample app that works with sync without requiring any developer portal shenanigans to build and run, please let us know!).
+**NOTE**: The demo app does not support data sync (if anybody knows how we can make a sample app that works with sync without requiring any developer portal shenanigans to build and run, please let us know!).
 
-So Handoff support is "faked" at the moment in that the demo app will send the name of the file to the receiving device as part of the Handoff data,
-and if the receiving device has a document of the same name it will open it – but the content will differ.
+So Handoff support is "faked" at the moment in that the demo app will send the name of the file to the receiving device as part of the Handoff data, and if the receiving device has a document of the same name it will open it – but the content will differ and the photo attachment will not be sent across either.
 
 You will need to build the app for two devices. You cannot test Handoff with the simulator.
 
