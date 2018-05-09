@@ -9,13 +9,15 @@
 import Foundation
 import FlintCore
 import Photos
+import MobileCoreServices
 
 struct AddAssetToDocumentRequest: CustomStringConvertible {
-    let asset: PHAsset
+    let asset: PHAsset?
+    let image: UIImage?
     let document: Document
     
     var description: String {
-        return "Asset: \(asset.localIdentifier), Document: \(document.name)"
+        return "Asset: \(asset?.localIdentifier ?? "nil"), Image: \(String(describing: image)), Document: \(document.name)"
     }
 }
 
@@ -25,14 +27,26 @@ final class AddSelectedPhotoAction: Action {
 
     static func perform(with context: ActionContext<InputType>, using presenter: PhotoSelectionPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
         presenter.showAssetFetchProgress()
-        PhotosManager.fetchData(context.input.asset) { data, uti in
-            presenter.hideAssetFetchProgress()
-            if let data = data, let uti = uti {
-                context.input.document.attachMedia(data, uti: uti)
-                completion(.success(closeActionStack: true))
-            } else {
-                completion(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
+        
+        if let asset = context.input.asset {
+            PhotosManager.fetchData(asset) { data, uti in
+                presenter.hideAssetFetchProgress()
+                if let data = data, let uti = uti {
+                    context.input.document.attachMedia(data, uti: uti)
+                    completion(.success(closeActionStack: true))
+                } else {
+                    completion(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
+                }
             }
+        } else if let image = context.input.image {
+            guard let data = UIImageJPEGRepresentation(image, 0.7) else {
+                preconditionFailure("Failed to JPEG encode captured image")
+            }
+            context.input.document.attachMedia(data, uti: kUTTypeJPEG as String)
+            completion(.success(closeActionStack: true))
+
+        } else {
+            preconditionFailure("Expected an asset or data")
         }
     }
 }

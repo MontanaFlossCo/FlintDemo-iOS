@@ -13,7 +13,7 @@ final class PhotoAttachmentsFeature: ConditionalFeature {
     static func constraints(requirements: FeatureConstraintsBuilder) {
         requirements.iOSOnly = 10
         
-        requirements.permission(.photos)
+        requirements.permissions(.photos, .camera)
     }
     
     static var description: String = "Attach and remove a photo in a document"

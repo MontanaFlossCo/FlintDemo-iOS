@@ -10,7 +10,8 @@ import UIKit
 import FlintCore
 import PhotosUI
 
-class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DocumentEditingPresenter, PhotoSelectionPresenter {
+class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
+        DocumentEditingPresenter, PhotoSelectionPresenter, PermissionAuthorisationCoordinator {
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -135,28 +136,55 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    var permissionController: AuthorisationController?
+    
     func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
             request.perform(using: self)
         } else {
-            // Check if it failed because of permissions
-            let constraints = Flint.constraintsEvaluator.evaluate(for: PhotoAttachmentsFeature.self)
-            if constraints.unsatisfied.permissions.count > 0 {
-                
-                let permission = constraints.unsatisfied.permissions.first!
-                let status = Flint.permissionChecker.status(of: permission)
-                if status == .denied {
-                    let alertController = UIAlertController(title: "Permission required!", message: "You need to grant Photos access. Please go to Settings, Flint Demo and enable photos access.", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(alertController, animated: true)
-                } else if status == .restricted {
-                    let alertController = UIAlertController(title: "Access is restricted!", message: "You need Photos access but this is restricted on your device.", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(alertController, animated: true)
-                } else if status == .notDetermined {
-                    Flint.permissionChecker.requestAuthorization(for: permission)
-                }
-            }
+            handleUnsatisfiedConstraints(for: PhotoAttachmentsFeature.self, retry: { [weak self] in self?.selectPhoto() })
+        }
+    }
+    
+    func handleUnsatisfiedConstraints<T>(for feature: T.Type, retry retryHandler: (() -> Void)?) where T: ConditionalFeature {
+        // Check for required permissions that are restricted on this device through parental controls or a profile.
+        // We must ask for these first in case the user purchases a feature they cannot use
+        if feature.permissions.restricted.count > 0 {
+            let permissions = feature.permissions.restricted.map({ String(describing: $0) }).joined(separator: ", ")
+            let alertController = UIAlertController(title: "Permissiones are restricted!",
+                                                    message: "\(feature.name) requires permissions that are restricted on your device: \(permissions)",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true)
+            return
+        }
+        
+        // Check for required purchases next, only if there are no permissions that are restricted
+        if feature.purchases.requiredToUnlock.count > 0 {
+            let alertController = UIAlertController(title: "Purchase required!",
+                                                    message: "Sorry but \(feature.name) is a premium feature. Please make a purchase to unlock this feature.",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true)
+            return
+        }
+
+        // Check for required permissions that are already denied
+        if feature.permissions.denied.count > 0 {
+            let permissions = feature.permissions.denied.map({ String(describing: $0) }).joined(separator: ", ")
+            let alertController = UIAlertController(title: "Permissiones are denied!",
+                                                    message: "\(feature.name) requires permissions that you have denied. Please go to Settings to enable them: \(permissions)",
+                                                    preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true)
+            return
+        }
+
+        // Start the flow of requesting authorisation for any permissions not determined
+        if feature.permissions.notDetermined.count > 0 {
+            permissionController = PhotoAttachmentsFeature.permissionAuthorisationController(using: self)
+            permissionController?.begin(retryHandler: retryHandler)
+            return
         }
     }
     
@@ -201,9 +229,30 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
 
 extension DetailViewController {
     func showPhotoSelection() {
-        imagePickerController = UIImagePickerController()
-        imagePickerController?.delegate = self
-        present(imagePickerController!, animated: true)
+
+        func _showPicker(source: UIImagePickerControllerSourceType) {
+            imagePickerController = UIImagePickerController()
+            imagePickerController?.sourceType = source
+            if source == .camera {
+                imagePickerController?.cameraCaptureMode = .photo
+                imagePickerController?.cameraDevice = .rear
+            }
+            imagePickerController?.delegate = self
+            present(imagePickerController!, animated: true)
+        }
+        
+        let alertController = UIAlertController(title: nil,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        alertController.popoverPresentationController?.sourceView = photoActionButton
+        alertController.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            _showPicker(source: .camera)
+        }))
+        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            _showPicker(source: .photoLibrary)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true)
     }
 
     func dismissPhotoSelection() {
@@ -220,6 +269,37 @@ extension DetailViewController {
     }
 }
 
+/// MARK: Permission authorisation
+
+extension DetailViewController {
+    func willBeginPermissionAuthorisation(for permissions: Set<SystemPermission>, completion: ([SystemPermission]) -> ()) {
+        // This is where you'd start your permission onboarding UI
+        print("Starting permission authorisastion flow for: \(permissions)")
+        completion(Array(permissions))
+    }
+    
+    func willRequestPermission(for permission: SystemPermission, completion: (SystemPermissionRequestAction) -> ()) {
+        // This is where you'd tell the user about the pemission you're about to ask for, before the system alert
+        print("About to request authorisation for: \(permission)")
+        completion(.request)
+    }
+    
+    func didRequestPermission(for permission: SystemPermission, status: SystemPermissionStatus, completion: (_ shouldCancel: Bool) -> Void) {
+        print("Finished request for \(permission), status is now: \(status)")
+    }
+    
+    func didCompletePermissionAuthorisation(cancelled: Bool, outstandingPermissions: [SystemPermission]?) {
+        /// This is where you can dismiss or update your onboarding UI to tell them the outcome, i.e. can
+        /// they use the feature now or not.
+        if cancelled {
+            print("Cancelled permission authorisation flow. Outstanding permissions: \(String(describing: outstandingPermissions))")
+        } else {
+            print("Finished permission authorisation flow. Outstanding permissions: \(String(describing: outstandingPermissions))")
+        }
+        permissionController = nil
+    }
+}
+
 /// MARK: Image picker delegate conformance
 
 extension DetailViewController {
@@ -230,13 +310,15 @@ extension DetailViewController {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePickerController = nil
-        
+        let asset: PHAsset? = info[UIImagePickerControllerPHAsset] as? PHAsset
+        let image: UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+        guard asset != nil || image != nil else {
+            preconditionFailure("Expected an asset")
+        }
+
         // Perform the attach action
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.addSelectedPhoto) {
-            guard let asset = info[UIImagePickerControllerPHAsset] as? PHAsset else {
-                preconditionFailure("Expected an asset")
-            }
-            let addRequest = AddAssetToDocumentRequest(asset: asset, document: document!)
+            let addRequest = AddAssetToDocumentRequest(asset: asset, image: image, document: document!)
             request.perform(using: self, with: addRequest) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
