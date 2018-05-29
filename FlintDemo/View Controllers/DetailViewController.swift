@@ -126,6 +126,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
 
+    @IBAction func somethingThatWillBeCalledwhenTheEventHappens(_ sender: Any) {
+        print("Woo!") // Notice this function has @IBAction and `sender` arg, which
+        // is required to be able to connect an action to it.
+    }
+    
     func removePhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
             request.perform(using: self, with: document!) { (outcome: ActionOutcome) in
@@ -272,23 +277,23 @@ extension DetailViewController {
 /// MARK: Permission authorisation
 
 extension DetailViewController {
-    func willBeginPermissionAuthorisation(for permissions: Set<SystemPermission>, completion: ([SystemPermission]) -> ()) {
+    func willBeginPermissionAuthorisation(for permissions: Set<SystemPermissionConstraint>, completion: ([SystemPermissionConstraint]) -> ()) {
         // This is where you'd start your permission onboarding UI
         print("Starting permission authorisastion flow for: \(permissions)")
         completion(Array(permissions))
     }
     
-    func willRequestPermission(for permission: SystemPermission, completion: (SystemPermissionRequestAction) -> ()) {
+    func willRequestPermission(for permission: SystemPermissionConstraint, completion: (SystemPermissionRequestAction) -> ()) {
         // This is where you'd tell the user about the pemission you're about to ask for, before the system alert
         print("About to request authorisation for: \(permission)")
         completion(.request)
     }
     
-    func didRequestPermission(for permission: SystemPermission, status: SystemPermissionStatus, completion: (_ shouldCancel: Bool) -> Void) {
+    func didRequestPermission(for permission: SystemPermissionConstraint, status: SystemPermissionStatus, completion: (_ shouldCancel: Bool) -> Void) {
         print("Finished request for \(permission), status is now: \(status)")
     }
     
-    func didCompletePermissionAuthorisation(cancelled: Bool, outstandingPermissions: [SystemPermission]?) {
+    func didCompletePermissionAuthorisation(cancelled: Bool, outstandingPermissions: [SystemPermissionConstraint]?) {
         /// This is where you can dismiss or update your onboarding UI to tell them the outcome, i.e. can
         /// they use the feature now or not.
         if cancelled {

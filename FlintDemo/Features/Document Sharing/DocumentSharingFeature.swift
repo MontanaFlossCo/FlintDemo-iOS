@@ -13,7 +13,7 @@ final class DocumentSharingFeature: ConditionalFeature {
     static func constraints(requirements: FeatureConstraintsBuilder) {
         requirements.iOSOnly = .any
 
-        requirements.precondition(.runtimeEnabled)
+        requirements.runtimeEnabled()
     }
 
     /// Change this to `false` to see Sharing be unavailable

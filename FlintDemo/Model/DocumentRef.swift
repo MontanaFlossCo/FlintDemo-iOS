@@ -21,15 +21,15 @@ struct DocumentRef: CustomStringConvertible, CustomDebugStringConvertible {
     var debugDescription: String { return "DocumentRef: \(name)" }
 }
 
-extension DocumentRef: QueryParametersCodable {
-    init?(from queryParameters: QueryParameters?) {
+extension DocumentRef: RouteParametersCodable {
+    init?(from queryParameters: RouteParameters?, mapping: URLMapping) {
         guard let name = queryParameters?["name"] else {
             return nil
         }
         self.name = name
     }
     
-    func encodeAsQueryParameters() -> QueryParameters? {
+    func encodeAsRouteParameters(for mapping: URLMapping) -> RouteParameters? {
         return ["name": name]
     }
 }
