@@ -112,9 +112,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
             request.perform(using: self, with: document)
         } else {
-            let alertController = UIAlertController(title: "Purchase required!", message: "Sorry but sharing is a premium feature. Please purchase to unlock this feature.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true)
+            handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in self?.actionButtonTapped(self) })
         }
     }
 
@@ -187,7 +185,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
 
         // Start the flow of requesting authorisation for any permissions not determined
         if feature.permissions.notDetermined.count > 0 {
-            permissionController = PhotoAttachmentsFeature.permissionAuthorisationController(using: self)
+            permissionController = feature.permissionAuthorisationController(using: self)
             permissionController?.begin(retryHandler: retryHandler)
             return
         }

@@ -58,7 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4904956520602FC800A57991 /* FlintUISandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintUISandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B6C24202A414A0024CDFB /* FlintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B6C27202A414A0024CDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495B6C29202A414A0024CDFB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -106,13 +105,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4904956220602FC800A57991 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		495B6C21202A414A0024CDFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,7 +142,6 @@
 			children = (
 				495B6C24202A414A0024CDFB /* FlintDemo.app */,
 				495B6C3A202A414A0024CDFB /* FlintDemoTests.xctest */,
-				4904956520602FC800A57991 /* FlintUISandbox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,23 +266,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4904956420602FC800A57991 /* FlintUISandbox */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4904957620602FC800A57991 /* Build configuration list for PBXNativeTarget "FlintUISandbox" */;
-			buildPhases = (
-				4904956120602FC800A57991 /* Sources */,
-				4904956220602FC800A57991 /* Frameworks */,
-				4904956320602FC800A57991 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FlintUISandbox;
-			productName = FlintUISandbox;
-			productReference = 4904956520602FC800A57991 /* FlintUISandbox.app */;
-			productType = "com.apple.product-type.application";
-		};
 		495B6C23202A414A0024CDFB /* FlintDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 495B6C43202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemo" */;
@@ -338,10 +312,6 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Montana Floss Co. Ltd.";
 				TargetAttributes = {
-					4904956420602FC800A57991 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
 					495B6C23202A414A0024CDFB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -373,19 +343,11 @@
 			targets = (
 				495B6C23202A414A0024CDFB /* FlintDemo */,
 				495B6C39202A414A0024CDFB /* FlintDemoTests */,
-				4904956420602FC800A57991 /* FlintUISandbox */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4904956320602FC800A57991 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		495B6C22202A414A0024CDFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,13 +389,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4904956120602FC800A57991 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		495B6C20202A414A0024CDFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,38 +464,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4904957420602FC800A57991 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5LUNBYMD4J;
-				INFOPLIST_FILE = FlintUISandbox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintUISandbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4904957520602FC800A57991 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5LUNBYMD4J;
-				INFOPLIST_FILE = FlintUISandbox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintUISandbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		495B6C41202A414A0024CDFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -733,15 +656,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4904957620602FC800A57991 /* Build configuration list for PBXNativeTarget "FlintUISandbox" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4904957420602FC800A57991 /* Debug */,
-				4904957520602FC800A57991 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		495B6C1F202A414A0024CDFB /* Build configuration list for PBXProject "FlintDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
