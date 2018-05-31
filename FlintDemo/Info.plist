@@ -45,6 +45,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Taking pictures is fun!</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We're testing access to contacts</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Testing motion access</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We gotta access your photos to demonstrate permissions!</string>
 	<key>NSUserActivityTypes</key>
