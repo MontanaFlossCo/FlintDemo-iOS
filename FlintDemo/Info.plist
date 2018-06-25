@@ -53,7 +53,7 @@
 	<string>We gotta access your photos to demonstrate permissions!</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>tools.flint.FlintDemo.document-open</string>
+		<string>tools.flint.FlintDemo.document-management.document-open</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

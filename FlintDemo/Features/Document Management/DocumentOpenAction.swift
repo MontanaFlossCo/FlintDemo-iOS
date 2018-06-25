@@ -15,6 +15,42 @@ import MobileCoreServices
 import CoreSpotlight
 import FlintCore
 
+extension DocumentRef: ActivityMetadataRepresentable {
+    var metadata: ActivityMetadata {
+        let searchAttributes = CSSearchableItemAttributeSet()
+        searchAttributes.addedDate = Date()
+        searchAttributes.kind = "Flint Demo Document"
+
+        return .build {
+            $0.title = name
+            $0.thumbnail = UIImage(named: "FlintDemoDocIcon")
+            $0.keywords = Set("decentralised internet patent".components(separatedBy: " "))
+            $0.searchAttributes = searchAttributes
+        }
+    }
+}
+
+extension DocumentRef: ActivityCodable {
+    var requiredUserInfoKeys: Set<String> {
+        return ["document"]
+    }
+    
+    enum TestError: Error {
+        case missingKey(name: String)
+    }
+    
+    init(activityUserInfo: [AnyHashable:Any]?) throws {
+        guard let name = activityUserInfo?["document"] as? String else {
+            throw TestError.missingKey(name: "document")
+        }
+        self.init(name: name)
+    }
+    
+    func encodeForActivity() -> [AnyHashable:Any]? {
+        return ["document": name]
+    }
+}
+
 final class DocumentOpenAction: Action {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentPresenter
@@ -28,35 +64,17 @@ final class DocumentOpenAction: Action {
 #else
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
 #endif
+
     static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.openDocument(context.input)
         completion(.success(closeActionStack: false))
     }
     
     static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
-        guard let document = DocumentStore.shared.load(activity.input.name) else {
-            activity.cancel()
-            return
+        guard let name = activity.metadata?.title else {
+            preconditionFailure("Document has no name")
         }
-
-        activity.title = activity.input.name
+        activity.title = "Open \(name)"
         activity.subtitle = document.body
-        activity.thumbnail = UIImage(named: "FlintDemoDocIcon")
-
-        activity.userInfo["document"] = document.name
-
-        /// Hardcode some silly keywords for testing
-        activity.keywords = Set("decentralised internet patent".components(separatedBy: " "))
-
-        /// Search attributes
-
-        // Note that this shouldn't really be here, inside an "Open" action.
-        // Usually this would be for the case where you want to index something *and* make it available for
-        // Siri suggestions, such as browsing document that the user didn't create themselves.
-        // For the purposes of testing however, we leave it here. In reality you would use the CoreSpotlight APIs
-        // directly to index all the known documents in the background at startup or similar.
-
-        activity.searchAttributes.addedDate = Date()
-        activity.searchAttributes.kind = "Flint Demo Document"
     }
 }
