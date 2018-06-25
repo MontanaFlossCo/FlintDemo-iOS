@@ -24,6 +24,8 @@ final class DocumentOpenAction: Action {
     static var description = "Open a document"
     
     static var analyticsID: String? = "document-open"
+
+    static var suggestedInvocationPhrase: String? = "View note"
     
     // Detect iOS 12 and support Siri predictions from NSUserActivity if so.
 #if canImport(Network)

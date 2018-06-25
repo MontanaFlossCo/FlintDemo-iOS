@@ -123,10 +123,16 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @IBAction func somethingThatWillBeCalledwhenTheEventHappens(_ sender: Any) {
-        print("Woo!") // Notice this function has @IBAction and `sender` arg, which
-        // is required to be able to connect an action to it.
+    @IBAction func addToSiriTapped(_ sender: Any) {
+        if #available(iOS 12, *) {
+            guard let documentRef = documentRef else {
+                fatalError("There's no active document")
+            }
+            DocumentManagementFeature.openDocument.addVoiceShortcut(for: documentRef, presenter: self)
+        }
     }
+    
+    // MARK: Internals
     
     func removePhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
