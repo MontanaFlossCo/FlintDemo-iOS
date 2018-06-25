@@ -59,8 +59,6 @@ final class DocumentOpenAction: Action {
     
     static var analyticsID: String? = "document-open"
     
-    static var suggestedInvocationPhrase: String? = "View note"
-    
 #if canImport(Network)
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .prediction]
 #else
