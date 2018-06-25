@@ -14,6 +14,7 @@ final class PhotoAttachmentsFeature: ConditionalFeature {
         requirements.iOSOnly = 10
         
         requirements.permissions(.photos, .camera)
+        requirements.permission(.contacts(entity: .contacts))
     }
     
     static var description: String = "Attach and remove a photo in a document"

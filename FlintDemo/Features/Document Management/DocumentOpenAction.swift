@@ -70,12 +70,7 @@ final class DocumentOpenAction: Action {
         completion(.success(closeActionStack: false))
     }
     
-    static func prepareActivity(_ activity: ActivityBuilder<DocumentOpenAction>) {
-        guard let document = DocumentStore.shared.load(activity.input.name) else {
-            activity.cancel()
-            return
-        }
-
+    static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
         guard let name = activity.metadata?.title else {
             preconditionFailure("Document has no name")
         }

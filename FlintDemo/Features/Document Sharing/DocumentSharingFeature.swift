@@ -14,6 +14,7 @@ final class DocumentSharingFeature: ConditionalFeature {
         requirements.iOSOnly = .any
 
         requirements.runtimeEnabled()
+        requirements.permission(.motion)
     }
 
     /// Change this to `false` to see Sharing be unavailable
