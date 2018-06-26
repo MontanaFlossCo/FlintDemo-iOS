@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoActionButton: UIButton!
+    @IBOutlet weak var addToSiriButton: UIBarButtonItem!
     
     var document: Document? {
         didSet {
@@ -69,6 +70,10 @@ class DetailViewController: UIViewController {
                 textView.text = ""
             }
         }
+        
+#if !canImport(Network)
+        addToSiriButton.isEnabled = false
+#endif
     }
 
     private var masterViewController: MasterViewController?
@@ -111,7 +116,11 @@ class DetailViewController: UIViewController {
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
             request.perform(input: document, presenter: self)
         } else {
-            handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in self?.actionButtonTapped(self) })
+            handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.actionButtonTapped(strongSelf)
+                }
+            })
         }
     }
 
@@ -124,12 +133,14 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func addToSiriTapped(_ sender: Any) {
+#if canImport(Network)
         if #available(iOS 12, *) {
             guard let documentRef = documentRef else {
                 fatalError("There's no active document")
             }
             DocumentManagementFeature.openDocument.addVoiceShortcut(for: documentRef, presenter: self)
         }
+#endif
     }
     
     // MARK: Internals
