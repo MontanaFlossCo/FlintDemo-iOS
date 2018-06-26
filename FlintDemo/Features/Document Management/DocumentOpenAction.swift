@@ -71,6 +71,9 @@ final class DocumentOpenAction: Action {
     }
     
     static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
+        guard let document = DocumentStore.shared.load(activity.input.name) else {
+            preconditionFailure("No such document")
+        }
         guard let name = activity.metadata?.title else {
             preconditionFailure("Document has no name")
         }
