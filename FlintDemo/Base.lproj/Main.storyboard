@@ -110,6 +110,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="actionButton" destination="fEk-ON-xQM" id="fHs-GO-GyT"/>
+                        <outlet property="addToSiriButton" destination="YFu-yf-Nqb" id="BP9-8m-pK8"/>
                         <outlet property="bodyTextView" destination="n6x-AB-f4r" id="hYy-ox-WX6"/>
                         <outlet property="photoActionButton" destination="VxH-z0-Mxg" id="R5r-nR-Mxe"/>
                         <outlet property="photoImageView" destination="QoL-wr-fNg" id="M0g-Qa-J0j"/>
