@@ -22,7 +22,7 @@ class Document: FlintLoggable {
     }
 
     var documentRef: DocumentRef {
-        return DocumentRef(name: name)
+        return DocumentRef(name: name, summary: String(body.prefix(100)))
     }
 
     var description: String {

@@ -19,7 +19,7 @@ struct DocumentInfo: CustomStringConvertible, CustomDebugStringConvertible {
     }
     
     var documentRef: DocumentRef {
-        return DocumentRef(name: name)
+        return DocumentRef(name: name, summary: nil)
     }
 
     var description: String { return name }
