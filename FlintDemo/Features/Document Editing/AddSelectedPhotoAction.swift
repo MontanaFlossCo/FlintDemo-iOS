@@ -11,13 +11,26 @@ import FlintCore
 import Photos
 import MobileCoreServices
 
-struct AddAssetToDocumentRequest: CustomStringConvertible {
+struct AddAssetToDocumentRequest: FlintLoggable {
     let asset: PHAsset?
     let image: UIImage?
     let document: Document
     
-    var description: String {
+    var loggingDescription: String {
         return "Asset: \(asset?.localIdentifier ?? "nil"), Image: \(String(describing: image)), Document: \(document.name)"
+    }
+    
+    var loggingInfo: [String:String]? {
+        var result: [String:String] = [
+            "document": document.documentRef.loggingDescription
+        ]
+        if let asset = asset {
+            result["imageSource"] = "asset \(asset.localIdentifier)"
+        }
+        if let _ = image {
+            result["imageSource"] = "new photo"
+        }
+        return result
     }
 }
 

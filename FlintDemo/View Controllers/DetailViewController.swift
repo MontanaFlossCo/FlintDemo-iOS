@@ -104,7 +104,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     // MARK: IB Actions
     
-    @IBAction func actionButtonTapped(_ sender: Any) {
+    @IBAction func actionButtonTapped(_ sender: Any?) {
         guard let document = document else {
             fatalError("There's no document")
         }

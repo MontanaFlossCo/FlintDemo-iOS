@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import FlintCore
 
-class Document: CustomStringConvertible, CustomDebugStringConvertible {
+class Document: FlintLoggable {
     var name: String
     var modifiedDate: Date
     var body: String
@@ -49,8 +50,21 @@ class Document: CustomStringConvertible, CustomDebugStringConvertible {
         attachmentUTI = nil
     }
 
-    var debugDescription: String {
-        return "Document: name: \"\(name)\", body: \"\(body)\", attachment: \(attachmentData?.count ?? 0) bytes with UTI \(attachmentUTI ?? "<none>")"
+    var loggingDescription: String {
+        return "Document named \"\(name)\" with body: \"\(body)\" and attachment: \(attachmentData?.count ?? 0) bytes with UTI \(attachmentUTI ?? "<none>")"
+    }
+    
+    var loggingInfo: [String : String]? {
+        var result = [
+            "name": name,
+            "modified": modifiedDate.description,
+            "body": body,
+            "hasAttachment": hasAttachment.description,
+        ]
+        if let uti = attachmentUTI {
+            result["attachmentUTI"] = uti
+        }
+        return result
     }
 }
 

@@ -9,16 +9,20 @@
 import Foundation
 import FlintCore
 
-struct DocumentRef: CustomStringConvertible, CustomDebugStringConvertible {
+struct DocumentRef: FlintLoggable {
     let name: String
 
     init(name: String) {
         self.name = name
     }
     
-    var description: String { return name }
-    
-    var debugDescription: String { return "DocumentRef: \(name)" }
+    var loggingDescription: String {
+        return "DocumentRef: \(name)"
+    }
+
+    var loggingInfo: [String : String]? {
+        return ["name": name]
+    }
 }
 
 extension DocumentRef: RouteParametersCodable {
