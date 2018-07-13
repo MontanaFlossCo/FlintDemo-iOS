@@ -84,7 +84,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     // Save the current document before leaving
     override func viewWillDisappear(_ animated: Bool) {
         if let document = document {
-            DocumentManagementFeature.closeDocument.perform(using: self, with: document)
+            DocumentManagementFeature.closeDocument.perform(input: document, presenter: self)
         }
         super.viewWillDisappear(animated)
     }
@@ -110,7 +110,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
-            request.perform(using: self, with: document)
+            request.perform(input: document, presenter: self)
         } else {
             handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in self?.actionButtonTapped(self) })
         }
@@ -131,7 +131,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func removePhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
-            request.perform(using: self, with: document!) { (outcome: ActionOutcome) in
+            request.perform(input: document!, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }
@@ -143,7 +143,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
-            request.perform(using: self)
+            request.perform(presenter: self)
         } else {
             handleUnsatisfiedConstraints(for: PhotoAttachmentsFeature.self, retry: { [weak self] in self?.selectPhoto() })
         }
@@ -197,7 +197,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         if let document = document {
             document.body = bodyTextView.text
             document.modifiedDate = Date()
-            DocumentManagementFeature.saveDocument.perform(using: self, with: document)
+            DocumentManagementFeature.saveDocument.perform(input: document, presenter: self)
         }
     }
 
@@ -322,7 +322,7 @@ extension DetailViewController {
         // Perform the attach action
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.addSelectedPhoto) {
             let addRequest = AddAssetToDocumentRequest(asset: asset, image: image, document: document!)
-            request.perform(using: self, with: addRequest) { (outcome: ActionOutcome) in
+            request.perform(input: addRequest, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }

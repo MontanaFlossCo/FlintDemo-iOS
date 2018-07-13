@@ -34,7 +34,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
 
     @objc
     func createNewDocument(_ sender: Any) {
-        ActionSession.main.perform( DocumentManagementFeature.createNew, using: self, with: .none)
+        DocumentManagementFeature.createNew.perform(presenter: self)
     }
     
     // MARK: - Segues
@@ -75,13 +75,13 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let documentRef = documentInfos[indexPath.row].documentRef
-            DocumentManagementFeature.deleteDocument.perform(using: self, with: documentRef)
+            DocumentManagementFeature.deleteDocument.perform(input: documentRef, presenter: self)
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let documentInfo = documentInfos[indexPath.row]
-        DocumentManagementFeature.openDocument.perform(using: self, with: documentInfo.documentRef)
+        DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: self)
     }
 
     // MARK: Document Create Presenter
@@ -93,13 +93,13 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             let document = Document(name: name, body: "New document", modifiedDate: Date())
             // Save the new document, but flag it as not user initiated so we don't think they actually chose to "Save",
             // otherwise every Create action also has a Save action
-            DocumentManagementFeature.saveDocument.perform(using: self,
-                                                           with: document,
+            DocumentManagementFeature.saveDocument.perform(input: document,
+                                                           presenter: self,
                                                            userInitiated: false,
                                                            source: .application,
                                                            completion: { outcome in
                                                                 if case .success = outcome {
-                                                                    DocumentManagementFeature.openDocument.perform(using: self, with: document.documentRef)
+                                                                    DocumentManagementFeature.openDocument.perform(input: document.documentRef, presenter: self)
                                                                 }
                                                            })
         }))
@@ -169,7 +169,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
                 newOpenIndex = documentInfos.count-1
             }
             let documentInfo = documentInfos[newOpenIndex]
-            DocumentManagementFeature.openDocument.perform(using: self, with: documentInfo.documentRef)
+            DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: self)
         }
     }
     
