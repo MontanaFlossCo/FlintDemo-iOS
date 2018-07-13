@@ -1,3 +1,5 @@
+<img src="https://flint.tools/assets/img/logo-dark-on-white.svg" width="230" alt="Flint framework logo">
+
 # Flint Demo for iOS
 [![Build Status](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS.svg?branch=master)](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS)
 
