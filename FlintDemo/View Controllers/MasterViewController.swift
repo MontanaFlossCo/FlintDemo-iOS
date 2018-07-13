@@ -124,7 +124,13 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
     func didInsertNew(documentInfo: DocumentInfo) {
         documentInfos.insert(documentInfo, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.performBatchUpdates({
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }, completion: { complete in
+            if complete {
+                self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+            }
+        })
     }
     
     func didUpdate(documentInfo: DocumentInfo) {
@@ -154,6 +160,17 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
         }
         documentInfos.remove(at: oldIndex)
         tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic)
+        
+        if documentInfos.count == 0 {
+            performSegue(withIdentifier: "showEmpty", sender: self)
+        } else {
+            var newOpenIndex = oldIndex
+            if newOpenIndex >= documentInfos.count {
+                newOpenIndex = documentInfos.count-1
+            }
+            let documentInfo = documentInfos[newOpenIndex]
+            DocumentManagementFeature.openDocument.perform(using: self, with: documentInfo.documentRef)
+        }
     }
     
     // MARK: - Document Presenter
