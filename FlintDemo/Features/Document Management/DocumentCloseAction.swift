@@ -17,7 +17,7 @@ final class DocumentCloseAction: Action {
 
     static var analyticsID: String? = "document-close"
 
-    static func perform(with context: ActionContext<Document>, using presenter: DocumentEditingPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.closeDocument(context.input)
         completion(.success(closeActionStack: true))
     }

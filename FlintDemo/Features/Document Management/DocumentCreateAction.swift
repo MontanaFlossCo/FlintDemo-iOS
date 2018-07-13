@@ -17,7 +17,7 @@ final class DocumentCreateAction: Action {
 
     static var analyticsID: String? = "document-create"
 
-    static func perform(with context: ActionContext<NoInput>, using presenter: DocumentCreatePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<NoInput>, presenter: DocumentCreatePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.showCreate(suggestedTitle: "Untitled")
         completion(.success(closeActionStack: false))
     }

@@ -13,7 +13,7 @@ final class RemovePhotoAction: Action {
     typealias InputType = Document
     typealias PresenterType = DocumentEditingPresenter
 
-    static func perform(with context: ActionContext<InputType>, using presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+    static func perform(context: ActionContext<InputType>, presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
         context.input.removeAttachment()
         completion(.success(closeActionStack: true))
     }

@@ -17,7 +17,7 @@ final class DocumentSaveAction: Action {
 
     static var analyticsID: String? = "document-save"
 
-    static func perform(with context: ActionContext<Document>, using presenter: DocumentSavePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<Document>, presenter: DocumentSavePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         let isNew = DocumentStore.shared.save(context.input)
         presenter.didSaveChanges(to: context.input, wasFirstSave: isNew)
         completion(.success(closeActionStack: false))

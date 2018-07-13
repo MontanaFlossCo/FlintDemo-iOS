@@ -14,7 +14,7 @@ final class DocumentShareAction: Action {
     
     typealias PresenterType = DocumentEditingPresenter
     
-    static func perform(with context: ActionContext<Document>, using presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+    static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
         presenter.share(context.input)
     }
 }

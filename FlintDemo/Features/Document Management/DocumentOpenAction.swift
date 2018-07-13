@@ -65,7 +65,7 @@ final class DocumentOpenAction: Action {
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
 #endif
 
-    static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.openDocument(context.input)
         completion(.success(closeActionStack: false))
     }

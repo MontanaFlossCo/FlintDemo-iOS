@@ -38,7 +38,7 @@ final class AddSelectedPhotoAction: Action {
     typealias InputType = AddAssetToDocumentRequest
     typealias PresenterType = PhotoSelectionPresenter
 
-    static func perform(with context: ActionContext<InputType>, using presenter: PhotoSelectionPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+    static func perform(context: ActionContext<InputType>, presenter: PhotoSelectionPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
         presenter.showAssetFetchProgress()
         
         if let asset = context.input.asset {

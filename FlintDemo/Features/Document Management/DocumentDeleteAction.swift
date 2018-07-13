@@ -17,7 +17,7 @@ final class DocumentDeleteAction: Action {
 
     static var analyticsID: String? = "document-delete"
 
-    static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentListPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentListPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         DocumentStore.shared.delete(context.input)
         presenter.didRemove(documentRef: context.input)
         completion(.success(closeActionStack: false))
