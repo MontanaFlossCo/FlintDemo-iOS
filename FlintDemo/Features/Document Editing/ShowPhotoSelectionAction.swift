@@ -21,7 +21,7 @@ final class ShowPhotoSelectionAction: Action {
     
     typealias PresenterType = PhotoSelectionPresenter
     
-    public static func perform(with context: ActionContext<NoInput>, using presenter: PresenterType, completion: @escaping (ActionPerformOutcome) -> Void) {
+    public static func perform(context: ActionContext<NoInput>, presenter: PresenterType, completion: @escaping (ActionPerformOutcome) -> Void) {
         presenter.showPhotoSelection()
         completion(.success(closeActionStack: false))
     }

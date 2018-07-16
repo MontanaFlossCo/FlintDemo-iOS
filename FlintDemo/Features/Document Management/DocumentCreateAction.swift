@@ -9,6 +9,7 @@
 import Foundation
 import FlintCore
 
+/// This action will ask the presenter to show the "Create a new document" UI, with a suggested name.
 final class DocumentCreateAction: Action {
     typealias InputType = NoInput
     typealias PresenterType = DocumentCreatePresenter
@@ -17,7 +18,7 @@ final class DocumentCreateAction: Action {
 
     static var analyticsID: String? = "document-create"
 
-    static func perform(with context: ActionContext<NoInput>, using presenter: DocumentCreatePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<NoInput>, presenter: DocumentCreatePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.showCreate(suggestedTitle: "Untitled")
         completion(.success(closeActionStack: false))
     }

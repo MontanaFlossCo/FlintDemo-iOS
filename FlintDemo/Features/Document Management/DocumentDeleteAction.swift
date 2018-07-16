@@ -9,6 +9,8 @@
 import Foundation
 import FlintCore
 
+/// This action will delete the specified document and notify the presenter that it should remove the item from the
+/// display.
 final class DocumentDeleteAction: Action {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentListPresenter
@@ -17,7 +19,7 @@ final class DocumentDeleteAction: Action {
 
     static var analyticsID: String? = "document-delete"
 
-    static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentListPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentListPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         DocumentStore.shared.delete(context.input)
         presenter.didRemove(documentRef: context.input)
         completion(.success(closeActionStack: false))

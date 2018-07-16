@@ -7,50 +7,16 @@
 //
 
 import Foundation
-#if os(macOS)
-import CoreServices
-#else
-import MobileCoreServices
-#endif
-import CoreSpotlight
 import FlintCore
 
-extension DocumentRef: ActivityMetadataRepresentable {
-    var metadata: ActivityMetadata {
-        let searchAttributes = CSSearchableItemAttributeSet()
-        searchAttributes.addedDate = Date()
-        searchAttributes.kind = "Flint Demo Document"
-
-        return .build {
-            $0.title = name
-            $0.thumbnail = UIImage(named: "FlintDemoDocIcon")
-            $0.keywords = Set("decentralised internet patent".components(separatedBy: " "))
-            $0.searchAttributes = searchAttributes
-        }
-    }
-}
-
-extension DocumentRef: ActivityCodable {
-    var requiredUserInfoKeys: Set<String> {
-        return ["document"]
-    }
-    
-    enum TestError: Error {
-        case missingKey(name: String)
-    }
-    
-    init(activityUserInfo: [AnyHashable:Any]?) throws {
-        guard let name = activityUserInfo?["document"] as? String else {
-            throw TestError.missingKey(name: "document")
-        }
-        self.init(name: name)
-    }
-    
-    func encodeForActivity() -> [AnyHashable:Any]? {
-        return ["document": name]
-    }
-}
-
+/// This action will open and present a document, with the input specifying the document reference (name).
+///
+/// The action supports Handoff and Spotlight search via NSUserActivity.
+/// On iOS 12+ it supports Siri Predictions as well (search is implied by prediction).
+///
+/// The action is also set up to report basic analytics (with no custom attributes).
+///
+/// - see: `DocumentManagementFeature` for URL mappings that can trigger this action.
 final class DocumentOpenAction: Action {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentPresenter
@@ -59,13 +25,14 @@ final class DocumentOpenAction: Action {
     
     static var analyticsID: String? = "document-open"
     
+    // Detect iOS 12 and support Siri predictions from NSUserActivity if so.
 #if canImport(Network)
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .prediction]
 #else
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
 #endif
 
-    static func perform(with context: ActionContext<DocumentRef>, using presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
         presenter.openDocument(context.input)
         completion(.success(closeActionStack: false))
     }

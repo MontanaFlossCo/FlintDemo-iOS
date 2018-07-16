@@ -10,8 +10,7 @@ import UIKit
 import FlintCore
 import PhotosUI
 
-class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-        DocumentEditingPresenter, PhotoSelectionPresenter, PermissionAuthorisationCoordinator {
+class DetailViewController: UIViewController {
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -84,7 +83,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     // Save the current document before leaving
     override func viewWillDisappear(_ animated: Bool) {
         if let document = document {
-            DocumentManagementFeature.closeDocument.perform(using: self, with: document)
+            DocumentManagementFeature.closeDocument.perform(input: document, presenter: self)
         }
         super.viewWillDisappear(animated)
     }
@@ -110,7 +109,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
-            request.perform(using: self, with: document)
+            request.perform(input: document, presenter: self)
         } else {
             handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in self?.actionButtonTapped(self) })
         }
@@ -131,7 +130,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func removePhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
-            request.perform(using: self, with: document!) { (outcome: ActionOutcome) in
+            request.perform(input: document!, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }
@@ -143,7 +142,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
-            request.perform(using: self)
+            request.perform(presenter: self)
         } else {
             handleUnsatisfiedConstraints(for: PhotoAttachmentsFeature.self, retry: { [weak self] in self?.selectPhoto() })
         }
@@ -197,12 +196,14 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
         if let document = document {
             document.body = bodyTextView.text
             document.modifiedDate = Date()
-            DocumentManagementFeature.saveDocument.perform(using: self, with: document)
+            DocumentManagementFeature.saveDocument.perform(input: document, presenter: self)
         }
     }
+}
 
-    // MARK: DocumentPresenter conformance
-    
+// MARK: DocumentPresenter conformance
+
+extension DetailViewController: DocumentEditingPresenter {
     func share(_ document: Document) {
         let text = document.body
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
@@ -228,11 +229,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
 }
 
-/// MARK: Photo attachment presenter
+/// MARK: Photo selection presenter
 
-extension DetailViewController {
+extension DetailViewController: PhotoSelectionPresenter {
     func showPhotoSelection() {
-
         func _showPicker(source: UIImagePickerControllerSourceType) {
             imagePickerController = UIImagePickerController()
             imagePickerController?.sourceType = source
@@ -274,7 +274,7 @@ extension DetailViewController {
 
 /// MARK: Permission authorisation
 
-extension DetailViewController {
+extension DetailViewController: PermissionAuthorisationCoordinator {
     func willBeginPermissionAuthorisation(for permissions: Set<SystemPermissionConstraint>, completion: ([SystemPermissionConstraint]) -> ()) {
         // This is where you'd start your permission onboarding UI
         print("Starting permission authorisastion flow for: \(permissions)")
@@ -305,7 +305,7 @@ extension DetailViewController {
 
 /// MARK: Image picker delegate conformance
 
-extension DetailViewController {
+extension DetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePickerController = nil
         picker.dismiss(animated: true, completion: nil)
@@ -322,7 +322,7 @@ extension DetailViewController {
         // Perform the attach action
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.addSelectedPhoto) {
             let addRequest = AddAssetToDocumentRequest(asset: asset, image: image, document: document!)
-            request.perform(using: self, with: addRequest) { (outcome: ActionOutcome) in
+            request.perform(input: addRequest, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }

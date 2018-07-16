@@ -9,12 +9,17 @@
 import Foundation
 import FlintCore
 
+/// A sharing feature that is not always available, depending on constraints checked at runtime.
 final class DocumentSharingFeature: ConditionalFeature {
     static func constraints(requirements: FeatureConstraintsBuilder) {
+        // This feature is only available on iOS
         requirements.iOSOnly = .any
 
+        // Allow runtime toggling via `isEnabled`
         requirements.runtimeEnabled()
-        requirements.permission(.motion)
+        
+        // Require an in-app purchase.
+        // requirements.purchase(sharingPurchaseRequirement)
     }
 
     /// Change this to `false` to see Sharing be unavailable
