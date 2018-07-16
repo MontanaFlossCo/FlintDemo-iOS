@@ -8,7 +8,7 @@ This is a sample project that uses [Flint](https://github.com/MontanaFlossCo/Fli
 This Master/Detail app provides simple "notes" gathering features with photo attachments. It demonstrates the use of Flint to:
 
 * Define the Feature and Actions of an app
-* Support conditional features (feature flaggeing, requiring purchase, platform versions etc.)
+* Support conditional features (feature flagging, requiring purchase, platform versions etc.)
 * Disabling features for which required system permissions are not authorized (e.g. Photos)
 * Use Flint's Routes feature to implement custom URL schemes and deep linking
 * Use Flint's Activities to automatically support Handoff, Spotlight search etc.
