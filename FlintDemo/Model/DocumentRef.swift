@@ -9,31 +9,14 @@
 import Foundation
 import FlintCore
 
-struct DocumentRef: FlintLoggable {
+/// A simple type for passing around references to documents as inputs to Action(s) etc.
+///
+/// Keep model types clean. See `DocumentRef+FlintAdditions` for extensions that Flint-ify this type
+/// for use in URLs, NSUserActivity and Flint logging.
+struct DocumentRef {
     let name: String
 
     init(name: String) {
         self.name = name
-    }
-    
-    var loggingDescription: String {
-        return "DocumentRef: \(name)"
-    }
-
-    var loggingInfo: [String : String]? {
-        return ["name": name]
-    }
-}
-
-extension DocumentRef: RouteParametersCodable {
-    init?(from queryParameters: RouteParameters?, mapping: URLMapping) {
-        guard let name = queryParameters?["name"] else {
-            return nil
-        }
-        self.name = name
-    }
-    
-    func encodeAsRouteParameters(for mapping: URLMapping) -> RouteParameters? {
-        return ["name": name]
     }
 }

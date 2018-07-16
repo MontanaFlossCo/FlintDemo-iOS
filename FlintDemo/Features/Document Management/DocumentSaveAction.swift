@@ -9,6 +9,7 @@
 import Foundation
 import FlintCore
 
+/// This action will save the specified document and then notify the presenter.
 final class DocumentSaveAction: Action {
     typealias InputType = Document
     typealias PresenterType = DocumentSavePresenter

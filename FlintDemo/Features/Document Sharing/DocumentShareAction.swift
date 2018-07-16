@@ -9,6 +9,7 @@
 import Foundation
 import FlintCore
 
+/// The action that will present the share UI for a given document
 final class DocumentShareAction: Action {
     typealias InputType = Document
     

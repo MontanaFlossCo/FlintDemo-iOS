@@ -9,6 +9,7 @@
 import Foundation
 import FlintCore
 
+/// This action will ask the presenter to close the specified document
 final class DocumentCloseAction: Action {
     typealias InputType = Document
     typealias PresenterType = DocumentEditingPresenter

@@ -10,8 +10,7 @@ import UIKit
 import FlintCore
 import PhotosUI
 
-class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-        DocumentEditingPresenter, PhotoSelectionPresenter, PermissionAuthorisationCoordinator {
+class DetailViewController: UIViewController {
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -200,9 +199,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
             DocumentManagementFeature.saveDocument.perform(input: document, presenter: self)
         }
     }
+}
 
-    // MARK: DocumentPresenter conformance
-    
+// MARK: DocumentPresenter conformance
+
+extension DetailViewController: DocumentEditingPresenter {
     func share(_ document: Document) {
         let text = document.body
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
@@ -228,11 +229,10 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate, UI
     }
 }
 
-/// MARK: Photo attachment presenter
+/// MARK: Photo selection presenter
 
-extension DetailViewController {
+extension DetailViewController: PhotoSelectionPresenter {
     func showPhotoSelection() {
-
         func _showPicker(source: UIImagePickerControllerSourceType) {
             imagePickerController = UIImagePickerController()
             imagePickerController?.sourceType = source
@@ -274,7 +274,7 @@ extension DetailViewController {
 
 /// MARK: Permission authorisation
 
-extension DetailViewController {
+extension DetailViewController: PermissionAuthorisationCoordinator {
     func willBeginPermissionAuthorisation(for permissions: Set<SystemPermissionConstraint>, completion: ([SystemPermissionConstraint]) -> ()) {
         // This is where you'd start your permission onboarding UI
         print("Starting permission authorisastion flow for: \(permissions)")
@@ -305,7 +305,7 @@ extension DetailViewController {
 
 /// MARK: Image picker delegate conformance
 
-extension DetailViewController {
+extension DetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePickerController = nil
         picker.dismiss(animated: true, completion: nil)
