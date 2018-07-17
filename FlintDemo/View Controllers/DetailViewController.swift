@@ -247,6 +247,7 @@ extension DetailViewController {
         let alertController = UIAlertController(title: nil,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
+        alertController.popoverPresentationController?.sourceRect = photoActionButton.bounds
         alertController.popoverPresentationController?.sourceView = photoActionButton
         alertController.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
             _showPicker(source: .camera)
@@ -289,6 +290,7 @@ extension DetailViewController {
     
     func didRequestPermission(for permission: SystemPermissionConstraint, status: SystemPermissionStatus, completion: (_ shouldCancel: Bool) -> Void) {
         print("Finished request for \(permission), status is now: \(status)")
+        completion(false)
     }
     
     func didCompletePermissionAuthorisation(cancelled: Bool, outstandingPermissions: [SystemPermissionConstraint]?) {
