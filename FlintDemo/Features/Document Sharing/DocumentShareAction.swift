@@ -15,7 +15,8 @@ final class DocumentShareAction: Action {
     
     typealias PresenterType = DocumentEditingPresenter
     
-    static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+    static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: Completion) -> Completion.Status {
         presenter.share(context.input)
+        return completion.completedSync(.success(closeActionStack: true))
     }
 }

@@ -1,1 +1,3 @@
-github "MontanaFlossCo/Flint" "master"
+#github "MontanaFlossCo/Flint" "marc/master"
+github "MontanaFlossCo/Flint" "marc/completion-proposal"
+

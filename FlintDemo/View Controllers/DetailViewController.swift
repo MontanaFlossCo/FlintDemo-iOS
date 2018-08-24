@@ -276,21 +276,21 @@ extension DetailViewController: PhotoSelectionPresenter {
 /// MARK: Permission authorisation
 
 extension DetailViewController: PermissionAuthorisationCoordinator {
-    func willBeginPermissionAuthorisation(for permissions: Set<SystemPermissionConstraint>, completion: ([SystemPermissionConstraint]) -> ()) {
+    func willBeginPermissionAuthorisation(for permissions: Set<SystemPermissionConstraint>, completionRequirement: BeginCompletion) -> BeginCompletion.Status {
         // This is where you'd start your permission onboarding UI
         print("Starting permission authorisastion flow for: \(permissions)")
-        completion(Array(permissions))
+        return completionRequirement.completedSync(Array(permissions))
     }
     
-    func willRequestPermission(for permission: SystemPermissionConstraint, completion: (SystemPermissionRequestAction) -> ()) {
+    func willRequestPermission(for permission: SystemPermissionConstraint, completionRequirement: WillRequestCompletion) -> WillRequestCompletion.Status {
         // This is where you'd tell the user about the pemission you're about to ask for, before the system alert
         print("About to request authorisation for: \(permission)")
-        completion(.request)
+        return completionRequirement.completedSync(.request)
     }
     
-    func didRequestPermission(for permission: SystemPermissionConstraint, status: SystemPermissionStatus, completion: (_ shouldCancel: Bool) -> Void) {
+    func didRequestPermission(for permission: SystemPermissionConstraint, status: SystemPermissionStatus, completionRequirement: DidRequestCompletion) -> DidRequestCompletion.Status {
         print("Finished request for \(permission), status is now: \(status)")
-        completion(false)
+        return completionRequirement.completedSync(.requestNext)
     }
     
     func didCompletePermissionAuthorisation(cancelled: Bool, outstandingPermissions: [SystemPermissionConstraint]?) {
