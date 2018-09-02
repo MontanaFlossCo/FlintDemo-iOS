@@ -16,6 +16,8 @@ final class DocumentShareAction: Action {
     typealias PresenterType = DocumentEditingPresenter
     
     static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: Completion) -> Completion.Status {
+        // TODO: This should actually be a showShare action, that also has shareDocument and cancelShare actions,
+        // so that each action can be said to complete synchronously, and user interactions can be tracked correctly.
         presenter.share(context.input)
         return completion.completedSync(.success(closeActionStack: true))
     }
