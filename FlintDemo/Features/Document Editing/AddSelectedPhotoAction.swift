@@ -38,26 +38,27 @@ final class AddSelectedPhotoAction: Action {
     typealias InputType = AddAssetToDocumentRequest
     typealias PresenterType = PhotoSelectionPresenter
 
-    static func perform(context: ActionContext<InputType>, presenter: PhotoSelectionPresenter, completion: @escaping (ActionPerformOutcome) -> Void) {
+    static func perform(context: ActionContext<InputType>, presenter: PhotoSelectionPresenter, completion: Completion) -> Completion.Status {
         presenter.showAssetFetchProgress()
         
         if let asset = context.input.asset {
+            let asyncStatus = completion.willCompleteAsync()
             PhotosManager.fetchData(asset) { data, uti in
                 presenter.hideAssetFetchProgress()
                 if let data = data, let uti = uti {
                     context.input.document.attachMedia(data, uti: uti)
-                    completion(.success(closeActionStack: true))
+                    asyncStatus.completed(.success(closeActionStack: true))
                 } else {
-                    completion(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
+                    asyncStatus.completed(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
                 }
             }
+            return asyncStatus
         } else if let image = context.input.image {
             guard let data = UIImageJPEGRepresentation(image, 0.7) else {
                 preconditionFailure("Failed to JPEG encode captured image")
             }
             context.input.document.attachMedia(data, uti: kUTTypeJPEG as String)
-            completion(.success(closeActionStack: true))
-
+            return completion.completedSync(.success(closeActionStack: true))
         } else {
             preconditionFailure("Expected an asset or data")
         }

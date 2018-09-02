@@ -32,9 +32,9 @@ final class DocumentOpenAction: Action {
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
 #endif
 
-    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: Completion) -> Completion.Status {
         presenter.openDocument(context.input)
-        completion(.success(closeActionStack: false))
+        return completion.completedSync(.success(closeActionStack: false))
     }
     
     static func prepareActivity(_ activity: ActivityBuilder<InputType>) {

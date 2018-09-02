@@ -18,9 +18,9 @@ final class DocumentCreateAction: Action {
 
     static var analyticsID: String? = "document-create"
 
-    static func perform(context: ActionContext<NoInput>, presenter: DocumentCreatePresenter, completion: @escaping ((ActionPerformOutcome) -> ())) {
+    static func perform(context: ActionContext<NoInput>, presenter: DocumentCreatePresenter, completion: Completion) -> Completion.Status {
         presenter.showCreate(suggestedTitle: "Untitled")
-        completion(.success(closeActionStack: false))
+        return completion.completedSync(.success(closeActionStack: false))
     }
 }
 
