@@ -13,7 +13,17 @@ import FlintUI
 class MasterViewController: UITableViewController, DocumentCreatePresenter, DocumentPresenter, DocumentSavePresenter, DocumentListPresenter {
     var detailViewController: DetailViewController? = nil
     var documentInfos = [DocumentInfo]()
-    var selectedDocumentRef: DocumentRef?
+    var selectedDocumentRef: DocumentRef? {
+        didSet {
+            guard let ref = selectedDocumentRef else {
+                return
+            }
+            if let indexOfDoc = documentInfos.index(where: { $0.documentRef.name == ref.name }) {
+                let index = IndexPath(row: indexOfDoc, section: 0)
+                tableView.selectRow(at: index, animated: true, scrollPosition: .none)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,19 +168,29 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
         guard let oldIndex = indexOfOldDocument else {
             fatalError()
         }
-        documentInfos.remove(at: oldIndex)
-        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic)
         
-        if documentInfos.count == 0 {
-            performSegue(withIdentifier: "showEmpty", sender: self)
-        } else {
-            var newOpenIndex = oldIndex
-            if newOpenIndex >= documentInfos.count {
-                newOpenIndex = documentInfos.count-1
+        tableView.performBatchUpdates({
+            documentInfos.remove(at: oldIndex)
+            tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic)
+        }, completion: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
             }
-            let documentInfo = documentInfos[newOpenIndex]
-            DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: self)
-        }
+            
+            // Auto-show the detail VC for the next item if split view is showing both VCs
+            if strongSelf.splitViewController?.isCollapsed == false {
+                if strongSelf.documentInfos.count == 0 {
+                    strongSelf.performSegue(withIdentifier: "showEmpty", sender: self)
+                } else {
+                    var newOpenIndex = oldIndex
+                    if newOpenIndex >= strongSelf.documentInfos.count {
+                        newOpenIndex = strongSelf.documentInfos.count-1
+                    }
+                    let documentInfo = strongSelf.documentInfos[newOpenIndex]
+                    DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: strongSelf)
+                }
+            }
+        })
     }
     
     // MARK: - Document Presenter
@@ -191,7 +211,6 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             return a.modifiedDate >= b.modifiedDate
         })
     }
-
 
 }
 
