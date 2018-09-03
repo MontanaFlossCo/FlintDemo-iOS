@@ -20,7 +20,7 @@ final class DocumentCloseAction: Action {
 
     static func perform(context: ActionContext<Document>, presenter: DocumentEditingPresenter, completion: Completion) -> Completion.Status {
         presenter.closeDocument(context.input)
-        return completion.completedSync(.success(closeActionStack: true))
+        return completion.completedSync(.successWithFeatureTermination)
     }
 }
 

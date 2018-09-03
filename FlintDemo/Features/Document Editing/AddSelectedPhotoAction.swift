@@ -47,9 +47,9 @@ final class AddSelectedPhotoAction: Action {
                 presenter.hideAssetFetchProgress()
                 if let data = data, let uti = uti {
                     context.input.document.attachMedia(data, uti: uti)
-                    asyncStatus.completed(.success(closeActionStack: true))
+                    asyncStatus.completed(.successWithFeatureTermination)
                 } else {
-                    asyncStatus.completed(.failure(error: PhotosManager.Err.fetchFailed, closeActionStack: true))
+                    asyncStatus.completed(.failureWithFeatureTermination(error: PhotosManager.Err.fetchFailed))
                 }
             }
             return asyncStatus
@@ -58,7 +58,7 @@ final class AddSelectedPhotoAction: Action {
                 preconditionFailure("Failed to JPEG encode captured image")
             }
             context.input.document.attachMedia(data, uti: kUTTypeJPEG as String)
-            return completion.completedSync(.success(closeActionStack: true))
+            return completion.completedSync(.successWithFeatureTermination)
         } else {
             preconditionFailure("Expected an asset or data")
         }

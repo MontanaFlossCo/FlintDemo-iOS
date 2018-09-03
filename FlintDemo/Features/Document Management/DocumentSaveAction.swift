@@ -21,6 +21,6 @@ final class DocumentSaveAction: Action {
     static func perform(context: ActionContext<Document>, presenter: DocumentSavePresenter, completion: Completion) -> Completion.Status {
         let isNew = DocumentStore.shared.save(context.input)
         presenter.didSaveChanges(to: context.input, wasFirstSave: isNew)
-        return completion.completedSync(.success(closeActionStack: false))
+        return completion.completedSync(.success)
     }
 }

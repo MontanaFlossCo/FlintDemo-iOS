@@ -23,7 +23,7 @@ final class DocumentCreateAction: Action {
         dateFormatter.setLocalizedDateFormatFromTemplate("dd MM HH:mm:ss")
         let date = dateFormatter.string(from: Date())
         presenter.showCreate(suggestedTitle: "Untitled \(date)")
-        return completion.completedSync(.success(closeActionStack: false))
+        return completion.completedSync(.success)
     }
 }
 

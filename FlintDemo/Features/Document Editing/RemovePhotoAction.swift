@@ -15,6 +15,6 @@ final class RemovePhotoAction: Action {
 
     static func perform(context: ActionContext<InputType>, presenter: DocumentEditingPresenter, completion: Completion) -> Completion.Status {
         context.input.removeAttachment()
-        return completion.completedSync(.success(closeActionStack: true))
+        return completion.completedSync(.successWithFeatureTermination)
     }
 }
