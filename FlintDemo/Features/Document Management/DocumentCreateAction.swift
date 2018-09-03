@@ -19,7 +19,10 @@ final class DocumentCreateAction: Action {
     static var analyticsID: String? = "document-create"
 
     static func perform(context: ActionContext<NoInput>, presenter: DocumentCreatePresenter, completion: Completion) -> Completion.Status {
-        presenter.showCreate(suggestedTitle: "Untitled")
+        let dateFormatter = DateFormatter()
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd MM HH:mm:ss")
+        let date = dateFormatter.string(from: Date())
+        presenter.showCreate(suggestedTitle: "Untitled \(date)")
         return completion.completedSync(.success(closeActionStack: false))
     }
 }

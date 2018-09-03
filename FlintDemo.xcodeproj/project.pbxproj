@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */; };
 		495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C27202A414A0024CDFB /* AppDelegate.swift */; };
 		495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C29202A414A0024CDFB /* MasterViewController.swift */; };
 		495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C2B202A414A0024CDFB /* DetailViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewConttroller.swift; sourceTree = "<group>"; };
 		495B6C24202A414A0024CDFB /* FlintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B6C27202A414A0024CDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495B6C29202A414A0024CDFB /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				495B6C29202A414A0024CDFB /* MasterViewController.swift */,
 				495B6C2B202A414A0024CDFB /* DetailViewController.swift */,
 				49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */,
+				4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */,
 				495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */,
 				49BC1C6B20875AA000A7FC77 /* DocumentCloseAction.swift in Sources */,
+				4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */,
 				49BC1C6D20875AC300A7FC77 /* DocumentSaveAction.swift in Sources */,
 				49BC1C7D2088B89E00A7FC77 /* DocumentSharingFeature.swift in Sources */,
 				49BC1C782087C9BB00A7FC77 /* DocumentEditSession.swift in Sources */,

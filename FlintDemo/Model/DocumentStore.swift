@@ -82,7 +82,11 @@ class DocumentStore {
     // Internals
     
     private func url(for documentName: String) -> URL {
-        let safeName = documentName.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let documentNameFilteredScalars: [UnicodeScalar] = documentName.unicodeScalars.map {
+            return CharacterSet.alphanumerics.contains($0) ? $0 : "_"
+        }
+        let documentNameFiltered = String(String.UnicodeScalarView(documentNameFilteredScalars))
+        let safeName = documentNameFiltered.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         let result = URL(string: safeName, relativeTo: documentsURL)
         return result!
     }
