@@ -19,6 +19,6 @@ final class DocumentShareAction: Action {
         // TODO: This should actually be a showShare action, that also has shareDocument and cancelShare actions,
         // so that each action can be said to complete synchronously, and user interactions can be tracked correctly.
         presenter.share(context.input)
-        return completion.completedSync(.success(closeActionStack: true))
+        return completion.completedSync(.successWithFeatureTermination)
     }
 }

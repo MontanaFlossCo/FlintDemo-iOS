@@ -23,6 +23,6 @@ final class ShowPhotoSelectionAction: Action {
     
     public static func perform(context: ActionContext<NoInput>, presenter: PresenterType, completion: Completion) -> Completion.Status {
         presenter.showPhotoSelection()
-        return completion.completedSync(.success(closeActionStack: false))
+        return completion.completedSync(.success)
     }
 }

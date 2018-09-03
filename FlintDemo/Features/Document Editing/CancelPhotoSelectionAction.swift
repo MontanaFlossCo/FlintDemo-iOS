@@ -16,6 +16,6 @@ final class CancelPhotoSelectionAction: Action {
     
     public static func perform(context: ActionContext<NoInput>, presenter: PresenterType, completion: Completion) -> Completion.Status {
         presenter.dismissPhotoSelection()
-        return completion.completedSync(.success(closeActionStack: true))
+        return completion.completedSync(.successWithFeatureTermination)
     }
 }

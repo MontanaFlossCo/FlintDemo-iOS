@@ -22,6 +22,6 @@ final class DocumentDeleteAction: Action {
     static func perform(context: ActionContext<DocumentRef>, presenter: DocumentListPresenter, completion: Completion) -> Completion.Status {
         DocumentStore.shared.delete(context.input)
         presenter.didRemove(documentRef: context.input)
-        return completion.completedSync(.success(closeActionStack: false))
+        return completion.completedSync(.success)
     }
 }

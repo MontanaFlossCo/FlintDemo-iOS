@@ -34,7 +34,7 @@ final class DocumentOpenAction: Action {
 
     static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: Completion) -> Completion.Status {
         presenter.openDocument(context.input)
-        return completion.completedSync(.success(closeActionStack: false))
+        return completion.completedSync(.success)
     }
     
     static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
