@@ -39,7 +39,7 @@ final class DocumentOpenAction: Action {
         return completion.completedSync(.success)
     }
     
-    static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
+    static func prepareActivity(_ activity: ActivityBuilder<DocumentOpenAction>) {
         guard let document = DocumentStore.shared.load(activity.input.name) else {
             preconditionFailure("No such document")
         }
