@@ -33,6 +33,7 @@ extension DocumentRef: RouteParametersCodable {
             return nil
         }
         self.name = name
+        self.summary = ""
     }
     
     func encodeAsRouteParameters(for mapping: URLMapping) -> RouteParameters? {
@@ -72,7 +73,7 @@ extension DocumentRef: ActivityCodable {
         guard let name = activityUserInfo?["document"] as? String else {
             throw DocumentRefError.missingKey(name: "document")
         }
-        self.init(name: name)
+        self.init(name: name, summary: "")
     }
     
     func encodeForActivity() -> [AnyHashable:Any]? {

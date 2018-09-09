@@ -22,3 +22,4 @@ final class DocumentShareAction: UIAction {
         return completion.completedSync(.successWithFeatureTermination)
     }
 }
+
