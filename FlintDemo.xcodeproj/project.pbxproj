@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4932676C2146771700CC88CB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932676B2146771700CC88CB /* IntentHandler.swift */; };
+		493267742146771700CC88CB /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493267732146771700CC88CB /* IntentsUI.framework */; };
+		493267772146771700CC88CB /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493267762146771700CC88CB /* IntentViewController.swift */; };
+		4932677A2146771700CC88CB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493267782146771700CC88CB /* MainInterface.storyboard */; };
+		4932677E2146771700CC88CB /* FlintDemoSiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		493267812146771700CC88CB /* FlintDemoSiriIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267692146771700CC88CB /* FlintDemoSiriIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
 		4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */; };
 		495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C27202A414A0024CDFB /* AppDelegate.swift */; };
 		495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C29202A414A0024CDFB /* MasterViewController.swift */; };
@@ -49,6 +56,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4932677C2146771700CC88CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 493267712146771700CC88CB;
+			remoteInfo = FlintDemoSiriIntentUI;
+		};
+		4932677F2146771700CC88CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 493267682146771700CC88CB;
+			remoteInfo = FlintDemoSiriIntent;
+		};
 		495B6C3B202A414A0024CDFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
@@ -58,7 +79,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		493267882146771700CC88CB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				493267812146771700CC88CB /* FlintDemoSiriIntent.appex in Embed App Extensions */,
+				4932677E2146771700CC88CB /* FlintDemoSiriIntentUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		493267692146771700CC88CB /* FlintDemoSiriIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlintDemoSiriIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4932676B2146771700CC88CB /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		4932676D2146771700CC88CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlintDemoSiriIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		493267732146771700CC88CB /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		493267762146771700CC88CB /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		493267792146771700CC88CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4932677B2146771700CC88CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493267892146776600CC88CB /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewConttroller.swift; sourceTree = "<group>"; };
 		495B6C24202A414A0024CDFB /* FlintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B6C27202A414A0024CDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +154,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		493267662146771700CC88CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932676F2146771700CC88CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493267742146771700CC88CB /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		495B6C21202A414A0024CDFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,9 +188,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4932676A2146771700CC88CB /* FlintDemoSiriIntent */ = {
+			isa = PBXGroup;
+			children = (
+				4932676B2146771700CC88CB /* IntentHandler.swift */,
+				4932676D2146771700CC88CB /* Info.plist */,
+				493267892146776600CC88CB /* Intents.intentdefinition */,
+			);
+			path = FlintDemoSiriIntent;
+			sourceTree = "<group>";
+		};
+		493267752146771700CC88CB /* FlintDemoSiriIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				493267762146771700CC88CB /* IntentViewController.swift */,
+				493267782146771700CC88CB /* MainInterface.storyboard */,
+				4932677B2146771700CC88CB /* Info.plist */,
+			);
+			path = FlintDemoSiriIntentUI;
+			sourceTree = "<group>";
+		};
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
+				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
+				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
 				49E4C3CA2187146B00DD959F /* .travis.yml */,
@@ -146,6 +228,8 @@
 			children = (
 				495B6C24202A414A0024CDFB /* FlintDemo.app */,
 				495B6C3A202A414A0024CDFB /* FlintDemoTests.xctest */,
+				493267692146771700CC88CB /* FlintDemoSiriIntent.appex */,
+				493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +323,7 @@
 				49A693712088D66300EC522A /* FlintCore.framework */,
 				49A693732088D66400EC522A /* FlintUI.framework */,
 				49A693722088D66400EC522A /* ZIPFoundation.framework */,
+				493267732146771700CC88CB /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -272,6 +357,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		493267682146771700CC88CB /* FlintDemoSiriIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 493267872146771700CC88CB /* Build configuration list for PBXNativeTarget "FlintDemoSiriIntent" */;
+			buildPhases = (
+				493267652146771700CC88CB /* Sources */,
+				493267662146771700CC88CB /* Frameworks */,
+				493267672146771700CC88CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlintDemoSiriIntent;
+			productName = FlintDemoSiriIntent;
+			productReference = 493267692146771700CC88CB /* FlintDemoSiriIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		493267712146771700CC88CB /* FlintDemoSiriIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 493267862146771700CC88CB /* Build configuration list for PBXNativeTarget "FlintDemoSiriIntentUI" */;
+			buildPhases = (
+				4932676E2146771700CC88CB /* Sources */,
+				4932676F2146771700CC88CB /* Frameworks */,
+				493267702146771700CC88CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlintDemoSiriIntentUI;
+			productName = FlintDemoSiriIntentUI;
+			productReference = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		495B6C23202A414A0024CDFB /* FlintDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 495B6C43202A414A0024CDFB /* Build configuration list for PBXNativeTarget "FlintDemo" */;
@@ -280,10 +399,13 @@
 				495B6C21202A414A0024CDFB /* Frameworks */,
 				495B6C22202A414A0024CDFB /* Resources */,
 				4977DC84205B010D00DAA0C8 /* Copy Carthage Frameworks */,
+				493267882146771700CC88CB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4932677D2146771700CC88CB /* PBXTargetDependency */,
+				493267802146771700CC88CB /* PBXTargetDependency */,
 			);
 			name = FlintDemo;
 			productName = FeaturesDemo;
@@ -314,10 +436,18 @@
 		495B6C1C202A414A0024CDFB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Montana Floss Co. Ltd.";
 				TargetAttributes = {
+					493267682146771700CC88CB = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
+					493267712146771700CC88CB = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
 					495B6C23202A414A0024CDFB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -349,11 +479,28 @@
 			targets = (
 				495B6C23202A414A0024CDFB /* FlintDemo */,
 				495B6C39202A414A0024CDFB /* FlintDemoTests */,
+				493267682146771700CC88CB /* FlintDemoSiriIntent */,
+				493267712146771700CC88CB /* FlintDemoSiriIntentUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		493267672146771700CC88CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493267702146771700CC88CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932677A2146771700CC88CB /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		495B6C22202A414A0024CDFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +541,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		493267652146771700CC88CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */,
+				4932676C2146771700CC88CB /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4932676E2146771700CC88CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493267772146771700CC88CB /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		495B6C20202A414A0024CDFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,6 +608,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4932677D2146771700CC88CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 493267712146771700CC88CB /* FlintDemoSiriIntentUI */;
+			targetProxy = 4932677C2146771700CC88CB /* PBXContainerItemProxy */;
+		};
+		493267802146771700CC88CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 493267682146771700CC88CB /* FlintDemoSiriIntent */;
+			targetProxy = 4932677F2146771700CC88CB /* PBXContainerItemProxy */;
+		};
 		495B6C3C202A414A0024CDFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 495B6C23202A414A0024CDFB /* FlintDemo */;
@@ -452,6 +626,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		493267782146771700CC88CB /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				493267792146771700CC88CB /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		495B6C2D202A414A0024CDFB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -471,6 +653,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		493267822146771700CC88CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoSiriIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		493267832146771700CC88CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoSiriIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		493267842146771700CC88CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoSiriIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		493267852146771700CC88CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				INFOPLIST_FILE = FlintDemoSiriIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		495B6C41202A414A0024CDFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -587,6 +843,7 @@
 		495B6C44202A414A0024CDFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FlintDemo/FlintDemo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -608,6 +865,7 @@
 		495B6C45202A414A0024CDFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FlintDemo/FlintDemo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -663,6 +921,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		493267862146771700CC88CB /* Build configuration list for PBXNativeTarget "FlintDemoSiriIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493267842146771700CC88CB /* Debug */,
+				493267852146771700CC88CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		493267872146771700CC88CB /* Build configuration list for PBXNativeTarget "FlintDemoSiriIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493267822146771700CC88CB /* Debug */,
+				493267832146771700CC88CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		495B6C1F202A414A0024CDFB /* Build configuration list for PBXProject "FlintDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
