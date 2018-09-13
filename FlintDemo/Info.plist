@@ -53,6 +53,7 @@
 	<string>We gotta access your photos to demonstrate permissions!</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>GetNoteIntent</string>
 		<string>tools.flint.FlintDemo.document-management.document-open</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

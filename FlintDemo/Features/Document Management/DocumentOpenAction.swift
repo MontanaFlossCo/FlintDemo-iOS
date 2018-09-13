@@ -25,9 +25,12 @@ final class DocumentOpenAction: UIAction {
     
     static var analyticsID: String? = "document-open"
 
-    static var suggestedInvocationPhrase: String? = "Show my note"
-
-    static var activityTypes: Set<ActivityEligibility> = [.handoff, .search, .prediction]
+    // Detect iOS 12 and support Siri predictions from NSUserActivity if so.
+#if canImport(Network)
+    static var suggestedInvocationPhrase: String? = "View note"
+#else
+    static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
+#endif
 
     static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: Completion) -> Completion.Status {
         presenter.openDocument(context.input)
