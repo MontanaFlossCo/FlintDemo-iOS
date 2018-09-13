@@ -9,6 +9,9 @@
 import UIKit
 import FlintCore
 import FlintUI
+#if canImport(Intents)
+import Intents
+#endif
 
 class MasterViewController: UITableViewController, DocumentCreatePresenter, DocumentPresenter, DocumentSavePresenter, DocumentListPresenter {
     var detailViewController: DetailViewController? = nil
@@ -33,6 +36,8 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        GetNoteAction.donateToSiri(input: DocumentRef(name: "test.txt"))
         
         reloadDocuments()
     }

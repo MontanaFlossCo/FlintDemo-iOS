@@ -14,6 +14,18 @@
 		4932677E2146771700CC88CB /* FlintDemoSiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		493267812146771700CC88CB /* FlintDemoSiriIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267692146771700CC88CB /* FlintDemoSiriIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
+		493267912148670200CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
+		493267922148670300CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
+		49326795214868C200CC88CB /* GetNoteIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49326794214868C200CC88CB /* GetNoteIntentHandler.swift */; };
+		49326798214871D900CC88CB /* SiriFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49326797214871D900CC88CB /* SiriFeature.swift */; };
+		49326799214871D900CC88CB /* SiriFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49326797214871D900CC88CB /* SiriFeature.swift */; };
+		4932679A214871D900CC88CB /* SiriFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49326797214871D900CC88CB /* SiriFeature.swift */; };
+		4932679B21491FEA00CC88CB /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
+		4932679C2149201000CC88CB /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
+		4932679D2149202F00CC88CB /* DocumentRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C74208790E000A7FC77 /* DocumentRef.swift */; };
+		4932679E2149202F00CC88CB /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
+		4932679F2149203000CC88CB /* DocumentRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C74208790E000A7FC77 /* DocumentRef.swift */; };
+		493267A02149203000CC88CB /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */; };
 		495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C27202A414A0024CDFB /* AppDelegate.swift */; };
 		495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C29202A414A0024CDFB /* MasterViewController.swift */; };
@@ -104,6 +116,8 @@
 		493267792146771700CC88CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4932677B2146771700CC88CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493267892146776600CC88CB /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		49326794214868C200CC88CB /* GetNoteIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteIntentHandler.swift; sourceTree = "<group>"; };
+		49326797214871D900CC88CB /* SiriFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriFeature.swift; sourceTree = "<group>"; };
 		4956B23B213C57EC00E9D2DE /* EmptyViewConttroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewConttroller.swift; sourceTree = "<group>"; };
 		495B6C24202A414A0024CDFB /* FlintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495B6C27202A414A0024CDFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4932679B21491FEA00CC88CB /* FlintCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4932679C2149201000CC88CB /* FlintCore.framework in Frameworks */,
 				493267742146771700CC88CB /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +209,6 @@
 			children = (
 				4932676B2146771700CC88CB /* IntentHandler.swift */,
 				4932676D2146771700CC88CB /* Info.plist */,
-				493267892146776600CC88CB /* Intents.intentdefinition */,
 			);
 			path = FlintDemoSiriIntent;
 			sourceTree = "<group>";
@@ -208,16 +223,34 @@
 			path = FlintDemoSiriIntentUI;
 			sourceTree = "<group>";
 		};
+		493267932148689C00CC88CB /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				493267892146776600CC88CB /* Intents.intentdefinition */,
+				49326794214868C200CC88CB /* GetNoteIntentHandler.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		49326796214871BC00CC88CB /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				49326797214871D900CC88CB /* SiriFeature.swift */,
+			);
+			path = Siri;
+			sourceTree = "<group>";
+		};
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
-				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
-				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
 				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
+				493267932148689C00CC88CB /* Intents */,
+				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
+				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
 				495B6C25202A414A0024CDFB /* Products */,
 			);
@@ -263,6 +296,7 @@
 		495B6C5E202B56710024CDFB /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				49326796214871BC00CC88CB /* Siri */,
 				49C10980209C595100953AE9 /* Document Editing */,
 				49BC1C802088CEFE00A7FC77 /* Presenters */,
 				49BC1C7B2088B88D00A7FC77 /* Document Sharing */,
@@ -455,6 +489,9 @@
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
 					};
 					495B6C39202A414A0024CDFB = {
@@ -545,8 +582,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4932679E2149202F00CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
+				4932679D2149202F00CC88CB /* DocumentRef.swift in Sources */,
+				49326795214868C200CC88CB /* GetNoteIntentHandler.swift in Sources */,
 				4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */,
 				4932676C2146771700CC88CB /* IntentHandler.swift in Sources */,
+				49326799214871D900CC88CB /* SiriFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +595,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4932679F2149203000CC88CB /* DocumentRef.swift in Sources */,
+				493267922148670300CC88CB /* Intents.intentdefinition in Sources */,
+				4932679A214871D900CC88CB /* SiriFeature.swift in Sources */,
+				493267A02149203000CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
 				493267772146771700CC88CB /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,9 +610,11 @@
 				495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */,
 				495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */,
 				499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */,
+				493267912148670200CC88CB /* Intents.intentdefinition in Sources */,
 				49C10984209C599D00953AE9 /* DocumentEditingFeature.swift in Sources */,
 				49BC1C6920875A7A00A7FC77 /* DocumentOpenAction.swift in Sources */,
 				49BC1C7320878DB200A7FC77 /* DocumentListPresenter.swift in Sources */,
+				49326798214871D900CC88CB /* SiriFeature.swift in Sources */,
 				49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */,
 				49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */,
 				49BC1C7F2088B94000A7FC77 /* DocumentShareAction.swift in Sources */,
@@ -659,6 +706,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlintDemoSiriIntent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -678,6 +729,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlintDemoSiriIntent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -696,6 +751,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlintDemoSiriIntentUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -715,6 +774,10 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlintDemoSiriIntentUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
