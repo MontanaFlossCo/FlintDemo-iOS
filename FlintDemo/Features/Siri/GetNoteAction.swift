@@ -28,7 +28,7 @@ final class GetNoteAction: SiriIntentAction {
     static func donateToSiri(input: InputType) {
         if #available(iOS 12, *) {
             let intentToUse = GetNoteAction.intent(for: input)
-            intentToUse.suggestedInvocationPhrase = suggestedInvocationPhrase
+            intentToUse.suggestedInvocationPhrase = GetNoteAction.suggestedInvocationPhrase
 
             let interaction = INInteraction(intent: intentToUse, response: nil)
             interaction.donate { error in

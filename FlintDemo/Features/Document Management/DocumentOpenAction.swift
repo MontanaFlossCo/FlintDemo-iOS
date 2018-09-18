@@ -34,6 +34,11 @@ final class DocumentOpenAction: UIAction {
 
     static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: Completion) -> Completion.Status {
         presenter.openDocument(context.input)
+
+        if #available(iOS 12, *) {
+            GetNoteAction.donateToSiri(input: context.input)
+        }
+        
         return completion.completedSync(.success)
     }
     
