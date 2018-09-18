@@ -11,6 +11,16 @@ import FlintCore
 import Intents
 
 @available(iOS 12, *)
+class GetNoteSiriPresenter: SiriResultPresenter {
+    var result: GetNoteIntentResponse?
+    
+    func showResult(response: GetNoteIntentResponse) {
+        result = response
+    }
+}
+
+
+@available(iOS 12, *)
 final class GetNoteAction: SiriIntentAction {
     typealias InputType = DocumentRef
     typealias PresenterType = GetNoteSiriPresenter
@@ -25,27 +35,14 @@ final class GetNoteAction: SiriIntentAction {
         return result
     }
 
-    static func donateToSiri(input: InputType) {
-        if #available(iOS 12, *) {
-            let intentToUse = GetNoteAction.intent(for: input)
-            intentToUse.suggestedInvocationPhrase = GetNoteAction.suggestedInvocationPhrase
-
-            let interaction = INInteraction(intent: intentToUse, response: nil)
-            interaction.donate { error in
-                print("Donation error: \(String(describing: error))")
-            }
-        }
-    }
-    
     static func perform(context: ActionContext<DocumentRef>, presenter: PresenterType, completion: Completion) -> Completion.Status {
-        guard #available(iOS 12, *) else {
-            flintBug("Should never be called")
+        let response: GetNoteIntentResponse
+        if let document = DocumentStore.shared.load(context.input.name) {
+            response = .success(content: document.body)
+        } else {
+            response = GetNoteIntentResponse(code: .failure, userActivity: nil)
         }
         
-        let note = "Yasssss!"
-        let response = GetNoteIntentResponse(code: .success, userActivity: nil)
-        response.content = note
-
         presenter.showResult(response: response)
         return completion.completedSync(.successWithFeatureTermination)
     }

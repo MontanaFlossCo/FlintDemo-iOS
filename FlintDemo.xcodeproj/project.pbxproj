@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493028202151494A0042DA96 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
+		493028212151494B0042DA96 /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
+		49302822215149570042DA96 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
+		49302823215149570042DA96 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
+		493028242151495A0042DA96 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
+		493028252151495B0042DA96 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
 		4932676C2146771700CC88CB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932676B2146771700CC88CB /* IntentHandler.swift */; };
 		493267742146771700CC88CB /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493267732146771700CC88CB /* IntentsUI.framework */; };
 		493267772146771700CC88CB /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493267762146771700CC88CB /* IntentViewController.swift */; };
@@ -593,10 +599,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CC1EEE214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
+				493028242151495A0042DA96 /* DocumentInfo.swift in Sources */,
 				4932679E2149202F00CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
 				49CC1EF2214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				4932679D2149202F00CC88CB /* DocumentRef.swift in Sources */,
+				49302822215149570042DA96 /* Document.swift in Sources */,
 				49326795214868C200CC88CB /* GetNoteIntentHandler.swift in Sources */,
+				493028202151494A0042DA96 /* DocumentStore.swift in Sources */,
 				4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */,
 				4932676C2146771700CC88CB /* IntentHandler.swift in Sources */,
 				49326799214871D900CC88CB /* SiriFeature.swift in Sources */,
@@ -607,10 +616,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493028252151495B0042DA96 /* DocumentInfo.swift in Sources */,
 				4932679F2149203000CC88CB /* DocumentRef.swift in Sources */,
 				493267922148670300CC88CB /* Intents.intentdefinition in Sources */,
+				493028212151494B0042DA96 /* DocumentStore.swift in Sources */,
 				49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				4932679A214871D900CC88CB /* SiriFeature.swift in Sources */,
+				49302823215149570042DA96 /* Document.swift in Sources */,
 				49CC1EEF214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				493267A02149203000CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
 				493267772146771700CC88CB /* IntentViewController.swift in Sources */,

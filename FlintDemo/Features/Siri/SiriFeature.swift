@@ -23,27 +23,3 @@ class SiriFeature: Feature {
         }
     }
 }
-
-// Siri Intent stuff
-
-protocol SiriResultPresenter {
-    associatedtype ResponseType: INIntentResponse
-    func showResult(response: ResponseType)
-}
-
-@available(iOS 12, *)
-class GetNoteSiriPresenter: SiriResultPresenter {
-    var result: GetNoteIntentResponse?
-    
-    func showResult(response: GetNoteIntentResponse) {
-        result = response
-    }
-}
-
-protocol SiriIntentAction: Action {
-}
-
-extension SiriIntentAction {
-    static var queue: DispatchQueue { return intentsQueue }
-    static var defaultSession: ActionSession? { return intentActionSession }
-}
