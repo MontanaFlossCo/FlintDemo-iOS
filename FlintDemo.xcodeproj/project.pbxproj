@@ -11,7 +11,6 @@
 		493267742146771700CC88CB /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493267732146771700CC88CB /* IntentsUI.framework */; };
 		493267772146771700CC88CB /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493267762146771700CC88CB /* IntentViewController.swift */; };
 		4932677A2146771700CC88CB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493267782146771700CC88CB /* MainInterface.storyboard */; };
-		4932677E2146771700CC88CB /* FlintDemoSiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		493267812146771700CC88CB /* FlintDemoSiriIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267692146771700CC88CB /* FlintDemoSiriIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
 		493267912148670200CC88CB /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 493267892146776600CC88CB /* Intents.intentdefinition */; };
@@ -63,18 +62,18 @@
 		49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */; };
 		49C1098A209C60CC00953AE9 /* AddSelectedPhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */; };
 		49C1098C209C60D400953AE9 /* RemovePhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */; };
+		49CC1EED214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
+		49CC1EEE214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
+		49CC1EEF214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
+		49CC1EF1214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
+		49CC1EF2214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
+		49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
+		49CC1EF4214D523300C0C992 /* FlintDemoSiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
 		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4932677C2146771700CC88CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 493267712146771700CC88CB;
-			remoteInfo = FlintDemoSiriIntentUI;
-		};
 		4932677F2146771700CC88CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
@@ -89,6 +88,13 @@
 			remoteGlobalIDString = 495B6C23202A414A0024CDFB;
 			remoteInfo = FeaturesDemo;
 		};
+		49CC1EF5214D523300C0C992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 495B6C1C202A414A0024CDFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 493267712146771700CC88CB;
+			remoteInfo = FlintDemoSiriIntentUI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,8 +104,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				49CC1EF4214D523300C0C992 /* FlintDemoSiriIntentUI.appex in Embed App Extensions */,
 				493267812146771700CC88CB /* FlintDemoSiriIntent.appex in Embed App Extensions */,
-				4932677E2146771700CC88CB /* FlintDemoSiriIntentUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +168,8 @@
 		49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPhotoSelectionAction.swift; sourceTree = "<group>"; };
 		49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedPhotoAction.swift; sourceTree = "<group>"; };
 		49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoAction.swift; sourceTree = "<group>"; };
+		49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentFeatures.swift; sourceTree = "<group>"; };
+		49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		49E4C3CA2187146B00DD959F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 			children = (
 				493267892146776600CC88CB /* Intents.intentdefinition */,
 				49326794214868C200CC88CB /* GetNoteIntentHandler.swift */,
+				49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				49326797214871D900CC88CB /* SiriFeature.swift */,
+				49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */,
 			);
 			path = Siri;
 			sourceTree = "<group>";
@@ -438,8 +448,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				4932677D2146771700CC88CB /* PBXTargetDependency */,
 				493267802146771700CC88CB /* PBXTargetDependency */,
+				49CC1EF6214D523300C0C992 /* PBXTargetDependency */,
 			);
 			name = FlintDemo;
 			productName = FeaturesDemo;
@@ -582,7 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CC1EEE214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				4932679E2149202F00CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
+				49CC1EF2214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				4932679D2149202F00CC88CB /* DocumentRef.swift in Sources */,
 				49326795214868C200CC88CB /* GetNoteIntentHandler.swift in Sources */,
 				4932678A2146776600CC88CB /* Intents.intentdefinition in Sources */,
@@ -597,7 +609,9 @@
 			files = (
 				4932679F2149203000CC88CB /* DocumentRef.swift in Sources */,
 				493267922148670300CC88CB /* Intents.intentdefinition in Sources */,
+				49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				4932679A214871D900CC88CB /* SiriFeature.swift in Sources */,
+				49CC1EEF214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				493267A02149203000CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
 				493267772146771700CC88CB /* IntentViewController.swift in Sources */,
 			);
@@ -632,10 +646,12 @@
 				495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */,
 				495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */,
 				49BC1C6B20875AA000A7FC77 /* DocumentCloseAction.swift in Sources */,
+				49CC1EED214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */,
 				49BC1C6D20875AC300A7FC77 /* DocumentSaveAction.swift in Sources */,
 				49BC1C7D2088B89E00A7FC77 /* DocumentSharingFeature.swift in Sources */,
 				49BC1C782087C9BB00A7FC77 /* DocumentEditSession.swift in Sources */,
+				49CC1EF1214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */,
 				49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */,
 				495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */,
@@ -655,11 +671,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4932677D2146771700CC88CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 493267712146771700CC88CB /* FlintDemoSiriIntentUI */;
-			targetProxy = 4932677C2146771700CC88CB /* PBXContainerItemProxy */;
-		};
 		493267802146771700CC88CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 493267682146771700CC88CB /* FlintDemoSiriIntent */;
@@ -669,6 +680,11 @@
 			isa = PBXTargetDependency;
 			target = 495B6C23202A414A0024CDFB /* FlintDemo */;
 			targetProxy = 495B6C3B202A414A0024CDFB /* PBXContainerItemProxy */;
+		};
+		49CC1EF6214D523300C0C992 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 493267712146771700CC88CB /* FlintDemoSiriIntentUI */;
+			targetProxy = 49CC1EF5214D523300C0C992 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

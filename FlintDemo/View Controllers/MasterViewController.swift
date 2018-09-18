@@ -37,7 +37,9 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
-        GetNoteAction.donateToSiri(input: DocumentRef(name: "test.txt"))
+        if #available(iOS 12, *) {
+            GetNoteAction.donateToSiri(input: DocumentRef(name: "test.txt"))
+        }
         
         reloadDocuments()
     }

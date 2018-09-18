@@ -9,6 +9,7 @@
 import UIKit
 import FlintCore
 import FlintUI
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -36,6 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     // MARK: - URL and Continuity handling
 
+    /// !!! TODO: What is this for?
+    func application(_ application: UIApplication, handle intent: INIntent, completionHandler: @escaping (INIntentResponse) -> Void) {
+
+    }
+
+    /// !!! TODO: Anything to do here?
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        return true
+    }
+    
+    /// !!! TODO: What is this for? Preventing non-enabled intents?
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplicationExtensionPointIdentifier) -> Bool {
+        return true
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         /// !!! TODO: Handle open-in-place etc. from options
         let result: URLRoutingResult = Flint.open(url: url, with: presentationRouter)
@@ -44,7 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         /// !!! TODO: Need to ask if the activity is supported at all, or if the app has custom handling
-        return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
+        if let interaction = userActivity.interaction {
+            let intent = interaction.intent
+            // resolve intent against known registered itent -> Action mappers that know how to "follow up" on an intent that has been performed
+            return false
+        } else {
+            return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
+        }
     }
 
     // MARK: - Lifecycle

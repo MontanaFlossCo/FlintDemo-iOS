@@ -7,13 +7,22 @@
 //
 
 import Intents
+import FlintCore
+
+var hasRunFlintSetup = false
 
 class IntentHandler: INExtension {
-    
+
+    override init() {
+        super.init()
+        if !hasRunFlintSetup {
+            Flint.quickSetup(IntentFeatures.self)
+            hasRunFlintSetup = true
+        }
+    }
+
     override func handler(for intent: INIntent) -> Any {
-        
         // Can we auto-map these to actions? Handler must be specific protocol type, so no?
-        
         guard intent is GetNoteIntent else {
             fatalError()
         }
