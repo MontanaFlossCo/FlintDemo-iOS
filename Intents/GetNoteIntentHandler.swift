@@ -8,25 +8,31 @@
 
 import Foundation
 import Intents
+import FlintCore
 
 @objc
 class GetNoteIntentHandler: NSObject, GetNoteIntentHandling {
     @objc(handleGetNote:completion:)
     func handle(intent: GetNoteIntent, completion: @escaping (GetNoteIntentResponse) -> Void) {
-        print("I'm in the intent!")
         guard let documentName = intent.documentName else {
             return
         }
         
-        let siriResultPresenter = FlintSiriPresenter()
+        let siriResultPresenter = GetNoteSiriPresenter()
         
         // Can this be async? Can we delay calling completion?
         let docRef = DocumentRef(name: documentName)
-        SiriFeature.getNote.perform(input: docRef, presenter: siriResultPresenter)
-        
-        completion(.success(content: "Yay"))
-    }
+        // We're on a background thread here.
+        intentsQueue.async {
+            SiriFeature.getNote.perform(input: docRef, presenter: siriResultPresenter)
+            guard let result = siriResultPresenter.result else {
+                fatalError("Action didn't return a result for Siri")
+            }
 
+            completion(result)
+        }
+    }
+    
 //    @objc(confirmGetNote:completion:)
 //    func confirm(intent: GetNoteIntent, completion: @escaping (GetNoteIntentResponse) -> Swift.Void) {
 //
