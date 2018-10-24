@@ -17,7 +17,7 @@ import FlintCore
 /// The action is also set up to report basic analytics (with no custom attributes).
 ///
 /// - see: `DocumentManagementFeature` for URL mappings that can trigger this action.
-final class DocumentOpenAction: Action {
+final class DocumentOpenAction: UIAction {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentPresenter
 
@@ -37,7 +37,7 @@ final class DocumentOpenAction: Action {
         return completion.completedSync(.success)
     }
     
-    static func prepareActivity(_ activity: ActivityBuilder<InputType>) {
+    static func prepareActivity(_ activity: ActivityBuilder<DocumentOpenAction>) {
         guard let document = DocumentStore.shared.load(activity.input.name) else {
             preconditionFailure("No such document")
         }

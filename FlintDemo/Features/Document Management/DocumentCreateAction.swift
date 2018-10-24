@@ -10,7 +10,7 @@ import Foundation
 import FlintCore
 
 /// This action will ask the presenter to show the "Create a new document" UI, with a suggested name.
-final class DocumentCreateAction: Action {
+final class DocumentCreateAction: UIAction {
     typealias InputType = NoInput
     typealias PresenterType = DocumentCreatePresenter
 
