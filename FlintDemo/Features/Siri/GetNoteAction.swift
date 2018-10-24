@@ -19,19 +19,27 @@ class GetNoteSiriPresenter: SiriResultPresenter {
     }
 }
 
-
 @available(iOS 12, *)
 final class GetNoteAction: SiriIntentAction {
     typealias InputType = DocumentRef
     typealias PresenterType = GetNoteSiriPresenter
     
     static let suggestedInvocationPhrase: String? = "What's up"
-    
+
+    static func suggestedInvocationPhrase(for input: InputType) -> String? {
+        return "Get note \(input.name)"
+    }
+
     // Not need if using intentType? If that conforms to InputConvertible, do it by magic?
+    // Support multiple intents per action invocation
+    // We'll assert the intent is the right type, and pass in the type of intent we want to create.
+    // donateToSiri() will call this for all supported intentTypes. Actions could add their own
+    // functions for donating a single variant
     @available(iOS 12, *)
-    static func intent(for input: InputType) -> INIntent {
+    static func intent(from input: InputType, type: INIntent.Type) -> INIntent {
         let result = GetNoteIntent()
         result.documentName = input.name
+        result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)
         return result
     }
 
@@ -47,3 +55,4 @@ final class GetNoteAction: SiriIntentAction {
         return completion.completedSync(.successWithFeatureTermination)
     }
 }
+

@@ -12,7 +12,7 @@ import FlintCore
 /// This feature describes all the core interactions with documents in the app.
 ///
 /// URL mappings are provided for triggering `create` and `open`, showing both custom and default schemes and domains.
-class DocumentManagementFeature: Feature, URLMapped {
+class DocumentManagementFeature: Feature, URLMapped, IntentsMapped {
     static let description = "Create, Open and Save documents"
 
     static let createNew = action(DocumentCreateAction.self)
@@ -28,10 +28,15 @@ class DocumentManagementFeature: Feature, URLMapped {
         actions.declare(saveDocument)
         actions.declare(deleteDocument)
     }
+
+    static func intentMappings(intents: IntentMappingsBuilder) {
+        // Declare that incoming continued intents of this type must be forward to this action
+        intents.continue(GetNoteIntent.self, with: openDocument)
+    }
     
     static func urlMappings(routes: URLMappingsBuilder) {
         // Map the app's default (first) custom URL scheme and a custom universal domain. e.g. this route will be
-        // used for `fdemo://open
+        // used for `fdemo://open`
         routes.send("open", to: openDocument, in: [.appAny, .universal(domain: "legacydomain.com")])
         routes.send("create", to: createNew, in: [.app(scheme: "x-test"), .app(scheme:"internal-test"), .universal(domain: "yourdomain.com")])
     }
