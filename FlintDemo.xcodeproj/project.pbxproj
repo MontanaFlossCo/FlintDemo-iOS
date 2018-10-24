@@ -12,7 +12,7 @@
 		49302822215149570042DA96 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
 		49302823215149570042DA96 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
 		493028242151495A0042DA96 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
-		493028252151495B0042DA96 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
+		4930282621514A0E0042DA96 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
 		4932676C2146771700CC88CB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4932676B2146771700CC88CB /* IntentHandler.swift */; };
 		493267742146771700CC88CB /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493267732146771700CC88CB /* IntentsUI.framework */; };
 		493267772146771700CC88CB /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493267762146771700CC88CB /* IntentViewController.swift */; };
@@ -616,7 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493028252151495B0042DA96 /* DocumentInfo.swift in Sources */,
+				4930282621514A0E0042DA96 /* DocumentInfo.swift in Sources */,
 				4932679F2149203000CC88CB /* DocumentRef.swift in Sources */,
 				493267922148670300CC88CB /* Intents.intentdefinition in Sources */,
 				493028212151494B0042DA96 /* DocumentStore.swift in Sources */,
