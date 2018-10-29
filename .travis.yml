@@ -8,7 +8,7 @@ before_install:
 
 install:
 - pwd
-- ls -al ./build_logs
+- ls -al ./_build_logs
 - carthage update --log-path ./_build_logs/ --platform iOS
 
 script:
