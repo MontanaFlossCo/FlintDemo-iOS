@@ -8,7 +8,7 @@ before_install:
 
 install:
 - pwd
-- carthage update --log-path ./_build_logs --platform iOS
+- carthage update --log-path ./_build_logs/ --platform iOS
 
 script:
 - carthage update --log-path $FLINT_BUILD_LOGS/carthage_build.log --platform iOS
