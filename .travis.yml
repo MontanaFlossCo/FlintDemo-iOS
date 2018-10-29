@@ -1,9 +1,16 @@
 language: objective-c
 osx_image: xcode9.3
+
 install:
-- carthage update --platform iOS
+- mkdir ./_build_logs
+- carthage update --log-path ./_build_logs --platform iOS
+
 script:
 - xcodebuild clean test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.3' -project FlintDemo.xcodeproj -scheme FlintDemo CODE_SIGNING_REQUIRED=NO
+
+after_failure:
+- cat ./build_logs/*.log
+
 notifications:
   email: false
   slack:
