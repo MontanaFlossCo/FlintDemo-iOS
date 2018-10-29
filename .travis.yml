@@ -4,9 +4,11 @@ osx_image: xcode9.3
 before_install:
 - pwd
 - mkdir ./_build_logs
+- chmod -u+rw ./_build_logs
 
 install:
 - pwd
+- ls -al ./build_logs
 - carthage update --log-path ./_build_logs/ --platform iOS
 
 script:
