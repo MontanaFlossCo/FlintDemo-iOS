@@ -34,7 +34,7 @@ struct AddAssetToDocumentRequest: FlintLoggable {
     }
 }
 
-final class AddSelectedPhotoAction: Action {
+final class AddSelectedPhotoAction: UIAction {
     typealias InputType = AddAssetToDocumentRequest
     typealias PresenterType = PhotoSelectionPresenter
 

@@ -9,7 +9,7 @@
 import Foundation
 import FlintCore
 
-final class CancelPhotoSelectionAction: Action {
+final class CancelPhotoSelectionAction: UIAction {
     typealias InputType = NoInput
     
     typealias PresenterType = PhotoSelectionPresenter
