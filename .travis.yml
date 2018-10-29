@@ -7,7 +7,7 @@ before_install:
 - touch $FLINT_BUILD_LOGS/carthage_build.log
 
 install:
-- mkdir ./_build_logs
+- pwd
 - carthage update --log-path ./_build_logs --platform iOS
 
 script:
