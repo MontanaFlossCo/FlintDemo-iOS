@@ -4,18 +4,18 @@ osx_image: xcode9.3
 before_install:
 - pwd
 - mkdir ./_build_logs
-- chmod u+rw ./_build_logs
+- touch ./_build_logs/carthage_build.log
 
 install:
 - pwd
 - ls -al ./_build_logs
-- carthage update --log-path ./_build_logs/ --platform iOS
+- carthage update --log-path ./build_logs/carthage_build.log --platform iOS
 
 script:
 - xcodebuild clean test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.3' -project FlintDemo.xcodeproj -scheme FlintDemo CODE_SIGNING_REQUIRED=NO
 
 after_failure:
-- cat ./build_logs/*.log
+- cat ./_build_logs/*.log
 
 notifications:
   email: false
