@@ -20,7 +20,6 @@
 		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
 		499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
-		49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693722088D66400EC522A /* ZIPFoundation.framework */; };
 		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
 		49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */; };
 		49BC1C65208759E000A7FC77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
@@ -115,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A693742088D66400EC522A /* FlintCore.framework in Frameworks */,
-				49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */,
 				49A693762088D66400EC522A /* FlintUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +383,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FlintUI.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FlintCore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZIPFoundation.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
