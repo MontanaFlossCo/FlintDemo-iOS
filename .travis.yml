@@ -7,7 +7,7 @@ before_script:
 
 install:
 - pwd
-- carthage update --log-path ./_build_logs --platform iOS
+- carthage update --log-path ./_build_logs/ --platform iOS
 
 script:
 - xcodebuild clean test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.3' -project FlintDemo.xcodeproj -scheme FlintDemo CODE_SIGNING_REQUIRED=NO
