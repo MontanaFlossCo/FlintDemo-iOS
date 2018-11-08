@@ -7,9 +7,10 @@ before_install:
 - touch $FLINT_BUILD_LOGS/carthage_build.log
 
 install:
+- pwd
+- carthage update --log-path $FLINT_BUILD_LOGS/carthage_build.log --platform iOS
 
 script:
-- carthage update --log-path $FLINT_BUILD_LOGS/carthage_build.log --platform iOS
 - xcodebuild clean test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=11.3' -project FlintDemo.xcodeproj -scheme FlintDemo CODE_SIGNING_REQUIRED=NO
 
 after_failure:
