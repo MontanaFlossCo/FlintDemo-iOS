@@ -16,7 +16,7 @@ protocol PhotoSelectionPresenter {
     func dismissPhotoSelection()
 }
 
-final class ShowPhotoSelectionAction: Action {
+final class ShowPhotoSelectionAction: UIAction {
     typealias InputType = NoInput
     
     typealias PresenterType = PhotoSelectionPresenter

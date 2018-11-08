@@ -20,7 +20,6 @@
 		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
 		499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
-		49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693722088D66400EC522A /* ZIPFoundation.framework */; };
 		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
 		49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */; };
 		49BC1C65208759E000A7FC77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
@@ -105,6 +104,7 @@
 		49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedPhotoAction.swift; sourceTree = "<group>"; };
 		49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
+		49E4C3CA2187146B00DD959F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49A693742088D66400EC522A /* FlintCore.framework in Frameworks */,
-				49A693752088D66400EC522A /* ZIPFoundation.framework in Frameworks */,
 				49A693762088D66400EC522A /* FlintUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +133,7 @@
 			children = (
 				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
+				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
@@ -383,7 +383,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/FlintUI.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FlintCore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZIPFoundation.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (

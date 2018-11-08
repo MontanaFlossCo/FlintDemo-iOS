@@ -9,7 +9,7 @@
 import Foundation
 import FlintCore
 
-final class RemovePhotoAction: Action {
+final class RemovePhotoAction: UIAction {
     typealias InputType = Document
     typealias PresenterType = DocumentEditingPresenter
 
