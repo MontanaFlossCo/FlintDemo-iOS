@@ -25,7 +25,7 @@ final class DocumentOpenAction: UIAction {
     
     static var analyticsID: String? = "document-open"
 
-    static var suggestedInvocationPhrase: String? = "View note"
+    static var suggestedInvocationPhrase: String? = "Show my note"
 
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search, .prediction]
 
