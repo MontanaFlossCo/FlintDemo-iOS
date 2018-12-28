@@ -10,6 +10,7 @@ import Foundation
 import FlintCore
 
 /// This is the root level of feature groupings for intents from the app.
+@available(iOS 12, *)
 final class IntentFeatures: FeatureGroup {
     static var description = "Demo intent features"
     

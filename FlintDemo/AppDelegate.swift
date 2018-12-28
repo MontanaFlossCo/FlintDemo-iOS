@@ -54,19 +54,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         /// !!! TODO: Handle open-in-place etc. from options
-        let result: URLRoutingResult = Flint.open(url: url, with: presentationRouter)
+        let result: MappedActionResult = Flint.open(url: url, with: presentationRouter)
         return result == .success
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         /// !!! TODO: Need to ask if the activity is supported at all, or if the app has custom handling
-        if let interaction = userActivity.interaction {
-            let intent = interaction.intent
-            // resolve intent against known registered itent -> Action mappers that know how to "follow up" on an intent that has been performed
-            return false
-        } else {
-            return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
-        }
+        return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
     }
 
     // MARK: - Lifecycle

@@ -11,41 +11,29 @@ import FlintCore
 import Intents
 
 @available(iOS 12, *)
-class GetNoteSiriPresenter: SiriResultPresenter {
-    var result: GetNoteIntentResponse?
+class GetNoteSiriPresenter: IntentResultPresenter {
+    let completion: (GetNoteIntentResponse) -> Void
     
-    func showResult(response: GetNoteIntentResponse) {
-        result = response
+    init(completion: @escaping (GetNoteIntentResponse) -> Void) {
+        self.completion = completion
+    }
+    
+    func showResult(response: FlintIntentResponse) {
+        guard let response = response as? GetNoteIntentResponse else {
+            fatalError("Wrong response type")
+        }
+        completion(response)
     }
 }
 
 @available(iOS 12, *)
-final class GetNoteAction: SiriIntentAction {
-    typealias InputType = DocumentRef
+final class GetNoteAction: IntentAction {
+    typealias InputType = GetNoteIntent
     typealias PresenterType = GetNoteSiriPresenter
     
-    static let suggestedInvocationPhrase: String? = "What's up"
-
-    static func suggestedInvocationPhrase(for input: InputType) -> String? {
-        return "Get note \(input.name)"
-    }
-
-    // Not need if using intentType? If that conforms to InputConvertible, do it by magic?
-    // Support multiple intents per action invocation
-    // We'll assert the intent is the right type, and pass in the type of intent we want to create.
-    // donateToSiri() will call this for all supported intentTypes. Actions could add their own
-    // functions for donating a single variant
-    @available(iOS 12, *)
-    static func intent(from input: InputType, type: INIntent.Type) -> INIntent {
-        let result = GetNoteIntent()
-        result.documentName = input.name
-        result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)
-        return result
-    }
-
-    static func perform(context: ActionContext<DocumentRef>, presenter: PresenterType, completion: Completion) -> Completion.Status {
+    static func perform(context: ActionContext<InputType>, presenter: PresenterType, completion: Completion) -> Completion.Status {
         let response: GetNoteIntentResponse
-        if let document = DocumentStore.shared.load(context.input.name) {
+        if let name = context.input.documentName, let document = DocumentStore.shared.load(name) {
             response = .success(content: document.body)
         } else {
             response = GetNoteIntentResponse(code: .failure, userActivity: nil)
