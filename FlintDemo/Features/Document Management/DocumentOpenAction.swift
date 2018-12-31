@@ -28,6 +28,7 @@ final class DocumentOpenAction: UIAction {
     // Detect iOS 12 and support Siri predictions from NSUserActivity if so.
 #if canImport(Network)
     static var suggestedInvocationPhrase: String? = "Show my notes"
+    static var activityTypes: Set<ActivityEligibility> = [.handoff, .prediction]
 #else
     static var activityTypes: Set<ActivityEligibility> = [.handoff, .search]
 #endif
@@ -52,10 +53,6 @@ final class DocumentOpenAction: UIAction {
     static func perform(context: ActionContext<DocumentRef>, presenter: DocumentPresenter, completion: Completion) -> Completion.Status {
         presenter.openDocument(context.input)
 
-//        if #available(iOS 12, *) {
-//            GetNoteAction.donateToSiri(input: context.input)
-//        }
-        
         return completion.completedSync(.success)
     }
     
