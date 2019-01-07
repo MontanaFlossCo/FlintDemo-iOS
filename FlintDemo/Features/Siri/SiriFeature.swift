@@ -17,7 +17,7 @@ final class SiriFeature: Feature, IntentMapped {
 
     static let getNote = action(GetNoteAction.self)
 
-    static func intentMappings<BuilderType>(intents: BuilderType) where SiriFeature == BuilderType.FeatureType, BuilderType : IntentMappingsBuilder {
+    static func intentMappings(intents: IntentMappingsBuilder) {
         // Declare that incoming continued intents of this type must be forward to this action
         intents.forward(intentType: GetNoteIntent.self, to: getNote)
     }
