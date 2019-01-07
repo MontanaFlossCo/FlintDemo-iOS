@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsEmptyController = secondaryAsNavController.topViewController as? EmptyViewController else {
+        guard let _ = secondaryAsNavController.topViewController as? EmptyViewController else {
             return false
         }
         return true
