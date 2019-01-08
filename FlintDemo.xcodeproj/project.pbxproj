@@ -174,6 +174,7 @@
 		49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelPhotoSelectionAction.swift; sourceTree = "<group>"; };
 		49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelectedPhotoAction.swift; sourceTree = "<group>"; };
 		49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovePhotoAction.swift; sourceTree = "<group>"; };
+		49C3257821E5461C009DADBC /* FlintDemoSiriIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlintDemoSiriIntent.entitlements; sourceTree = "<group>"; };
 		49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentFeatures.swift; sourceTree = "<group>"; };
 		49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
@@ -221,6 +222,7 @@
 		4932676A2146771700CC88CB /* FlintDemoSiriIntent */ = {
 			isa = PBXGroup;
 			children = (
+				49C3257821E5461C009DADBC /* FlintDemoSiriIntent.entitlements */,
 				4932676B2146771700CC88CB /* IntentHandler.swift */,
 				4932676D2146771700CC88CB /* Info.plist */,
 			);
@@ -493,6 +495,11 @@
 					493267682146771700CC88CB = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					493267712146771700CC88CB = {
 						CreatedOnToolsVersion = 10.0;
@@ -502,6 +509,9 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
@@ -732,6 +742,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = FlintDemoSiriIntent/FlintDemoSiriIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -755,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = FlintDemoSiriIntent/FlintDemoSiriIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5LUNBYMD4J;
 				FRAMEWORK_SEARCH_PATHS = (
