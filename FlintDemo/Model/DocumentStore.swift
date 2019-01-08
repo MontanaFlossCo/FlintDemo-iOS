@@ -11,9 +11,19 @@ import MobileCoreServices
 
 /// This is a trivial data store to load and save documents, so we can test spotlight
 class DocumentStore {
-    let documentsURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    static let appGroupID = "group.tools.flint.FlintDemo"
+    let documentsURL: URL
     
     static let shared = DocumentStore()
+    
+    init() {
+        let appGroupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: DocumentStore.appGroupID)
+        guard let url = appGroupUrl else {
+            fatalError("Couldn't get app group container with ID \(DocumentStore.appGroupID)")
+        }
+        documentsURL = url.appendingPathComponent("Documents")
+        try! FileManager.default.createDirectory(at: documentsURL, withIntermediateDirectories: true, attributes: nil)
+    }
     
     func listDocuments() -> [DocumentInfo] {
         let contents = try? FileManager.default.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil,
