@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         Flint.quickSetup(AppFeatures.self, domains: ["mysite.com"], initialDebugLogLevel: .debug)
         Flint.register(group: FlintUIFeatures.self)
-
+        
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
         let primaryNavigationController = splitViewController.viewControllers.first as! UINavigationController
@@ -32,6 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         presentationRouter = SimplePresentationRouter(navigationController: primaryNavigationController)
         
+        if let firstDocumentInfo = DocumentStore.shared.listDocuments().first {
+            if let firstDocument = DocumentStore.shared.load(firstDocumentInfo.name) {
+                SiriFeature.getNote.donateToSiri(for: firstDocument.documentRef)
+            }
+        }
         return true
     }
     
