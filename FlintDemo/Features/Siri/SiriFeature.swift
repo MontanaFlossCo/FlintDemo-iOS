@@ -12,16 +12,11 @@ import FlintCore
 
 
 @available(iOS 12, *)
-final class SiriFeature: Feature, IntentMapped {
+final class SiriFeature: Feature {
     static let description = "Siri access to documents"
 
     static let getNote = action(GetNoteAction.self)
 
-    static func intentMappings(intents: IntentMappingsBuilder) {
-        // Declare that incoming continued intents of this type must be forward to this action
-        intents.forward(intentType: GetNoteIntent.self, to: getNote)
-    }
-    
     static func prepare(actions: FeatureActionsBuilder) {
         actions.declare(getNote)
     }
