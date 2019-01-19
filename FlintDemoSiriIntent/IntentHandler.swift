@@ -23,8 +23,9 @@ class IntentHandler: INExtension {
 
     override func handler(for intent: INIntent) -> Any {
         // Can we auto-map these to actions? Handler must be specific protocol type, so no?
-        guard intent is GetNoteIntent else {
-            fatalError()
+        switch intent {
+            case is GetNoteIntent: return GetNoteIntentHandler()
+            default: fatalError("Unknown intent type: \(intent)")
         }
 
         return GetNoteIntentHandler()
