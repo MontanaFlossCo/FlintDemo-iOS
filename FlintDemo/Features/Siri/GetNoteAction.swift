@@ -10,28 +10,15 @@ import Foundation
 import FlintCore
 import Intents
 
-@available(iOS 12, *)
-class GetNoteSiriPresenter: IntentResultPresenter {
-    let completion: (GetNoteIntentResponse) -> Void
-    
-    init(completion: @escaping (GetNoteIntentResponse) -> Void) {
-        self.completion = completion
-    }
-    
-    func showResult(response: FlintIntentResponse) {
-        guard let response = response as? GetNoteIntentResponse else {
-            fatalError("Wrong response type")
-        }
-        completion(response)
-    }
-}
+//@available(iOS 12, *)
+//typealias GetNoteSiriPresenter = BaseIntentResultPresenter<GetNoteIntentResponse>
 
 /// Take a Siri Intent for "Get Note" and try to load and present the result in Siri
 @available(iOS 12, *)
 final class GetNoteAction: IntentAction {
     typealias InputType = DocumentRef
     typealias IntentType = GetNoteIntent
-    typealias PresenterType = GetNoteSiriPresenter
+    typealias PresenterType = IntentResponsePresenter<GetNoteIntentResponse>
     
     enum Failure: Error {
         case documentNotFound

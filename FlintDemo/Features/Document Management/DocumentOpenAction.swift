@@ -31,7 +31,7 @@ final class DocumentOpenAction: UIAction {
 
     static var suggestedInvocationPhrase: String? = "Show my notes"
 
-    // The donateToSiri() functionality will call this. 
+    // The donateToSiri functionality will call this. 
     @available(iOS 12, *)
     static func associatedIntents(for input: InputType) -> [FlintIntent]? {
         let result = GetNoteIntent()
