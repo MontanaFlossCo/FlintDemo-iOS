@@ -45,6 +45,8 @@
 		499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
 		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
+		49AF95D821F37D5A00DF5327 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
+		49AF95D921F37D5A00DF5327 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
 		49BC1C63208759C200A7FC77 /* DocumentCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C62208759C200A7FC77 /* DocumentCreateAction.swift */; };
 		49BC1C65208759E000A7FC77 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C64208759E000A7FC77 /* Document.swift */; };
 		49BC1C67208759FB00A7FC77 /* DocumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C66208759FB00A7FC77 /* DocumentInfo.swift */; };
@@ -68,9 +70,7 @@
 		49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10987209C5BB700953AE9 /* CancelPhotoSelectionAction.swift */; };
 		49C1098A209C60CC00953AE9 /* AddSelectedPhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10989209C60CC00953AE9 /* AddSelectedPhotoAction.swift */; };
 		49C1098C209C60D400953AE9 /* RemovePhotoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C1098B209C60D400953AE9 /* RemovePhotoAction.swift */; };
-		49CC1EED214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
 		49CC1EEE214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
-		49CC1EEF214D2FA300C0C992 /* IntentFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */; };
 		49CC1EF1214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
 		49CC1EF2214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
 		49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
@@ -222,8 +222,9 @@
 		4932676A2146771700CC88CB /* FlintDemoSiriIntent */ = {
 			isa = PBXGroup;
 			children = (
+				49AF95D721F37D0C00DF5327 /* Handlers */,
 				49C3257821E5461C009DADBC /* FlintDemoSiriIntent.entitlements */,
-				4932676B2146771700CC88CB /* IntentHandler.swift */,
+				493267892146776600CC88CB /* Intents.intentdefinition */,
 				4932676D2146771700CC88CB /* Info.plist */,
 			);
 			path = FlintDemoSiriIntent;
@@ -239,21 +240,12 @@
 			path = FlintDemoSiriIntentUI;
 			sourceTree = "<group>";
 		};
-		493267932148689C00CC88CB /* Intents */ = {
-			isa = PBXGroup;
-			children = (
-				493267892146776600CC88CB /* Intents.intentdefinition */,
-				49326794214868C200CC88CB /* GetNoteIntentHandler.swift */,
-				49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */,
-			);
-			path = Intents;
-			sourceTree = "<group>";
-		};
 		49326796214871BC00CC88CB /* Siri */ = {
 			isa = PBXGroup;
 			children = (
 				49326797214871D900CC88CB /* SiriFeature.swift */,
 				49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */,
+				49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */,
 			);
 			path = Siri;
 			sourceTree = "<group>";
@@ -266,7 +258,6 @@
 				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
-				493267932148689C00CC88CB /* Intents */,
 				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
 				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
@@ -322,6 +313,15 @@
 				495B6C5F202B567B0024CDFB /* AppFeatures.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		49AF95D721F37D0C00DF5327 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				49326794214868C200CC88CB /* GetNoteIntentHandler.swift */,
+				4932676B2146771700CC88CB /* IntentHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		49BC1C5F2087597D00A7FC77 /* Document Management */ = {
@@ -626,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AF95D821F37D5A00DF5327 /* IntentFeatures.swift in Sources */,
 				4930282621514A0E0042DA96 /* DocumentInfo.swift in Sources */,
 				4932679F2149203000CC88CB /* DocumentRef.swift in Sources */,
 				493267922148670300CC88CB /* Intents.intentdefinition in Sources */,
@@ -633,7 +634,6 @@
 				49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				4932679A214871D900CC88CB /* SiriFeature.swift in Sources */,
 				49302823215149570042DA96 /* Document.swift in Sources */,
-				49CC1EEF214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				493267A02149203000CC88CB /* DocumentRef+FlintAdditions.swift in Sources */,
 				493267772146771700CC88CB /* IntentViewController.swift in Sources */,
 			);
@@ -647,6 +647,7 @@
 				495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */,
 				499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */,
 				493267912148670200CC88CB /* Intents.intentdefinition in Sources */,
+				49AF95D921F37D5A00DF5327 /* IntentFeatures.swift in Sources */,
 				49C10984209C599D00953AE9 /* DocumentEditingFeature.swift in Sources */,
 				49BC1C6920875A7A00A7FC77 /* DocumentOpenAction.swift in Sources */,
 				49BC1C7320878DB200A7FC77 /* DocumentListPresenter.swift in Sources */,
@@ -668,7 +669,6 @@
 				495B6C2C202A414A0024CDFB /* DetailViewController.swift in Sources */,
 				495B6C2A202A414A0024CDFB /* MasterViewController.swift in Sources */,
 				49BC1C6B20875AA000A7FC77 /* DocumentCloseAction.swift in Sources */,
-				49CC1EED214D2FA300C0C992 /* IntentFeatures.swift in Sources */,
 				4956B23C213C57EC00E9D2DE /* EmptyViewConttroller.swift in Sources */,
 				49BC1C6D20875AC300A7FC77 /* DocumentSaveAction.swift in Sources */,
 				49BC1C7D2088B89E00A7FC77 /* DocumentSharingFeature.swift in Sources */,
