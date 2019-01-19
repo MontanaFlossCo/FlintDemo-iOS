@@ -42,6 +42,7 @@ final class GetNoteAction: IntentAction {
     static func perform(context: ActionContext<InputType>, presenter: GetNoteAction.PresenterType, completion: Completion) -> Completion.Status {
         let response: GetNoteIntentResponse
         let outcome: ActionPerformOutcome
+        
         if let document = DocumentStore.shared.load(context.input.name) {
             response = .success(content: document.body)
             outcome = .successWithFeatureTermination
@@ -51,7 +52,7 @@ final class GetNoteAction: IntentAction {
             outcome = .failureWithFeatureTermination(error: Failure.documentNotFound)
         }
         
-        presenter.showResult(response: response)
+        presenter.showResponse(response)
         return completion.completedSync(outcome)
     }
 }
