@@ -21,10 +21,4 @@ class GetNoteIntentHandler: NSObject, GetNoteIntentHandling {
         let outcome = SiriFeature.getNote.perform(intent: intent, completion: completion)
         assert(outcome == .success, "Intent failed: \(outcome)")
     }
-    
-//    @objc(confirmGetNote:completion:)
-//    func confirm(intent: GetNoteIntent, completion: @escaping (GetNoteIntentResponse) -> Swift.Void) {
-//
-//    }
-
 }
