@@ -27,8 +27,6 @@ class IntentHandler: INExtension {
             case is GetNoteIntent: return GetNoteIntentHandler()
             default: fatalError("Unknown intent type: \(intent)")
         }
-
-        return GetNoteIntentHandler()
     }
     
 }
