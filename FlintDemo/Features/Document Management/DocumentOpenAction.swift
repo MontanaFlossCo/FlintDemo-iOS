@@ -27,7 +27,7 @@ final class DocumentOpenAction: UIAction {
     static var analyticsID: String? = "document-open"
 
     // Search is included in case targetting < iOS 12 which doesn't support prediction
-    static var activityTypes: Set<ActivityEligibility> = [.handoff, .search, .prediction]
+    static var activityEligibility: Set<ActivityEligibility> = [.handoff, .search, .prediction]
 
     static var suggestedInvocationPhrase: String? = "Show my notes"
 
