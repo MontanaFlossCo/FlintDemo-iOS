@@ -1,6 +1,7 @@
+# Flint Demo for iOS
+
 <img src="https://flint.tools/assets/img/logo-dark-on-white.svg" width="230" alt="Flint framework logo">
 
-# Flint Demo for iOS
 [![Build Status](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS.svg?branch=master)](https://travis-ci.org/MontanaFlossCo/FlintDemo-iOS)
 
 This is a sample project that uses [Flint](https://github.com/MontanaFlossCo/Flint) framework for Feature Driven Design.
@@ -12,6 +13,7 @@ This Master/Detail app provides simple "notes" gathering features with photo att
 * Disabling features for which required system permissions are not authorized (e.g. Photos)
 * Use Flint's Routes feature to implement custom URL schemes and deep linking
 * Use Flint's Activities to automatically support Handoff, Spotlight search etc.
+* Use Flint's Siri Intent extension support to allow getting note contents via a Shortcut with or without voice, without launching the app
 * Automatic analytics tracking
 * Contextual logging
 * Flint's "FlintUI" debug tools for browsing the feature hierarchy, Timeline, Focus logs and Action Stacks
@@ -23,6 +25,19 @@ Currently only Carthage is supported, so you'll need that installed.
 1. Check out the project
 2. Run `carthage bootstrap --platform iOS --cache-builds`
 3. Build and run the project in Xcode 9.2 or higher
+
+## How the app uses Flint
+
+The app bootstraps Flint with the [available features here](x-source-tag://flint-bootstrapping).
+
+The [top-level App Features are defined](x-source-tag://app-features), with the most interesting being [DocumentManagementFeature](x-source-tag://document-management) which exposes actions that are URL mapped and used via Activities.
+
+The App Delegate receives [open URL](x-source-tag://application-open-url) and [continue Activity](x-source-tag://application-continue-activity) requests from the system and uses Flint to dispatch the relevant actions.
+
+The camera permissions are requested automatically by Flint when trying to perform the [Select Photo action](x-source-tag://select-photo), and any causes for failure to perform the conditional actions are [handled by the app using Flint's information about the unfulfilled feature constraints](x-source-tag://permissions-handling).  
+
+For Siri Intent handling, the Intent extension's main [intent handler sets up Flint](x-source-tag://intenthandler). It returns the 
+intent [handler for the Get Note intent shortcut](x-source-tag://getnote-handler) which performs the [GetNoteAction](x-source-tag://getnote).  
 
 ## Using the app
 
@@ -78,3 +93,12 @@ To test it:
 1. Create a series of documents on one device, giving them useful text in the content so you can see which is which, using some unique words
 2. Go to the home screen, pull down for search, and type in some of those "unique words" or "Flint demo" to see the documents
 3. Tap a document to open the app on that document
+
+### To test Siri
+
+1. On your device or simulator, go to Settings > Developer and turn on the debugging options to show all recent shortcuts
+2. Create at least one document in the app with a simple title like "Testing"
+3. Pull down to search with Siri and see recent activities and shortcuts listed, there will be "Open Testing" which is an activity, and "Get document with name "Testing"". The latter is the intent-based shortcut. Tap to show the contents of the note in Siri.  
+4. Alternatively, in the FlintDemo app you can view a note and tap the "Add to Siri" button at the top right to add a voice shortcut that will open the app at that document.
+
+

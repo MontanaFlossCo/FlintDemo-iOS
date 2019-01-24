@@ -13,6 +13,7 @@ var hasRunFlintSetup = false
 
 class IntentHandler: INExtension {
 
+    /// - Tag: intenthandler
     override init() {
         super.init()
         if !hasRunFlintSetup {

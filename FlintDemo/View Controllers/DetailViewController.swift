@@ -157,6 +157,7 @@ class DetailViewController: UIViewController {
     
     var permissionController: AuthorisationController?
     
+    /// - Tag: select-photo
     func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
             request.perform(presenter: self)
@@ -165,6 +166,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    /// - Tag: permissions-handling
     func handleUnsatisfiedConstraints<T>(for feature: T.Type, retry retryHandler: (() -> Void)?) where T: ConditionalFeature {
         // Check for required permissions that are restricted on this device through parental controls or a profile.
         // We must ask for these first in case the user purchases a feature they cannot use

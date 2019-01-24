@@ -10,6 +10,8 @@ import Foundation
 import FlintCore
 
 /// This is the root level of feature groupings for this app.
+///
+/// - Tag: app-features
 final class AppFeatures: FeatureGroup {
     static var description = "Demo app features"
     

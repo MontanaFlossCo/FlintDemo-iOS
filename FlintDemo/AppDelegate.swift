@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var presentationRouter: SimplePresentationRouter!
 
+    /// - Tag: flint-bootstrapping
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Flint.quickSetup(AppFeatures.self, domains: ["mysite.com"], initialDebugLogLevel: .debug)
@@ -57,12 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
     
+    /// - Tag: application-open-url
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         /// !!! TODO: Handle open-in-place etc. from options
         let result: MappedActionResult = Flint.open(url: url, with: presentationRouter)
         return result == .success
     }
     
+    /// - Tag: application-continue-activity
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         /// !!! TODO: Need to ask if the activity is supported at all, or if the app has custom handling
         return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success

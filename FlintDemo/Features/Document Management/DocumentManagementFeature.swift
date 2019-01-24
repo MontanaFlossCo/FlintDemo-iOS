@@ -12,6 +12,8 @@ import FlintCore
 /// This feature describes all the core interactions with documents in the app.
 ///
 /// URL mappings are provided for triggering `create` and `open`, showing both custom and default schemes and domains.
+///
+/// - Tag: document-management
 final class DocumentManagementFeature: Feature, URLMapped {
     static let description = "Create, Open and Save documents"
 

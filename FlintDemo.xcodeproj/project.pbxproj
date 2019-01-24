@@ -63,7 +63,6 @@
 		49BC1C842088CF1C00A7FC77 /* DocumentEditingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C832088CF1C00A7FC77 /* DocumentEditingPresenter.swift */; };
 		49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C872088CF4900A7FC77 /* DocumentSavePresenter.swift */; };
 		49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BC1C892088CF6900A7FC77 /* DocumentCreatePresenter.swift */; };
-		49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49BC1C8B2088D1ED00A7FC77 /* README.md */; };
 		49C10982209C598400953AE9 /* PhotoAttachmentsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10981209C598400953AE9 /* PhotoAttachmentsFeature.swift */; };
 		49C10984209C599D00953AE9 /* DocumentEditingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10983209C599D00953AE9 /* DocumentEditingFeature.swift */; };
 		49C10986209C5B0400953AE9 /* ShowPhotoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C10985209C5B0400953AE9 /* ShowPhotoSelectionAction.swift */; };
@@ -570,7 +569,6 @@
 			files = (
 				495B6C34202A414A0024CDFB /* LaunchScreen.storyboard in Resources */,
 				495B6C31202A414A0024CDFB /* Assets.xcassets in Resources */,
-				49BC1C8C2088D1ED00A7FC77 /* README.md in Resources */,
 				495B6C2F202A414A0024CDFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

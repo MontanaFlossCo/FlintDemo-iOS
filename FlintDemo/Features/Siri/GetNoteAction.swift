@@ -10,10 +10,9 @@ import Foundation
 import FlintCore
 import Intents
 
-//@available(iOS 12, *)
-//typealias GetNoteSiriPresenter = BaseIntentResultPresenter<GetNoteIntentResponse>
-
 /// Take a Siri Intent for "Get Note" and try to load and present the result in Siri
+///
+/// - Tag: getnote
 @available(iOS 12, *)
 final class GetNoteAction: IntentAction {
     typealias InputType = DocumentRef

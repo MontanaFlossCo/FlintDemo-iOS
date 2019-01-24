@@ -14,6 +14,8 @@ import FlintCore
 ///
 /// We simply call in to Flint and pass the `intent` instance. Flint will dispatch the Action and
 /// pass the presenter to the action so that it can provide results to Siri, or instruct it to open the app.
+///
+/// - Tag: getnote-intent
 @objc
 class GetNoteIntentHandler: NSObject, GetNoteIntentHandling {
     @objc(handleGetNote:completion:)
