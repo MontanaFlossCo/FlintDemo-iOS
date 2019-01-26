@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlintCore
 import FlintUI
 
 class DebugOptionsViewController: UITableViewController {
@@ -50,9 +51,22 @@ class DebugOptionsViewController: UITableViewController {
         navigationController!.pushViewController(vc, animated: true)
     }
 
+    @objc public func shareReport() {
+        let url = DebugReporting.gatherReportZip(options: [])
+        let shareViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        shareViewController.completionWithItemsHandler = { _, _, _, _ in
+            try? FileManager.default.removeItem(at: url)
+        }
+        present(shareViewController, animated: true)
+    }
+
     // MARK: Actions
     
     @IBAction func doneTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func exportReportTapped(_ sender: Any) {
+        shareReport()
     }
 }
