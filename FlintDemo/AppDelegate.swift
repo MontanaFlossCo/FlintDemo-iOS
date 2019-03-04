@@ -21,9 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     /// - Tag: flint-bootstrapping
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        FlintAppInfo.associatedDomains = ["mysite.com"]
-        Flint.quickSetup(AppFeatures.self, domains:["mysite.com"], initialDebugLogLevel: .debug, initialProductionLogLevel: .info)
+        let storeKitTracker = try! StoreKitPurchaseTracker(appGroupIdentifier: FlintAppInfo.appGroupIdentifier)
+        Flint.purchaseTracker = DebugPurchaseTracker(targetPurchaseTracker: storeKitTracker)
 
+        Flint.quickSetup(AppFeatures.self, domains:["mysite.com"], initialDebugLogLevel: .debug, initialProductionLogLevel: .info)
         Flint.register(group: FlintUIFeatures.self)
         
         // Override point for customization after application launch.

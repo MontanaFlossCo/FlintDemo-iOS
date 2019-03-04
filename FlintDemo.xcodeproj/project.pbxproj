@@ -42,6 +42,7 @@
 		495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C5F202B567B0024CDFB /* AppFeatures.swift */; };
 		495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */; };
 		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
+		49638B7B22203D7C0054C7AA /* MyInAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */; };
 		499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
 		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
@@ -75,6 +76,7 @@
 		49CC1EF3214D4F5C00C0C992 /* GetNoteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */; };
 		49CC1EF4214D523300C0C992 /* FlintDemoSiriIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 493267722146771700CC88CB /* FlintDemoSiriIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB924A207505AF00F758DC /* DocumentStore.swift */; };
+		49ECBABC222B077100C2093C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECBABB222B077100C2093C /* StoreKit.framework */; };
 		49F550B7204C1C80009ADE2D /* DebugOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +148,7 @@
 		495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManagementFeature.swift; sourceTree = "<group>"; };
 		495B6C6A202B67380024CDFB /* FlintDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlintDemo.entitlements; sourceTree = "<group>"; };
 		495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInterfaceRouter.swift; sourceTree = "<group>"; };
+		49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInAppPurchases.swift; sourceTree = "<group>"; };
 		499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentRef+FlintAdditions.swift"; sourceTree = "<group>"; };
 		49A693712088D66300EC522A /* FlintCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintCore.framework; path = Carthage/Build/iOS/FlintCore.framework; sourceTree = "<group>"; };
 		49A693722088D66400EC522A /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 		49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
 		49E4C3CA2187146B00DD959F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		49ECBABB222B077100C2093C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49ECBABC222B077100C2093C /* StoreKit.framework in Frameworks */,
 				49A693742088D66400EC522A /* FlintCore.framework in Frameworks */,
 				49A693762088D66400EC522A /* FlintUI.framework in Frameworks */,
 			);
@@ -284,10 +289,11 @@
 				495B6C6A202B67380024CDFB /* FlintDemo.entitlements */,
 				495B6C27202A414A0024CDFB /* AppDelegate.swift */,
 				495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */,
-				495B6C2D202A414A0024CDFB /* Main.storyboard */,
 				495B6C30202A414A0024CDFB /* Assets.xcassets */,
 				495B6C32202A414A0024CDFB /* LaunchScreen.storyboard */,
+				495B6C2D202A414A0024CDFB /* Main.storyboard */,
 				495B6C35202A414A0024CDFB /* Info.plist */,
+				49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */,
 			);
 			path = FlintDemo;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 		49BC1C8D2088D52F00A7FC77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49ECBABB222B077100C2093C /* StoreKit.framework */,
 				49A693712088D66300EC522A /* FlintCore.framework */,
 				49A693732088D66400EC522A /* FlintUI.framework */,
 				49A693722088D66400EC522A /* ZIPFoundation.framework */,
@@ -509,6 +516,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.SafariKeychain = {
@@ -674,6 +684,7 @@
 				49CC1EF1214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */,
 				49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */,
+				49638B7B22203D7C0054C7AA /* MyInAppPurchases.swift in Sources */,
 				495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */,
 				49BC1C75208790E000A7FC77 /* DocumentRef.swift in Sources */,
 				49BC1C7A208881BB00A7FC77 /* DocumentDeleteAction.swift in Sources */,

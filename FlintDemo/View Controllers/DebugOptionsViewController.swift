@@ -12,9 +12,11 @@ import FlintUI
 
 class DebugOptionsViewController: UITableViewController {
     enum DebugOption: Int {
-        case actionHistory
-        case actionActionStacks
+        case timeline
+        case actionStacks
         case browseFeatures
+        case browsePurchases
+        case browseFocusLogs
     }
     
     override func viewDidLoad() {
@@ -37,18 +39,28 @@ class DebugOptionsViewController: UITableViewController {
             preconditionFailure()
         }
         
-        let vc: UIViewController
-        
         switch option {
-            case .actionHistory:
-                vc = TimelineViewController.instantiate()
-            case .actionActionStacks:
-                vc = ActionStackListViewController.instantiate()
+            case .timeline:
+                if let request = TimelineBrowserFeature.show.request() {
+                    request.perform(presenter: navigationController ?? self)
+                }
+            case .actionStacks:
+                if let request = ActionStackBrowserFeature.show.request() {
+                    request.perform(presenter: navigationController ?? self)
+                }
             case .browseFeatures:
-                vc = FeatureBrowserViewController.instantiate()
+                if let request = FeatureBrowserFeature.show.request() {
+                    request.perform(presenter: navigationController ?? self)
+                }
+            case .browsePurchases:
+                if let request = PurchaseBrowserFeature.show.request() {
+                    request.perform(presenter: navigationController ?? self)
+                }
+            case .browseFocusLogs:
+                if let request = LogBrowserFeature.show.request() {
+                    request.perform(presenter: navigationController ?? self)
+                }
         }
-        
-        navigationController!.pushViewController(vc, animated: true)
     }
 
     @objc public func shareReport() {
