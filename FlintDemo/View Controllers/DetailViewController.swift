@@ -172,7 +172,7 @@ class DetailViewController: UIViewController {
         // We must ask for these first in case the user purchases a feature they cannot use
         if feature.permissions.restricted.count > 0 {
             let permissions = feature.permissions.restricted.map({ String(describing: $0) }).joined(separator: ", ")
-            let alertController = UIAlertController(title: "Permissiones are restricted!",
+            let alertController = UIAlertController(title: "Permissions are restricted!",
                                                     message: "\(feature.name) requires permissions that are restricted on your device: \(permissions)",
                                                     preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -181,9 +181,12 @@ class DetailViewController: UIViewController {
         }
         
         // Check for required purchases next, only if there are no permissions that are restricted
-        if feature.purchases.requiredToUnlock.count > 0 {
+        // Note this is a simplified implementation. If multiple requirements are able to unlock this feature,
+        // more complex logic is requird
+        if let purchaseOption = feature.purchases.requiredToUnlock.first {
+            let products = purchaseOption.products.map { $0.name }
             let alertController = UIAlertController(title: "Purchase required!",
-                                                    message: "Sorry but \(feature.name) is a premium feature. Please make a purchase to unlock this feature.",
+                                                    message: "Sorry but \(feature.name) is a premium feature. Go to Debug to fake the purchase \(products.joined(separator: ", ")) to unlock this feature.",
                                                     preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true)
@@ -193,7 +196,7 @@ class DetailViewController: UIViewController {
         // Check for required permissions that are already denied
         if feature.permissions.denied.count > 0 {
             let permissions = feature.permissions.denied.map({ String(describing: $0) }).joined(separator: ", ")
-            let alertController = UIAlertController(title: "Permissiones are denied!",
+            let alertController = UIAlertController(title: "Permissions are denied!",
                                                     message: "\(feature.name) requires permissions that you have denied. Please go to Settings to enable them: \(permissions)",
                                                     preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
