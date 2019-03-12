@@ -40,6 +40,7 @@ class TestingStore: NSObject, SKProductsRequestDelegate {
             return
         }
         let payment = SKMutablePayment(product: productToPurchase)
+        payment.quantity = 1
         SKPaymentQueue.default().add(payment)
     }
 

@@ -10,9 +10,10 @@ import UIKit
 import FlintCore
 import FlintUI
 import Intents
+import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate, SKPaymentTransactionObserver {
 
     var window: UIWindow?
 
@@ -28,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Flint.register(group: FlintUIFeatures.self)
         
         // Now we are ready to do our App stuff.
-        
+
+        SKPaymentQueue.default().add(self)
+
+
         // This is just for internal Flint team testing of IAPs.
         TestingStore.shared.requestProducts([InAppPurchases.attachments])
         
@@ -46,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 SiriFeature.getNote.donateToSiri(for: firstDocument.documentRef)
             }
         }
+        
+        // For testing only
+        // clearTransactions()
+        
         return true
     }
     
@@ -115,3 +123,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 }
 
+/// Payment queue delegate code purely for debugging IAPs when running in the store sandbox.
+extension AppDelegate {
+    func clearTransactions() {
+        SKPaymentQueue.default().transactions.forEach {
+            SKPaymentQueue.default().finishTransaction($0)
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for txn in transactions {
+            print("updatedTransaction \(txn): \(txn.transactionState.rawValue) - product \(txn.payment.productIdentifier)")
+            switch txn.transactionState {
+                case .failed:
+                    print("updatedTransaction \(txn) error: \(txn.error)")
+                    SKPaymentQueue.default().finishTransaction(txn)
+                case .purchased, .restored:
+                    SKPaymentQueue.default().finishTransaction(txn)
+                default:
+                    break
+            }
+        }
+        return
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+    }
+}
