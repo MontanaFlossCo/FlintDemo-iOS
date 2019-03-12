@@ -12,5 +12,6 @@ import FlintCore
 enum InAppPurchases {
     static let attachments = Product(name: "Media Attachments",
                                      description: "Add photos to notes",
-                                     productID: "NONCONSUMABLE0001")
+                                     productID: "NONCONSUMABLE0002")
 }
+ u

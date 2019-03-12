@@ -27,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Flint.quickSetup(AppFeatures.self, domains:["mysite.com"], initialDebugLogLevel: .debug, initialProductionLogLevel: .info)
         Flint.register(group: FlintUIFeatures.self)
         
+        // Now we are ready to do our App stuff.
+        
+        // This is just for internal Flint team testing of IAPs.
+        TestingStore.shared.requestProducts([InAppPurchases.attachments])
+        
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
         let primaryNavigationController = splitViewController.viewControllers.first as! UINavigationController

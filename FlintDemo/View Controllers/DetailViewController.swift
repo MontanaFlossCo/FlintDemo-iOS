@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import FlintCore
 import PhotosUI
 
@@ -189,6 +190,12 @@ class DetailViewController: UIViewController {
                                                     message: "Sorry but \(feature.name) is a premium feature. Go to Debug to fake the purchase \(products.joined(separator: ", ")) to unlock this feature.",
                                                     preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            // This is just for internal testing by the Flint team. See `TestingStore`
+            alertController.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
+                TestingStore.shared.purchase(purchaseOption.products.first!)
+            }))
+            
             present(alertController, animated: true)
             return
         }

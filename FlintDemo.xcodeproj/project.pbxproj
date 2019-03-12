@@ -42,7 +42,8 @@
 		495B6C60202B567B0024CDFB /* AppFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C5F202B567B0024CDFB /* AppFeatures.swift */; };
 		495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */; };
 		495B6C6E202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */; };
-		49638B7B22203D7C0054C7AA /* MyInAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */; };
+		49638B7B22203D7C0054C7AA /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49638B7A22203D7C0054C7AA /* InAppPurchases.swift */; };
+		496C81B82236875E00DE208C /* TestingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496C81B72236875E00DE208C /* TestingStore.swift */; };
 		499A2D8420FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */; };
 		49A693742088D66400EC522A /* FlintCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693712088D66300EC522A /* FlintCore.framework */; };
 		49A693762088D66400EC522A /* FlintUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A693732088D66400EC522A /* FlintUI.framework */; };
@@ -148,7 +149,8 @@
 		495B6C62202B572A0024CDFB /* DocumentManagementFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManagementFeature.swift; sourceTree = "<group>"; };
 		495B6C6A202B67380024CDFB /* FlintDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlintDemo.entitlements; sourceTree = "<group>"; };
 		495B6C6D202B6B5F0024CDFB /* SimpleUserInterfaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUserInterfaceRouter.swift; sourceTree = "<group>"; };
-		49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInAppPurchases.swift; sourceTree = "<group>"; };
+		49638B7A22203D7C0054C7AA /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
+		496C81B72236875E00DE208C /* TestingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStore.swift; sourceTree = "<group>"; };
 		499A2D8320FC9ABB009C8121 /* DocumentRef+FlintAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentRef+FlintAdditions.swift"; sourceTree = "<group>"; };
 		49A693712088D66300EC522A /* FlintCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FlintCore.framework; path = Carthage/Build/iOS/FlintCore.framework; sourceTree = "<group>"; };
 		49A693722088D66400EC522A /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		495B6C26202A414A0024CDFB /* FlintDemo */ = {
 			isa = PBXGroup;
 			children = (
+				496C81B62236873200DE208C /* Testing */,
 				49BC1C762087C03E00A7FC77 /* View Controllers */,
 				495B6C5E202B56710024CDFB /* Features */,
 				49DB92492075059F00F758DC /* Model */,
@@ -293,7 +296,7 @@
 				495B6C32202A414A0024CDFB /* LaunchScreen.storyboard */,
 				495B6C2D202A414A0024CDFB /* Main.storyboard */,
 				495B6C35202A414A0024CDFB /* Info.plist */,
-				49638B7A22203D7C0054C7AA /* MyInAppPurchases.swift */,
+				49638B7A22203D7C0054C7AA /* InAppPurchases.swift */,
 			);
 			path = FlintDemo;
 			sourceTree = "<group>";
@@ -318,6 +321,14 @@
 				495B6C5F202B567B0024CDFB /* AppFeatures.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		496C81B62236873200DE208C /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				496C81B72236875E00DE208C /* TestingStore.swift */,
+			);
+			path = Testing;
 			sourceTree = "<group>";
 		};
 		49AF95D721F37D0C00DF5327 /* Handlers */ = {
@@ -663,6 +674,7 @@
 				49BC1C8A2088CF6900A7FC77 /* DocumentCreatePresenter.swift in Sources */,
 				49C10988209C5BB700953AE9 /* CancelPhotoSelectionAction.swift in Sources */,
 				49BC1C7F2088B94000A7FC77 /* DocumentShareAction.swift in Sources */,
+				496C81B82236875E00DE208C /* TestingStore.swift in Sources */,
 				49C1098C209C60D400953AE9 /* RemovePhotoAction.swift in Sources */,
 				49DB924B207505AF00F758DC /* DocumentStore.swift in Sources */,
 				49C10986209C5B0400953AE9 /* ShowPhotoSelectionAction.swift in Sources */,
@@ -684,7 +696,7 @@
 				49CC1EF1214D4F5C00C0C992 /* GetNoteAction.swift in Sources */,
 				495B6C28202A414A0024CDFB /* AppDelegate.swift in Sources */,
 				49BC1C882088CF4900A7FC77 /* DocumentSavePresenter.swift in Sources */,
-				49638B7B22203D7C0054C7AA /* MyInAppPurchases.swift in Sources */,
+				49638B7B22203D7C0054C7AA /* InAppPurchases.swift in Sources */,
 				495B6C63202B572A0024CDFB /* DocumentManagementFeature.swift in Sources */,
 				49BC1C75208790E000A7FC77 /* DocumentRef.swift in Sources */,
 				49BC1C7A208881BB00A7FC77 /* DocumentDeleteAction.swift in Sources */,
