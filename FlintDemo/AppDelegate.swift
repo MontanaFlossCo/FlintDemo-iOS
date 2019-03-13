@@ -30,11 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         // Now we are ready to do our App stuff.
 
-        SKPaymentQueue.default().add(self)
-
-
+        // For debugging real IAPs against store only
         // This is just for internal Flint team testing of IAPs.
-        TestingStore.shared.requestProducts([InAppPurchases.attachments])
+        // SKPaymentQueue.default().add(self)
+        // TestingStore.shared.requestProducts([InAppPurchases.attachments])
         
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
@@ -136,7 +135,7 @@ extension AppDelegate {
             print("updatedTransaction \(txn): \(txn.transactionState.rawValue) - product \(txn.payment.productIdentifier)")
             switch txn.transactionState {
                 case .failed:
-                    print("updatedTransaction \(txn) error: \(txn.error)")
+                    print("updatedTransaction \(txn) error: \(String(describing: txn.error))")
                     SKPaymentQueue.default().finishTransaction(txn)
                 case .purchased, .restored:
                     SKPaymentQueue.default().finishTransaction(txn)

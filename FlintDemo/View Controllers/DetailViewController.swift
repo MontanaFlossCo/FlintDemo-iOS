@@ -192,9 +192,9 @@ class DetailViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
             // This is just for internal testing by the Flint team. See `TestingStore`
-            alertController.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
-                TestingStore.shared.purchase(purchaseOption.products.first!)
-            }))
+            // alertController.addAction(UIAlertAction(title: "Purchase", style: .default, handler: { _ in
+            //     TestingStore.shared.purchase(purchaseOption.products.first!)
+            // }))
             
             present(alertController, animated: true)
             return
