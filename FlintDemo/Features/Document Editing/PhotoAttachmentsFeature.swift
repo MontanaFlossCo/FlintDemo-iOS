@@ -16,7 +16,9 @@ final class PhotoAttachmentsFeature: ConditionalFeature {
         requirements.permissions(.photos, .camera)
         requirements.permission(.contacts(entity: .contacts))
         
-        requirements.purchase(InAppPurchases.attachments)
+//        requirements.purchase(.anyOf([InAppPurchases.unlockAttachments, InAppPurchases.unlockAll]))
+//        requirements.purchase(InAppPurchases.unlockAll)
+        requirements.purchase(InAppPurchases.unlockAttachments)
     }
     
     static var description: String = "Attach and remove a photo in a document"

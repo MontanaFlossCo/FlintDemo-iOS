@@ -14,9 +14,11 @@ import FlintCore
 /// This requires the IAPs configured for this app in App Store Connect which is why you can't use it.
 @objc
 class TestingStore: NSObject, SKProductsRequestDelegate {
-    var products: [SKProduct] = []
-    let logging: ContextSpecificLogger?
-    var productsRequest: SKProductsRequest?
+    public var isEnabled: Bool = false
+    
+    private var products: [SKProduct] = []
+    private let logging: ContextSpecificLogger?
+    private var productsRequest: SKProductsRequest?
 
     static var shared = TestingStore()
     

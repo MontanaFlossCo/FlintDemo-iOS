@@ -22,18 +22,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     /// - Tag: flint-bootstrapping
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        // Set up the StoreKit tracker
         let storeKitTracker = try! StoreKitPurchaseTracker(appGroupIdentifier: FlintAppInfo.appGroupIdentifier)
         Flint.purchaseTracker = DebugPurchaseTracker(targetPurchaseTracker: storeKitTracker)
 
+        // Set up Flint straight away so we have logging all ready
         Flint.quickSetup(AppFeatures.self, domains:["mysite.com"], initialDebugLogLevel: .debug, initialProductionLogLevel: .info)
+
+        // Add the Flint UI features
         Flint.register(group: FlintUIFeatures.self)
+
+        // Uncomment this to enable "Focus" logging to focus on a specific set of topics
+//        if let request = FocusFeature.focus.request() {
+//            request.perform(input: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
+//        }
         
         // Now we are ready to do our App stuff.
 
         // For debugging real IAPs against store only
         // This is just for internal Flint team testing of IAPs.
-        // SKPaymentQueue.default().add(self)
-        // TestingStore.shared.requestProducts([InAppPurchases.attachments])
+        if TestingStore.shared.isEnabled {
+             SKPaymentQueue.default().add(self)
+             TestingStore.shared.requestProducts([InAppPurchases.unlockAttachments])
+        }
         
         // Override point for customization after application launch.
         let splitViewController = window!.rootViewController as! UISplitViewController
@@ -44,14 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         presentationRouter = SimplePresentationRouter(navigationController: primaryNavigationController)
         
-        if let firstDocumentInfo = DocumentStore.shared.listDocuments().first {
-            if let firstDocument = DocumentStore.shared.load(firstDocumentInfo.name) {
-                SiriFeature.getNote.donateToSiri(for: firstDocument.documentRef)
-            }
+        // For testing IAPs only
+        if TestingStore.shared.isEnabled {
+            clearTransactions()
         }
-        
-        // For testing only
-        // clearTransactions()
         
         return true
     }
