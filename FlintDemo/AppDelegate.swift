@@ -22,12 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     /// - Tag: flint-bootstrapping
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        // Set up the StoreKit tracker
-        let storeKitTracker = try! StoreKitPurchaseTracker(appGroupIdentifier: FlintAppInfo.appGroupIdentifier)
-        Flint.purchaseTracker = DebugPurchaseTracker(targetPurchaseTracker: storeKitTracker)
-
         // Set up Flint straight away so we have logging all ready
-        Flint.quickSetup(AppFeatures.self, domains:["mysite.com"], initialDebugLogLevel: .debug, initialProductionLogLevel: .info)
+        Flint.quickSetup(AppFeatures.self,
+                         domains:["mysite.com"],
+                         initialDebugLogLevel: .debug,
+                         initialProductionLogLevel: .info) { dependencies in
+            // Set up the StoreKit tracker
+            let storeKitTracker = try! StoreKitPurchaseTracker(appGroupIdentifier: FlintAppInfo.appGroupIdentifier)
+            dependencies.purchaseTracker = DebugPurchaseTracker(targetPurchaseTracker: storeKitTracker)
+        }
 
         // Add the Flint UI features
         Flint.register(group: FlintUIFeatures.self)
