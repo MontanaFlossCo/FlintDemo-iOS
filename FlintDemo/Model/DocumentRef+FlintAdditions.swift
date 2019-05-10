@@ -7,11 +7,8 @@
 //
 
 import Foundation
-#if os(macOS)
-import CoreServices
-#else
 import MobileCoreServices
-#endif
+import UIKit
 import CoreSpotlight
 import FlintCore
 
