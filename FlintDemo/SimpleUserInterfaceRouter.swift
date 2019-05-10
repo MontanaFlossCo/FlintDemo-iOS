@@ -8,6 +8,7 @@
 
 import Foundation
 import FlintCore
+import UIKit
 
 /// This class is used to provide the UI
 class SimplePresentationRouter: PresentationRouter {
