@@ -42,23 +42,23 @@ class DebugOptionsViewController: UITableViewController {
         switch option {
             case .timeline:
                 if let request = TimelineBrowserFeature.show.request() {
-                    request.perform(presenter: navigationController ?? self)
+                    request.perform(withPresenter: navigationController ?? self)
                 }
             case .actionStacks:
                 if let request = ActionStackBrowserFeature.show.request() {
-                    request.perform(presenter: navigationController ?? self)
+                    request.perform(withPresenter: navigationController ?? self)
                 }
             case .browseFeatures:
                 if let request = FeatureBrowserFeature.show.request() {
-                    request.perform(presenter: navigationController ?? self)
+                    request.perform(withPresenter: navigationController ?? self)
                 }
             case .browsePurchases:
                 if let request = PurchaseBrowserFeature.show.request() {
-                    request.perform(presenter: navigationController ?? self)
+                    request.perform(withPresenter: navigationController ?? self)
                 }
             case .browseFocusLogs:
                 if let request = LogBrowserFeature.show.request() {
-                    request.perform(presenter: navigationController ?? self)
+                    request.perform(withPresenter: navigationController ?? self)
                 }
         }
     }

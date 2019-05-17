@@ -33,7 +33,7 @@ final class DocumentOpenAction: UIAction {
 
     // The donateToSiri functionality will call this. 
     @available(iOS 12, *)
-    static func associatedIntents(for input: InputType) -> [FlintIntent]? {
+    static func associatedIntents(forInput input: InputType) throws -> [FlintIntent]? {
         let result = GetNoteIntent()
         result.documentName = input.name
         result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)

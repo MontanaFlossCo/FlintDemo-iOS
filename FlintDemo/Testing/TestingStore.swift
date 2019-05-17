@@ -23,7 +23,7 @@ class TestingStore: NSObject, SKProductsRequestDelegate {
     static var shared = TestingStore()
     
     override public init() {
-        logging = Logging.development?.contextualLogger(with: "Store", topicPath: ["IAPs"])
+        logging = Logging.development?.contextualLogger(activity: "Store", topicPath: ["IAPs"])
         super.init()
     }
     

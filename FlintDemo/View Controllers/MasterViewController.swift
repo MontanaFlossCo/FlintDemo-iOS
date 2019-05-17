@@ -21,7 +21,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             guard let ref = selectedDocumentRef else {
                 return
             }
-            if let indexOfDoc = documentInfos.index(where: { $0.documentRef.name == ref.name }) {
+            if let indexOfDoc = documentInfos.firstIndex(where: { $0.documentRef.name == ref.name }) {
                 let index = IndexPath(row: indexOfDoc, section: 0)
                 tableView.selectRow(at: index, animated: true, scrollPosition: .none)
             }
@@ -47,7 +47,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
 
     @objc
     func createNewDocument(_ sender: Any) {
-        DocumentManagementFeature.createNew.perform(presenter: self)
+        DocumentManagementFeature.createNew.perform(withPresenter: self)
     }
     
     // MARK: - Segues
@@ -85,16 +85,16 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let documentRef = documentInfos[indexPath.row].documentRef
-            DocumentManagementFeature.deleteDocument.perform(input: documentRef, presenter: self)
+            DocumentManagementFeature.deleteDocument.perform(withInput: documentRef, presenter: self)
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let documentInfo = documentInfos[indexPath.row]
-        DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: self)
+        DocumentManagementFeature.openDocument.perform(withInput: documentInfo.documentRef, presenter: self)
     }
 
     // MARK: Document Create Presenter
@@ -106,13 +106,13 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
             let document = Document(name: name, body: "Write something interesting", modifiedDate: Date())
             // Save the new document, but flag it as not user initiated so we don't think they actually chose to "Save",
             // otherwise every Create action also has a Save action
-            DocumentManagementFeature.saveDocument.perform(input: document,
+            DocumentManagementFeature.saveDocument.perform(withInput: document,
                                                            presenter: self,
                                                            userInitiated: false,
                                                            source: .application,
                                                            completion: { outcome in
                                                                 if case .success = outcome {
-                                                                    DocumentManagementFeature.openDocument.perform(input: document.documentRef, presenter: self)
+                                                                    DocumentManagementFeature.openDocument.perform(withInput: document.documentRef, presenter: self)
                                                                 }
                                                            })
         }))
@@ -147,7 +147,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
     }
     
     func didUpdate(documentInfo: DocumentInfo) {
-        let indexOfOldDocument = documentInfos.index {
+        let indexOfOldDocument = documentInfos.firstIndex {
             return $0.name == documentInfo.name
         }
         guard let oldIndex = indexOfOldDocument else {
@@ -156,7 +156,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
         var newDocumentInfos = documentInfos
         newDocumentInfos[oldIndex] = documentInfo
         newDocumentInfos = applySort(to: newDocumentInfos)
-        let newIndex = newDocumentInfos.index(where: {
+        let newIndex = newDocumentInfos.firstIndex(where: {
             return $0.name == documentInfo.name
         })!
 
@@ -165,7 +165,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
     }
     
     func didRemove(documentRef: DocumentRef) {
-        let indexOfOldDocument = documentInfos.index {
+        let indexOfOldDocument = documentInfos.firstIndex {
             return $0.name == documentRef.name
         }
         guard let oldIndex = indexOfOldDocument else {
@@ -190,7 +190,7 @@ class MasterViewController: UITableViewController, DocumentCreatePresenter, Docu
                         newOpenIndex = strongSelf.documentInfos.count-1
                     }
                     let documentInfo = strongSelf.documentInfos[newOpenIndex]
-                    DocumentManagementFeature.openDocument.perform(input: documentInfo.documentRef, presenter: strongSelf)
+                    DocumentManagementFeature.openDocument.perform(withInput: documentInfo.documentRef, presenter: strongSelf)
                 }
             }
         })
