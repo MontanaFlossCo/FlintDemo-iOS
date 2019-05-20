@@ -139,7 +139,7 @@ class DetailViewController: UIViewController {
             guard let documentRef = documentRef else {
                 fatalError("There's no active document")
             }
-            try? DocumentManagementFeature.openDocument.addVoiceShortcut(forInput: documentRef, presenter: self, completion: { _ in })
+            try? DocumentManagementFeature.openDocument.addVoiceShortcut(withInput: documentRef, presenter: self, completion: { _ in })
         }
 #endif
     }

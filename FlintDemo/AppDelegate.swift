@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         // Uncomment this to enable "Focus" logging to focus on a specific set of topics
 //        if let request = FocusFeature.focus.request() {
-//            request.perform(input: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
+//            request.perform(withInput: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
 //        }
         
         // Now we are ready to do our App stuff.

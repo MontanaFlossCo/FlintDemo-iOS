@@ -1,1 +1,2 @@
-github "MontanaFlossCo/Flint" "master"
+github "MontanaFlossCo/Flint" ~> 1.0
+

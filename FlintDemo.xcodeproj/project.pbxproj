@@ -259,7 +259,6 @@
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
-				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
 				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
@@ -267,6 +266,7 @@
 				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
 				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
+				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				495B6C25202A414A0024CDFB /* Products */,
 			);
 			sourceTree = "<group>";

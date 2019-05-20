@@ -18,13 +18,12 @@ final class GetNoteAction: IntentAction {
     typealias InputType = DocumentRef
     typealias IntentType = GetNoteIntent
     typealias IntentResponseType = GetNoteIntentResponse
-//    typealias PresenterType = IntentResponsePresenter<IntentResponseType>
     
     enum Failure: Error {
         case documentNotFound
     }
     
-    static func intent(forInput input: DocumentRef) -> GetNoteIntent? {
+    static func intent(withInput input: DocumentRef) -> GetNoteIntent? {
         let result = GetNoteIntent()
         result.documentName = input.name
         result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)
