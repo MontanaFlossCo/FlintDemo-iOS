@@ -182,7 +182,6 @@
 		49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentFeatures.swift; sourceTree = "<group>"; };
 		49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
-		49E4C3CA2187146B00DD959F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		49ECBABB222B077100C2093C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
-				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
 				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,

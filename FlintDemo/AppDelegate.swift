@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Flint.register(group: FlintUIFeatures.self)
 
         // Uncomment this to enable "Focus" logging to focus on a specific set of topics
-//        if let request = FocusFeature.focus.request() {
-//            request.perform(withInput: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
-//        }
+        // if let request = FocusFeature.focus.request() {
+        //     request.perform(withInput: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
+        // }
         
         // Now we are ready to do our App stuff.
 
@@ -85,14 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     /// - Tag: application-open-url
     internal func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        /// !!! TODO: Handle open-in-place etc. from options
         let result: MappedActionResult = Flint.open(url: url, with: presentationRouter)
         return result == .success
     }
     
     /// - Tag: application-continue-activity
     private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        /// !!! TODO: Need to ask if the activity is supported at all, or if the app has custom handling
         return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
     }
 
