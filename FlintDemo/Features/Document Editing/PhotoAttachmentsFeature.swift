@@ -16,8 +16,6 @@ final class PhotoAttachmentsFeature: ConditionalFeature {
         requirements.permissions(.photos, .camera)
         requirements.permission(.contacts(entity: .contacts))
         
-//        requirements.purchase(.anyOf([InAppPurchases.unlockAttachments, InAppPurchases.unlockAll]))
-//        requirements.purchase(InAppPurchases.unlockAll)
         requirements.purchase(InAppPurchases.unlockAttachments)
     }
     

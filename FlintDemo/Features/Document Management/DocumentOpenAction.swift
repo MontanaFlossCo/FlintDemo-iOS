@@ -25,7 +25,11 @@ final class DocumentOpenAction: UIAction {
     static var description = "Open a document"
     
     static var analyticsID: String? = "document-open"
-
+    
+    static func analyticsAttributes<FeatureType>(forRequest request: ActionRequest<FeatureType, DocumentOpenAction>) -> [String:Any?]? {
+        return ["documentID": request.context.input.name]
+    }
+    
     // Search is included in case targetting < iOS 12 which doesn't support prediction
     static var activityEligibility: Set<ActivityEligibility> = [.handoff, .search, .prediction]
 
@@ -33,10 +37,10 @@ final class DocumentOpenAction: UIAction {
 
     // The donateToSiri functionality will call this. 
     @available(iOS 12, *)
-    static func associatedIntents(for input: InputType) -> [FlintIntent]? {
+    static func associatedIntents(forInput input: InputType) throws -> [FlintIntent]? {
         let result = GetNoteIntent()
         result.documentName = input.name
-        result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)
+        result.setImage(INImage(named: "FlintDemoDocIcon"), forParameterNamed: \.documentName)
         return [result]
     }
 

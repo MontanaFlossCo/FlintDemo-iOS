@@ -89,13 +89,13 @@ class DetailViewController: UIViewController {
     // Save the current document before leaving
     override func viewWillDisappear(_ animated: Bool) {
         if let document = document {
-            DocumentManagementFeature.closeDocument.perform(input: document, presenter: self)
+            DocumentManagementFeature.closeDocument.perform(withInput: document, presenter: self)
         }
         super.viewWillDisappear(animated)
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         // Not very happy about this, but on iPad when the detail VC is changing, we are removed and all the backrefs
         // to the master / split view controller are nil'd so we can't tell it to update its display.
         // There's an argument to be had that we shouldn't do this on iPad as it should have updated in realtime.
@@ -115,7 +115,7 @@ class DetailViewController: UIViewController {
         }
         
         if let request = DocumentSharingFeature.request(DocumentSharingFeature.share) {
-            request.perform(input: document, presenter: self)
+            request.perform(withInput: document, presenter: self)
         } else {
             handleUnsatisfiedConstraints(for: DocumentSharingFeature.self, retry: { [weak self] in
                 if let strongSelf = self {
@@ -139,7 +139,7 @@ class DetailViewController: UIViewController {
             guard let documentRef = documentRef else {
                 fatalError("There's no active document")
             }
-            DocumentManagementFeature.openDocument.addVoiceShortcut(for: documentRef, presenter: self)
+            try? DocumentManagementFeature.openDocument.addVoiceShortcut(withInput: documentRef, presenter: self, completion: { _ in })
         }
 #endif
     }
@@ -148,7 +148,7 @@ class DetailViewController: UIViewController {
     
     func removePhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.removePhoto) {
-            request.perform(input: document!, presenter: self) { (outcome: ActionOutcome) in
+            request.perform(withInput: document!, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }
@@ -161,7 +161,7 @@ class DetailViewController: UIViewController {
     /// - Tag: select-photo
     func selectPhoto() {
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.showPhotoSelection) {
-            request.perform(presenter: self)
+            request.perform(withPresenter: self)
         } else {
             handleUnsatisfiedConstraints(for: PhotoAttachmentsFeature.self, retry: { [weak self] in self?.selectPhoto() })
         }
@@ -227,7 +227,7 @@ class DetailViewController: UIViewController {
         if let document = document {
             document.body = bodyTextView.text
             document.modifiedDate = Date()
-            DocumentManagementFeature.saveDocument.perform(input: document, presenter: self)
+            DocumentManagementFeature.saveDocument.perform(withInput: document, presenter: self)
         }
     }
 }
@@ -264,7 +264,7 @@ extension DetailViewController: DocumentEditingPresenter {
 
 extension DetailViewController: PhotoSelectionPresenter {
     func showPhotoSelection() {
-        func _showPicker(source: UIImagePickerControllerSourceType) {
+        func _showPicker(source: UIImagePickerController.SourceType) {
             imagePickerController = UIImagePickerController()
             imagePickerController?.sourceType = source
             if source == .camera {
@@ -344,10 +344,10 @@ extension DetailViewController: UINavigationControllerDelegate, UIImagePickerCon
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         imagePickerController = nil
-        let asset: PHAsset? = info[UIImagePickerControllerPHAsset] as? PHAsset
-        let image: UIImage? = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let asset: PHAsset? = info[.phAsset] as? PHAsset
+        let image: UIImage? = info[.originalImage] as? UIImage
         guard asset != nil || image != nil else {
             preconditionFailure("Expected an asset")
         }
@@ -355,7 +355,7 @@ extension DetailViewController: UINavigationControllerDelegate, UIImagePickerCon
         // Perform the attach action
         if let request = PhotoAttachmentsFeature.request(PhotoAttachmentsFeature.addSelectedPhoto) {
             let addRequest = AddAssetToDocumentRequest(asset: asset, image: image, document: document!)
-            request.perform(input: addRequest, presenter: self) { (outcome: ActionOutcome) in
+            request.perform(withInput: addRequest, presenter: self) { (outcome: ActionOutcome) in
                 if case .success = outcome {
                     self.configureView()
                 }

@@ -182,7 +182,6 @@
 		49CC1EEC214D2FA300C0C992 /* IntentFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentFeatures.swift; sourceTree = "<group>"; };
 		49CC1EF0214D4F5C00C0C992 /* GetNoteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoteAction.swift; sourceTree = "<group>"; };
 		49DB924A207505AF00F758DC /* DocumentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentStore.swift; sourceTree = "<group>"; };
-		49E4C3CA2187146B00DD959F /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		49ECBABB222B077100C2093C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		49F550B6204C1C80009ADE2D /* DebugOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugOptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,14 +258,13 @@
 		495B6C1B202A414A0024CDFB = {
 			isa = PBXGroup;
 			children = (
-				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				49BC1C8B2088D1ED00A7FC77 /* README.md */,
-				49E4C3CA2187146B00DD959F /* .travis.yml */,
 				495B6C5C202B51830024CDFB /* Cartfile */,
 				495B6C26202A414A0024CDFB /* FlintDemo */,
 				4932676A2146771700CC88CB /* FlintDemoSiriIntent */,
 				493267752146771700CC88CB /* FlintDemoSiriIntentUI */,
 				495B6C3D202A414A0024CDFB /* FlintDemoTests */,
+				49BC1C8D2088D52F00A7FC77 /* Frameworks */,
 				495B6C25202A414A0024CDFB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -511,6 +509,7 @@
 				TargetAttributes = {
 					493267682146771700CC88CB = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -520,6 +519,7 @@
 					};
 					493267712146771700CC88CB = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					495B6C23202A414A0024CDFB = {
@@ -542,6 +542,7 @@
 					};
 					495B6C39202A414A0024CDFB = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 495B6C23202A414A0024CDFB;
 					};
@@ -780,7 +781,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -803,7 +804,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -826,7 +827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -848,7 +849,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tools.flint.FlintDemo.FlintDemoSiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -909,7 +910,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -961,7 +962,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1023,7 +1024,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlintDemo.app/FlintDemo";
 			};
@@ -1040,7 +1041,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.montanafloss.FlintDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlintDemo.app/FlintDemo";
 			};

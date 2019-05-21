@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var presentationRouter: SimplePresentationRouter!
 
     /// - Tag: flint-bootstrapping
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Set up Flint straight away so we have logging all ready
         Flint.quickSetup(AppFeatures.self,
@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         Flint.register(group: FlintUIFeatures.self)
 
         // Uncomment this to enable "Focus" logging to focus on a specific set of topics
-//        if let request = FocusFeature.focus.request() {
-//            request.perform(input: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
-//        }
+        // if let request = FocusFeature.focus.request() {
+        //     request.perform(withInput: .init(topicPath: FlintInternal.coreLoggingTopic.appending("Purchases")))
+        // }
         
         // Now we are ready to do our App stuff.
 
@@ -79,20 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     /// !!! TODO: What is this for? Preventing non-enabled intents?
-    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplicationExtensionPointIdentifier) -> Bool {
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
         return true
     }
     
     /// - Tag: application-open-url
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        /// !!! TODO: Handle open-in-place etc. from options
+    internal func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let result: MappedActionResult = Flint.open(url: url, with: presentationRouter)
         return result == .success
     }
     
     /// - Tag: application-continue-activity
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        /// !!! TODO: Need to ask if the activity is supported at all, or if the app has custom handling
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         return Flint.continueActivity(activity: userActivity, with: presentationRouter) == .success
     }
 

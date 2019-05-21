@@ -23,14 +23,14 @@ final class GetNoteAction: IntentAction {
         case documentNotFound
     }
     
-    static func intent(for input: DocumentRef) -> GetNoteIntent? {
+    static func intent(withInput input: DocumentRef) -> GetNoteIntent? {
         let result = GetNoteIntent()
         result.documentName = input.name
         result.setImage(INImage(named: "GetNoteIcon"), forParameterNamed: \.documentName)
         return result
     }
     
-    static func input(for intent: GetNoteIntent) -> DocumentRef? {
+    static func input(fromIntent intent: GetNoteIntent) -> DocumentRef? {
         guard let name = intent.documentName else {
             return nil
         }

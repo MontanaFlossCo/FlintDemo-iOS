@@ -20,7 +20,11 @@ import FlintCore
 class GetNoteIntentHandler: NSObject, GetNoteIntentHandling {
     @objc(handleGetNote:completion:)
     func handle(intent: GetNoteIntent, completion: @escaping (GetNoteIntentResponse) -> Void) {
-        let outcome = SiriFeature.getNote.perform(intent: intent, completion: completion)
-        assert(outcome == .success, "Intent failed: \(outcome)")
+        do {
+            let outcome = try SiriFeature.getNote.perform(withIntent: intent, completion: completion)
+            assert(outcome == .success, "Intent failed: \(outcome)")
+        } catch {
+            completion(.init(code: .failure, userActivity: nil))
+        }
     }
 }

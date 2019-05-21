@@ -54,7 +54,7 @@ final class AddSelectedPhotoAction: UIAction {
             }
             return asyncStatus
         } else if let image = context.input.image {
-            guard let data = UIImageJPEGRepresentation(image, 0.7) else {
+            guard let data = image.jpegData(compressionQuality: 0.7) else {
                 preconditionFailure("Failed to JPEG encode captured image")
             }
             context.input.document.attachMedia(data, uti: kUTTypeJPEG as String)
