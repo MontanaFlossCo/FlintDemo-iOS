@@ -11,7 +11,7 @@ import FlintCore
 
 /// This action will delete the specified document and notify the presenter that it should remove the item from the
 /// display.
-final class DocumentDeleteAction: UIAction {
+final class DocumentDeleteAction: FlintUIAction {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentListPresenter
 

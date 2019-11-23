@@ -38,7 +38,7 @@ final class GetNoteAction: IntentAction {
         return ref
     }
     
-    static func perform(context: ActionContext<InputType>, presenter: GetNoteAction.PresenterType, completion: Completion) -> Completion.Status {
+    static func perform(context: ActionContext<InputType>, presenter: PresenterType, completion: Completion) -> Completion.Status {
         let response: GetNoteIntentResponse
         let outcome: ActionPerformOutcome
         

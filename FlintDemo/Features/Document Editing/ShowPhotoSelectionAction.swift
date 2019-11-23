@@ -16,7 +16,7 @@ protocol PhotoSelectionPresenter {
     func dismissPhotoSelection()
 }
 
-final class ShowPhotoSelectionAction: UIAction {
+final class ShowPhotoSelectionAction: FlintUIAction {
     typealias InputType = NoInput
     
     typealias PresenterType = PhotoSelectionPresenter

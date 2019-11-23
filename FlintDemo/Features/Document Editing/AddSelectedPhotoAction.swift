@@ -10,6 +10,7 @@ import Foundation
 import FlintCore
 import Photos
 import MobileCoreServices
+import UIKit
 
 struct AddAssetToDocumentRequest: FlintLoggable {
     let asset: PHAsset?
@@ -34,7 +35,7 @@ struct AddAssetToDocumentRequest: FlintLoggable {
     }
 }
 
-final class AddSelectedPhotoAction: UIAction {
+final class AddSelectedPhotoAction: FlintUIAction {
     typealias InputType = AddAssetToDocumentRequest
     typealias PresenterType = PhotoSelectionPresenter
 
