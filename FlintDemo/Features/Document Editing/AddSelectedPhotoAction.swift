@@ -6,6 +6,8 @@
 //  Copyright © 2018 Montana Floss Co. Ltd. All rights reserved.
 //
 
+import UIKit
+
 import Foundation
 import FlintCore
 import Photos
@@ -34,7 +36,7 @@ struct AddAssetToDocumentRequest: FlintLoggable {
     }
 }
 
-final class AddSelectedPhotoAction: UIAction {
+final class AddSelectedPhotoAction: FlintUIAction {
     typealias InputType = AddAssetToDocumentRequest
     typealias PresenterType = PhotoSelectionPresenter
 

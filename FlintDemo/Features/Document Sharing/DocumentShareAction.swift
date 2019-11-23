@@ -10,7 +10,7 @@ import Foundation
 import FlintCore
 
 /// The action that will present the share UI for a given document
-final class DocumentShareAction: UIAction {
+final class DocumentShareAction: FlintUIAction {
     typealias InputType = Document
     
     typealias PresenterType = DocumentEditingPresenter
