@@ -1,2 +1,3 @@
+# If you're developing Flint itself, replace this with a reference to your branch
+# e.g. github "MontanaFlossCo/Flint" "marc/experimental"
 github "MontanaFlossCo/Flint" ~> 1.0
-
