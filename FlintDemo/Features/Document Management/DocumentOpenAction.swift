@@ -18,7 +18,7 @@ import Intents
 /// The action is also set up to report basic analytics (with no custom attributes).
 ///
 /// - see: `DocumentManagementFeature` for URL mappings that can trigger this action.
-final class DocumentOpenAction: UIAction {
+final class DocumentOpenAction: FlintUIAction {
     typealias InputType = DocumentRef
     typealias PresenterType = DocumentPresenter
 

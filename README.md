@@ -26,6 +26,10 @@ Currently only Carthage is supported, so you'll need that installed.
 2. Run `carthage bootstrap --platform iOS --cache-builds`
 3. Build and run the project in Xcode 9.2 or higher
 
+Note that if you change the version of Flint required in `Cartfile`, you need to run `carthage update` instead.
+If you build against Flint `master` you will also need to run a `git fetch` for the Flint repo URL to force
+Carthage to get the latest code if you are expecting new commits.
+
 ## How the app uses Flint
 
 The app bootstraps Flint with the [available features here](x-source-tag://flint-bootstrapping).
